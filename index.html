@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#welcome-to-mkdocs" tabindex="1" class="md-skip">
+      <a href="#motion" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -112,14 +112,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            <span class="md-header-nav__topic">
-              Motion
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Home
-              
-            </span>
+            Motion
           
         </div>
       </div>
@@ -226,56 +219,47 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-      </label>
-    
-    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../readme.md" title="Home" class="md-nav__link">
       Home
     </a>
+  </li>
+
     
       
-<nav class="md-nav md-nav--secondary">
-  
-  
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
     
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
-  </a>
-  
-</li>
       
       
       
-      
-      
-    </ul>
-  
-</nav>
+
+
+  <li class="md-nav__item">
+    <a href="user-guide/" title="User Guide" class="md-nav__link">
+      User Guide
+    </a>
+  </li>
+
     
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="case-studies/" title="Case Studies" class="md-nav__link">
+      Case Studies
+    </a>
   </li>
 
     
@@ -312,15 +296,63 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    Commands
+  <a href="#pyomeca-documentation" class="md-nav__link">
+    Pyomeca documentation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    Project layout
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    Features
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-conda" class="md-nav__link">
+    Using Conda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-pip" class="md-nav__link">
+    Using pip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-other-modules" class="md-nav__link">
+    Integration with other modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug-reports-questions" class="md-nav__link">
+    Bug Reports &amp; Questions
   </a>
   
 </li>
@@ -344,25 +376,84 @@
                   <a href="https://github.com/pyomeca/pyomeca/edit/master/docs/index.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">mkdocs</span><span class="p">.</span><span class="n">yml</span>    <span class="o">#</span> <span class="n">The</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">.</span>
-<span class="n">docs</span><span class="o">/</span>
-    <span class="k">index</span><span class="p">.</span><span class="n">md</span>  <span class="o">#</span> <span class="n">The</span> <span class="n">documentation</span> <span class="n">homepage</span><span class="p">.</span>
-    <span class="p">...</span>       <span class="o">#</span> <span class="n">Other</span> <span class="n">markdown</span> <span class="n">pages</span><span class="p">,</span> <span class="n">images</span> <span class="k">and</span> <span class="n">other</span> <span class="n">files</span><span class="p">.</span>
+                <h1 id="motion">Motion</h1>
+<p><img src="https://raw.githubusercontent.com/pyomeca/design/master/logo/logo_plain_doc.svg?sanitize=true" alt="logo"></p>
+<p>Pyomeca is a python library allowing you to carry out a complete biomechanical analysis; in a simple, logical and concise way.</p>
+<h2 id="pyomeca-documentation">Pyomeca documentation</h2>
+<p>See Pyomeca's <a href="https://romainmartinez.github.io/motion">documentation site</a>.</p>
+<h2 id="example">Example</h2>
+<p>Here is an example of a complete EMG pipeline in just one command:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs3d</span>
+
+<span class="n">emg</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">Analogs3d</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="s2">&quot;path/to/your/c3d.c3d&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;anterior_deltoid&#39;</span><span class="p">,</span> <span class="s1">&#39;biceps&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">band_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">425</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">center</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rectify</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">normalization</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">time_normalization</span><span class="p">()</span>
+<span class="p">)</span>
 </pre></div>
-</td></tr></table>
+
+
+<h2 id="features">Features</h2>
+<ul>
+<li>Object-oriented architecture where each class is associated with common and specialized functionalities:</li>
+<li><strong>Markers3d</strong>: 3d markers positions</li>
+<li><strong>Analogs3d</strong>: analogs (emg, force or any analog signal)</li>
+<li><strong>GeneralizedCoordinate</strong>: generalized coordinate (joint angle)</li>
+<li>
+<p><strong>RotoTrans</strong>: roto-translation matrix</p>
+</li>
+<li>
+<p>Specialized functionalities include signal processing routine commonly used in biomechanics: filters, normalization, onset detection, outliers detection, derivative, etc.</p>
+</li>
+<li>
+<p>Each functionality can be chained. In addition to making it easier to write and read code, it allows you to add and remove analysis steps easily (such as Lego blocks).</p>
+</li>
+<li>
+<p>Each class inherits from a numpy array, so you can create your own analysis step easily.</p>
+</li>
+<li>
+<p>Easy reading and writing interface to common files in biomechanics:</p>
+</li>
+<li><strong>c3d</strong> (binary file used in biomechanics): <code>from_c3d</code> and <code>to_c3d</code></li>
+<li><strong>csv</strong>: <code>from_csv</code> and <code>to_csv</code></li>
+<li><strong>mat</strong> (<em>MATLAB</em> file): <code>from_mat</code> and <code>to_mat</code></li>
+<li><strong>sto</strong> (OpenSim storage file): <code>to_sto</code> (must install pyosim)</li>
+<li>
+<p><strong>trc</strong> (OpenSim markers position file): <code>to_trc</code> (must install pyosim)</p>
+</li>
+<li>
+<p>Common linear algebra routine implemented: get Euler angles to/from roto-translation matrix, create a system of axes, set a rotation or translation, transpose or inverse, etc.</p>
+</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="using-conda">Using Conda</h3>
+<p>First, install <a href="https://conda.io/miniconda.html">miniconda</a> or <a href="https://www.anaconda.com/download/">anaconda</a>.
+Then type:</p>
+<div class="codehilite"><pre><span></span>conda install pyomeca -c conda-forge
+</pre></div>
+
+
+<h3 id="using-pip">Using pip</h3>
+<p>First, you need to install python, swig and numpy. 
+Then, follow the instructions to compile <a href="https://github.com/pyomeca/ezc3d">ezc3d</a>.
+Finally, install pyomeca with:</p>
+<div class="codehilite"><pre><span></span>pip install git+https://github.com/pyomeca/pyomeca/<span class="sb">`</span>
+</pre></div>
+
+
+<h2 id="integration-with-other-modules">Integration with other modules</h2>
+<p>Pyomeca is designed to work well with other libraries that we have developed:</p>
+<ul>
+<li><a href="https://github.com/pyomeca/pyosim">pyosim</a>: interface between <a href="http://opensim.stanford.edu/">OpenSim</a> and pyomeca to perform batch musculoskeletal analyses</li>
+<li><a href="https://github.com/pyomeca/ezc3d">ezc3d</a>: Easy to use C3D reader/writer in C++, Python and Matlab</li>
+<li><a href="https://github.com/pyomeca/biorbd">biorbd</a>: C++ interface and add-ons to the Rigid Body Dynamics Library, with Python and Matlab binders.</li>
+</ul>
+<h2 id="bug-reports-questions">Bug Reports &amp; Questions</h2>
+<p>Pyomeca is Apache-licensed and the source code is available on <a href="https://github.com/pyomeca/pyomeca">GitHub</a>. If any questions or issues come up as you use pyomeca, please get in touch via <a href="https://github.com/pyomeca/pyomeca/issues">GitHub issues</a>. We welcome any input, feedback, bug reports, and contributions.</p>
                 
                   
                 
@@ -379,27 +470,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-        
-          <a href="about/" title="About" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                About
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
