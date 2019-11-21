@@ -490,7 +490,7 @@
     <span class="o">.</span><span class="n">rectify</span><span class="p">()</span>
     <span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
     <span class="o">.</span><span class="n">normalization</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">time_normalization</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">time_normalize</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -499,13 +499,13 @@
 <ul>
 <li>Object-oriented architecture where each class is associated with common and specialized functionalities:</li>
 <li><strong>Markers3d</strong>: 3d markers positions</li>
-<li><strong>Analogs3d</strong>: analogs (emg, force or any analog signal)</li>
+<li><strong>Analogs3d</strong>: analogs (emg, force or any analog meca)</li>
 <li><strong>GeneralizedCoordinate</strong>: generalized coordinate (joint angle)</li>
 <li>
 <p><strong>RotoTrans</strong>: roto-translation matrix</p>
 </li>
 <li>
-<p>Specialized functionalities include signal processing routine commonly used in biomechanics: filters, normalization, onset detection, outliers detection, derivative, etc.</p>
+<p>Specialized functionalities include meca processing routine commonly used in biomechanics: filters, normalization, onset detection, outliers detection, derivative, etc.</p>
 </li>
 <li>
 <p>Each functionality can be chained. In addition to making it easier to write and read code, it allows you to add and remove analysis steps easily (such as Lego blocks).</p>
