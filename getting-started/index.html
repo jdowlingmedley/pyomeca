@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="A Material Design theme for MkDocs">
+        <meta name="description" content="An Open-Source Framework for Biomechanical Analysis">
       
       
       
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
@@ -60,7 +60,7 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -88,6 +88,10 @@
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#getting-started" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
     
     
       <header class="md-header" data-md-component="header">
@@ -222,7 +226,7 @@
 
 
   <li class="md-nav__item">
-    <a href=".." title="Home" class="md-nav__link">
+    <a href="../index.md" title="Home" class="md-nav__link">
       Home
     </a>
   </li>
@@ -239,10 +243,48 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting Started
+      </label>
     
     <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
       Getting Started
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-data-structures" class="md-nav__link">
+    Core data structures
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -283,12 +325,134 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      API reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        API reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/analogs/" title="analogs" class="md-nav__link">
+      analogs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/angles/" title="angles" class="md-nav__link">
+      angles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/markers/" title="markers" class="md-nav__link">
+      markers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/dataarray_accessor/" title="dataarray_accessor" class="md-nav__link">
+      dataarray_accessor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/rototrans/" title="rototrans" class="md-nav__link">
+      rototrans
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
                 </div>
               </div>
             
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-data-structures" class="md-nav__link">
+    Core data structures
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content">
@@ -298,429 +462,29 @@
                   <a href="https://github.com/pyomeca/pyomeca/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Getting Started</h1>
-                
-                <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">motion</span>
-<span class="kn">import</span> <span class="nn">xarray</span>
-
-<span class="n">xarray</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">display_style</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sns</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="s2">&quot;talk&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-
-<span class="o">%</span><span class="n">load_ext</span> <span class="n">lab_black</span>
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>motion itself is a pure Python package, but its dependencies are not.
+The easiest way to get everything installed is to use <a href="https://conda.io/en/latest/miniconda.html">conda</a>.
+To install motion with its recommended dependencies using the conda command line tool:</p>
+<div class="codehilite"><pre><span></span>conda install -c conda-forge motion
 </pre></div>
 
-
-<div class="codehilite"><pre><span></span><span class="n">data_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../tests/data/markers_analogs.c3d&quot;</span><span class="p">)</span>
+<p>Now that motion is installed, you should be able to import it:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">motion</span>
 </pre></div>
 
-
-<div class="codehilite"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">motion</span><span class="o">.</span><span class="n">read_analogs_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-<span class="n">data</span>
-</pre></div>
-
-
-<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<title>Show/Hide data repr</title>
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<title>Show/Hide attributes</title>
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-.xr-wrap {
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt, dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2 {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><div class='xr-wrap'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>channel</span>: 38</li><li><span class='xr-has-index'>time_frame</span>: 11600</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-881407e2-ad5e-4532-be61-7b98bbdc1283' class='xr-array-in' type='checkbox' ><label for='section-881407e2-ad5e-4532-be61-7b98bbdc1283' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-0.02205 -0.01992 -0.01992 -0.02198 -0.02198 ... 0.0 0.0 0.0 0.0 0.0</span></div><pre class='xr-array-data'>array([[-0.02205157, -0.01991534, -0.01991534, ..., -0.02311969,
-        -0.02311969,  0.        ],
-       [-0.01039797, -0.01024538, -0.01024538, ..., -0.01207644,
-        -0.01207644,  0.        ],
-       [-0.01544412, -0.01437601, -0.01437601, ..., -0.01399454,
-        -0.01399454,  0.        ],
-       ...,
-       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
-         0.        ,  0.        ],
-       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
-         0.        ,  0.        ],
-       [ 0.        ,  0.        ,  0.        , ...,  0.        ,
-         0.        ,  0.        ]])</pre></div></li><li class='xr-section-item'><input id='section-f35c5f99-2c16-49fb-88e4-206f77023e6e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f35c5f99-2c16-49fb-88e4-206f77023e6e' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>channel</span></div><div class='xr-var-dims'>(channel)</div><div class='xr-var-dtype'>&lt;U14</div><div class='xr-var-preview xr-preview'>&#x27;Voltage.1&#x27; &#x27;Voltage.2&#x27; ... &#x27;EMG9&#x27;</div><input id='attrs-084b3850-02f5-4fb9-8475-5e340e8d6659' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-084b3850-02f5-4fb9-8475-5e340e8d6659' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9bc537c5-a82d-4f8f-aefc-0dd4a02143de' class='xr-var-data-in' type='checkbox'><label for='data-9bc537c5-a82d-4f8f-aefc-0dd4a02143de' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'>array([&#x27;Voltage.1&#x27;, &#x27;Voltage.2&#x27;, &#x27;Voltage.3&#x27;, &#x27;Voltage.4&#x27;, &#x27;Voltage.5&#x27;,
-       &#x27;Voltage.6&#x27;, &#x27;Delt_ant.EMG1&#x27;, &#x27;Infra.EMG10&#x27;, &#x27;Subscap.EMG11&#x27;,
-       &#x27;12.EMG12&#x27;, &#x27;13.EMG13&#x27;, &#x27;14.EMG14&#x27;, &#x27;15.EMG15&#x27;, &#x27;16.EMG16&#x27;,
-       &#x27;Delt_med.EMG2&#x27;, &#x27;Delt_post.EMG3&#x27;, &#x27;Biceps.EMG4&#x27;, &#x27;Triceps.EMG5&#x27;,
-       &#x27;Trap_sup.EMG6&#x27;, &#x27;Trap_inf.EMG7&#x27;, &#x27;Gd_dent.EMG8&#x27;, &#x27;Supra.EMG9&#x27;, &#x27;EMG1&#x27;,
-       &#x27;EMG10&#x27;, &#x27;EMG11&#x27;, &#x27;EMG12&#x27;, &#x27;EMG13&#x27;, &#x27;EMG14&#x27;, &#x27;EMG15&#x27;, &#x27;EMG16&#x27;, &#x27;EMG2&#x27;,
-       &#x27;EMG3&#x27;, &#x27;EMG4&#x27;, &#x27;EMG5&#x27;, &#x27;EMG6&#x27;, &#x27;EMG7&#x27;, &#x27;EMG8&#x27;, &#x27;EMG9&#x27;], dtype=&#x27;&lt;U14&#x27;)</pre></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time_frame</span></div><div class='xr-var-dims'>(time_frame)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 0.0005 0.001 ... 5.799 5.8</div><input id='attrs-e1b6e858-cbc8-4bba-a4fe-1fe0a28f7ef1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e1b6e858-cbc8-4bba-a4fe-1fe0a28f7ef1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4eb8ba12-4b15-4441-a699-f473f3f24831' class='xr-var-data-in' type='checkbox'><label for='data-4eb8ba12-4b15-4441-a699-f473f3f24831' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><pre class='xr-var-data'>array([0.0000e+00, 5.0000e-04, 1.0000e-03, ..., 5.7985e+00, 5.7990e+00,
-       5.7995e+00])</pre></li></ul></div></li><li class='xr-section-item'><input id='section-4e9898de-834a-4343-9a29-073e3f454960' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e9898de-834a-4343-9a29-073e3f454960' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>first_frame :</span></dt><dd>0</dd><dt><span>last_frame :</span></dt><dd>11580</dd><dt><span>rate :</span></dt><dd>2000.0</dd><dt><span>unit :</span></dt><dd>V</dd></dl></div></li></ul></div></div>
-
-<div class="codehilite"><pre><span></span><span class="n">muscles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Biceps.EMG4&quot;</span><span class="p">,</span> <span class="s2">&quot;Triceps.EMG5&quot;</span><span class="p">]</span>
-<span class="n">emg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="n">muscles</span><span class="p">)</span>
-<span class="n">emg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time_frame&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-
-<p><img alt="png" src="../getting-started_files/getting-started_3_0.png" /></p>
-<div class="codehilite"><pre><span></span><span class="n">emg_processed</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">emg</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">band_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">emg</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">425</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">emg</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">norm_time_frame</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">emg_processed</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time_frame&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-
-<p><img alt="png" src="../getting-started_files/getting-started_4_0.png" /></p>
-<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">emg_processed</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">&quot;Triceps.EMG5&quot;</span><span class="p">)</span>
-
-<span class="n">idx</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">detect_onset</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">n_above</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_below</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
-
-<span class="n">x</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;time_frame&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-
-<p><img alt="png" src="../getting-started_files/getting-started_5_0.png" /></p>
-<div class="codehilite"><pre><span></span>
-</pre></div>
+<h2 id="core-data-structures">Core data structures<a class="headerlink" href="#core-data-structures" title="Permanent link">&para;</a></h2>
+<p>Motion have several data structures, which build upon and extend the core strengths of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>.</p>
+<ul>
+<li>Analogs</li>
+<li>Markers</li>
+<li>Angles</li>
+<li>Rototrans</li>
+</ul>
                 
                   
+                
                 
               
               
@@ -738,20 +502,6 @@ dl.xr-attrs {
   
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
-        
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Home
-              </span>
-            </div>
-          </a>
         
         
           <a href="../user-guide/" title="User Guide" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
@@ -799,7 +549,7 @@ dl.xr-attrs {
       
     </div>
     
-      <script src="../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
