@@ -239,10 +239,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../user-guide/" title="User Guide" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../object-creation/" title="Object creation" class="md-nav__link">
+      Object creation
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data-processing/" title="Data processing" class="md-nav__link">
+      Data processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -387,6 +423,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_averaged_rototrans" class="md-nav__link">
+    from_averaged_rototrans()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#motion.rototrans.Rototrans.from_euler_angles" class="md-nav__link">
     from_euler_angles()
   </a>
@@ -394,8 +437,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_markers" class="md-nav__link">
+    from_markers()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#motion.rototrans.Rototrans.from_random_data" class="md-nav__link">
     from_random_data()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_transposed_rototrans" class="md-nav__link">
+    from_transposed_rototrans()
   </a>
   
 </li>
@@ -457,6 +514,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_averaged_rototrans" class="md-nav__link">
+    from_averaged_rototrans()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#motion.rototrans.Rototrans.from_euler_angles" class="md-nav__link">
     from_euler_angles()
   </a>
@@ -464,8 +528,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_markers" class="md-nav__link">
+    from_markers()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#motion.rototrans.Rototrans.from_random_data" class="md-nav__link">
     from_random_data()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motion.rototrans.Rototrans.from_transposed_rototrans" class="md-nav__link">
+    from_transposed_rototrans()
   </a>
   
 </li>
@@ -497,11 +575,10 @@
                 <h1 id="rototranspy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/rototrans.py"><code>rototrans.py</code></a><a class="headerlink" href="#rototranspy" title="Permanent link">&para;</a></h1>
 <h2 id="motion.rototrans.Rototrans"><code class="codehilite"><span class="n">Rototrans</span></code><a class="headerlink" href="#motion.rototrans.Rototrans" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
+<p>Rototranslation matrix.</p>
 <h3 id="motion.rototrans.Rototrans.__new__"><code class="codehilite"><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(staticmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.__new__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>11
-12
-13
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
 14
 15
 16
@@ -559,7 +636,22 @@
 68
 69
 70
-71</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">time_frames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -567,30 +659,7 @@
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Rototrans DataArray with `axis`, `channel` and `time_frame` dimensions</span>
-
-<span class="sd">        To instantiate a `Rototrans` 4 by 4 and 100 frames filled with some random data:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from motion import Rototrans</span>
-
-<span class="sd">        n_row = 4</span>
-<span class="sd">        n_col = 4</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        data = np.random.random(size=(n_row, n_col, n_frames))</span>
-<span class="sd">        rt = Rototrans(data)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can an associate time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        rate = 100  # Hz</span>
-<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">        rt = Rototrans(data, time_frames=time_frames)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Calling `Rototrans()` generate an empty array.</span>
+<span class="sd">        Rototrans DataArray with `axis`, `channel` and `time_frame` dimensions.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            data: Array to be passed to xarray.DataArray</span>
@@ -600,18 +669,54 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Rototrans `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate a `Rototrans` 4 by 4 and 100 frames filled with some random data:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from motion import Rototrans</span>
+
+<span class="sd">            n_row = 4</span>
+<span class="sd">            n_col = 4</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            data = np.random.random(size=(n_row, n_col, n_frames))</span>
+<span class="sd">            rt = Rototrans(data)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can an associate time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            rate = 100  # Hz</span>
+<span class="sd">            time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">            rt = Rototrans(data, time_frames=time_frames)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        !!! notes</span>
+<span class="sd">            Calling `Rototrans()` generate an empty array.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;data must have first and second dimensions of length 4, you have: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># if we provide data, we copy them to avoid making inplace changes</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;data must have first and second dimensions of length 4, you have: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
         <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
         <span class="k">if</span> <span class="n">time_frames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">coords</span><span class="p">[</span><span class="s2">&quot;time_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_frames</span>
+
+        <span class="c1"># Make sure last line reads [0, 0, 0, 1]</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">1</span>
+
         <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
             <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
             <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="s2">&quot;time_frame&quot;</span><span class="p">),</span>
@@ -624,25 +729,7 @@
 </td></tr></table>
 
 </details>
-<p>Rototrans DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions</p>
-<p>To instantiate a <code>Rototrans</code> 4 by 4 and 100 frames filled with some random data:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Rototrans</span>
-
-<span class="n">n_row</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_col</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can an associate time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Calling <code>Rototrans()</code> generate an empty array.</p>
+<p>Rototrans DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -695,26 +782,172 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate a <code>Rototrans</code> 4 by 4 and 100 frames filled with some random data:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Rototrans</span>
+
+<span class="n">n_row</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">n_col</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can an associate time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
+<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>Calling <code>Rototrans()</code> generate an empty array.</p>
+</div>
+</div>
+<h3 id="motion.rototrans.Rototrans.from_averaged_rototrans"><code class="codehilite"><span class="n">from_averaged_rototrans</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.from_averaged_rototrans" title="Permanent link">&para;</a></h3>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_averaged_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rt</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rototrans DataArray from an averaged Rototrans.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            rt: Rototrans to average</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Averaged Rototrans `xarray.DataArray`</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To average a `Rototrans` computed from random angles:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from motion import Angles, Rototrans</span>
+
+<span class="sd">            angles = Angles(np.random.rand(3, 1, 100))</span>
+<span class="sd">            seq = &quot;xyz&quot;</span>
+
+<span class="sd">            rt = Rototrans.from_euler_angles(angles, seq)</span>
+<span class="sd">            rt_mean = Rototrans.from_averaged_rototrans(rt)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Let&#39;s make sure the resulting angles are roughly equivalent</span>
+<span class="sd">            to the averaged angles:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            angles_mean = Angles.from_rototrans(rt_mean, seq).isel(time_frame=0)</span>
+<span class="sd">            angles_mean_ref = Angles.from_rototrans(rt, seq).mean(dim=&quot;time_frame&quot;)</span>
+
+<span class="sd">            error = (angles_mean - angles_mean_ref).meca.abs().sum()</span>
+<span class="sd">            print(error)</span>
+<span class="sd">            ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">rototrans</span><span class="o">.</span><span class="n">rototrans_from_averaged_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rt</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Rototrans DataArray from an averaged Rototrans.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rt</code></td>
+<td><code>DataArray</code></td>
+<td>Rototrans to average</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataArray</code></td>
+<td>Averaged Rototrans <code>xarray.DataArray</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To average a <code>Rototrans</code> computed from random angles:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
+
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">seq</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
+
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
+<span class="n">rt_mean</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_averaged_rototrans</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Let's make sure the resulting angles are roughly equivalent
+to the averaged angles:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">angles_mean</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rt_mean</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">angles_mean_ref</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rt</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time_frame&quot;</span><span class="p">)</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">angles_mean</span> <span class="o">-</span> <span class="n">angles_mean_ref</span><span class="p">)</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.rototrans.Rototrans.from_euler_angles"><code class="codehilite"><span class="n">from_euler_angles</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">translations</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.from_euler_angles" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>127
 128
 129
 130
@@ -737,7 +970,26 @@
 147
 148
 149
-150</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_euler_angles</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -745,28 +997,7 @@
         <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Rototrans DataArray from euler angles and specified angle sequence</span>
-
-<span class="sd">        To get the rototranslation matrix from random euler angles with a given angle sequence type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Angles, Rototrans</span>
-
-<span class="sd">        size = (3, 1, 100)</span>
-<span class="sd">        angles = Angles.from_random_data(size=size)</span>
-<span class="sd">        angles_sequence = &quot;xyz&quot;</span>
-
-<span class="sd">        rt = Rototrans.from_euler_angles(angles=angles, angle_sequence=angles_sequence)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        A translation vector can also be specified:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        translation = Angles.from_random_data(size=size)</span>
-<span class="sd">        rt = Rototrans.from_euler_angles(</span>
-<span class="sd">            angles=angles, angle_sequence=angles_sequence, translations=translation</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
+<span class="sd">        Rototrans DataArray from euler angles and specified angle sequence.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            angles: Euler angles of the rototranslation matrix</span>
@@ -775,30 +1006,37 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Rototrans `xarray.DataArray` from the specified angles and angles sequence</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To get the rototranslation matrix from random euler angles with a given angle sequence type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Angles, Rototrans</span>
+
+<span class="sd">            size = (3, 1, 100)</span>
+<span class="sd">            angles = Angles.from_random_data(size=size)</span>
+<span class="sd">            angles_sequence = &quot;xyz&quot;</span>
+
+<span class="sd">            rt = Rototrans.from_euler_angles(angles=angles, angle_sequence=angles_sequence)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            A translation vector can also be specified:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            translation = Angles.from_random_data(size=size)</span>
+<span class="sd">            rt = Rototrans.from_euler_angles(</span>
+<span class="sd">                angles=angles, angle_sequence=angles_sequence, translations=translation</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">rototrans_from_euler_angles</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">,</span> <span class="n">translations</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rototrans</span><span class="o">.</span><span class="n">rototrans_from_euler_angles</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">,</span> <span class="n">translations</span>
+        <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Rototrans DataArray from euler angles and specified angle sequence</p>
-<p>To get the rototranslation matrix from random euler angles with a given angle sequence type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
-
-<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
-
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
-</code></pre></div>
-
-<p>A translation vector can also be specified:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">translation</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span>
-    <span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">,</span> <span class="n">translations</span><span class="o">=</span><span class="n">translation</span>
-<span class="p">)</span>
-</code></pre></div>
-
+<p>Rototrans DataArray from euler angles and specified angle sequence.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -845,25 +1083,202 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To get the rototranslation matrix from random euler angles with a given angle sequence type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
+
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
+</code></pre></div>
+
+<p>A translation vector can also be specified:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">translation</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span>
+    <span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">,</span> <span class="n">translations</span><span class="o">=</span><span class="n">translation</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<h3 id="motion.rototrans.Rototrans.from_markers"><code class="codehilite"><span class="n">from_markers</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">axis_1</span><span class="p">,</span> <span class="n">axis_2</span><span class="p">,</span> <span class="n">axes_name</span><span class="p">,</span> <span class="n">axis_to_recalculate</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.from_markers" title="Permanent link">&para;</a></h3>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_markers</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+        <span class="n">axis_1</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+        <span class="n">axis_2</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span>
+        <span class="n">axes_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">axis_to_recalculate</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rototrans DataArray from a specified set of markers.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            origin: A marker constructed with `motion.Markers()` corresponding</span>
+<span class="sd">              to the origin in the global reference frame</span>
+<span class="sd">            axis_1: Two markers that describe the first axis.</span>
+<span class="sd">              The first markers being the beginning of the vector and the second being the end.</span>
+<span class="sd">            axis_2: Two markers that describe the second axis.</span>
+<span class="sd">              The first markers being the beginning of the vector and the second being the end.</span>
+<span class="sd">            axes_name: Any combination of `x`, `y` and `z` describing the first and second axes.</span>
+<span class="sd">            axis_to_recalculate: Which of the two axes to recalculate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Rototrans `xarray.DataArray` from the specified angles and angles sequence</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To create a system of axes from random markers:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers, Rototrans</span>
+
+<span class="sd">            markers = Markers.from_random_data()</span>
+
+<span class="sd">            rt = Rototrans.from_markers(</span>
+<span class="sd">                origin=markers.isel(channel=[0]),  # first marker</span>
+<span class="sd">                axis_1=markers.isel(channel=[0, 1]),  # vector from the first and second markers</span>
+<span class="sd">                axis_2=markers.isel(channel=[0, 2]),  # vector from the first and third markers</span>
+<span class="sd">                axes_name=&quot;xy&quot;,  # axis_1 is x and axis_2 is y</span>
+<span class="sd">                axis_to_recalculate=&quot;y&quot;,  # we want to recalculate y</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">rototrans</span><span class="o">.</span><span class="n">rototrans_from_markers</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">axis_1</span><span class="p">,</span> <span class="n">axis_2</span><span class="p">,</span> <span class="n">axes_name</span><span class="p">,</span> <span class="n">axis_to_recalculate</span>
+        <span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Rototrans DataArray from a specified set of markers.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>origin</code></td>
+<td><code>DataArray</code></td>
+<td>A marker constructed with <code>motion.Markers()</code> corresponding to the origin in the global reference frame</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>axis_1</code></td>
+<td><code>DataArray</code></td>
+<td>Two markers that describe the first axis. The first markers being the beginning of the vector and the second being the end.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>axis_2</code></td>
+<td><code>DataArray</code></td>
+<td>Two markers that describe the second axis. The first markers being the beginning of the vector and the second being the end.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>axes_name</code></td>
+<td><code>str</code></td>
+<td>Any combination of <code>x</code>, <code>y</code> and <code>z</code> describing the first and second axes.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>axis_to_recalculate</code></td>
+<td><code>str</code></td>
+<td>Which of the two axes to recalculate</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataArray</code></td>
+<td>Rototrans <code>xarray.DataArray</code> from the specified angles and angles sequence</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To create a system of axes from random markers:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span><span class="p">,</span> <span class="n">Rototrans</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
+
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_markers</span><span class="p">(</span>
+    <span class="n">origin</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># first marker</span>
+    <span class="n">axis_1</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>  <span class="c1"># vector from the first and second markers</span>
+    <span class="n">axis_2</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>  <span class="c1"># vector from the first and third markers</span>
+    <span class="n">axes_name</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span>  <span class="c1"># axis_1 is x and axis_2 is y</span>
+    <span class="n">axis_to_recalculate</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>  <span class="c1"># we want to recalculate y</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.rototrans.Rototrans.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.from_random_data" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 88
  89
  90
  91
@@ -884,29 +1299,28 @@
 106
 107
 108
-109</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create random data from a specified distribution (normal by default) using random walk</span>
-
-<span class="sd">        To instantiate a `Rototrans` with some random data sampled from a normal distribution:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Rototrans</span>
-
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        size = 4, 4, n_frames</span>
-<span class="sd">        rt = Rototrans.from_random_data(size=size)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can choose any distribution available in</span>
-<span class="sd">            [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        rt = Rototrans.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Create random data from a specified distribution (normal by default) using random walk.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            distribution: Distribution available in</span>
@@ -917,6 +1331,24 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Random rototrans `xarray.DataArray` sampled from a given distribution</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate a `Rototrans` with some random data sampled from a normal distribution:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Rototrans</span>
+
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            size = 4, 4, n_frames</span>
+<span class="sd">            rt = Rototrans.from_random_data(size=size)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can choose any distribution available in</span>
+<span class="sd">                [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            rt = Rototrans.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Rototrans</span><span class="p">(</span>
             <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -925,20 +1357,7 @@
 </td></tr></table>
 
 </details>
-<p>Create random data from a specified distribution (normal by default) using random walk</p>
-<p>To instantiate a <code>Rototrans</code> with some random data sampled from a normal distribution:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Rototrans</span>
-
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_frames</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can choose any distribution available in
-    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Create random data from a specified distribution (normal by default) using random walk.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -991,6 +1410,125 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate a <code>Rototrans</code> with some random data sampled from a normal distribution:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Rototrans</span>
+
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_frames</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can choose any distribution available in
+    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<h3 id="motion.rototrans.Rototrans.from_transposed_rototrans"><code class="codehilite"><span class="n">from_transposed_rototrans</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.rototrans.Rototrans.from_transposed_rototrans" title="Permanent link">&para;</a></h3>
+<div class="autodoc">
+<details class="note"><summary>Show source code in <code>motion/rototrans.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_transposed_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rt</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rototrans DataArray from a tranposed Rototrans.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            rt: Rototrans to transpose</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Transposed Rototrans `xarray.DataArray`</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Rototrans</span>
+
+<span class="sd">            rt = Rototrans.from_random_data()</span>
+
+<span class="sd">            rt_t = Rototrans.from_transposed_rototrans(rt)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        !!! notes</span>
+<span class="sd">            The inverse Rototrans is, by definition, equivalent to the tranposed Rototrans.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">rototrans</span><span class="o">.</span><span class="n">rototrans_from_transposed_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rt</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Rototrans DataArray from a tranposed Rototrans.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rt</code></td>
+<td><code>DataArray</code></td>
+<td>Rototrans to transpose</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataArray</code></td>
+<td>Transposed Rototrans <code>xarray.DataArray</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Rototrans</span>
+
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
+
+<span class="n">rt_t</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_transposed_rototrans</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="admonition notes">
+<p class="admonition-title">Notes</p>
+<p>The inverse Rototrans is, by definition, equivalent to the tranposed Rototrans.</p>
+</div>
 </div>
 </div>
                 

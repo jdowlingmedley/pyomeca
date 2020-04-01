@@ -239,10 +239,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../user-guide/" title="User Guide" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../object-creation/" title="Object creation" class="md-nav__link">
+      Object creation
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data-processing/" title="Data processing" class="md-nav__link">
+      Data processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -553,10 +589,10 @@
                 <h1 id="analogspy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/analogs.py"><code>analogs.py</code></a><a class="headerlink" href="#analogspy" title="Permanent link">&para;</a></h1>
 <h2 id="motion.analogs.Analogs"><code class="codehilite"><span class="n">Analogs</span></code><a class="headerlink" href="#motion.analogs.Analogs" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
+<p>Generic signals such as EMGs, force signals or any other analog signal.</p>
 <h3 id="motion.analogs.Analogs.__new__"><code class="codehilite"><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(staticmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.__new__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
-14
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>14
 15
 16
 17
@@ -619,7 +655,10 @@
 74
 75
 76
-77</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+77
+78
+79
+80</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">channels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -628,36 +667,7 @@
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray with `axis`, `channel` and `time_frame` dimensions</span>
-
-<span class="sd">        To instantiate an `Analogs` with 4 channels and 100 frames filled with some random data:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        n_channels = 4</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        data = np.random.random(size=(n_channels, n_frames))</span>
-<span class="sd">        analogs = Analogs(data)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can add the channel names:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span>
-<span class="sd">        analogs = Analogs(data, channels=names)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        And an associate time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        rate = 100  # Hz</span>
-<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">        analogs = Analogs(data, channels=names, time_frames=time_frames)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Calling `Analogs()` generate an empty array.</span>
+<span class="sd">        Analogs DataArray with `axis`, `channel` and `time_frame` dimensions.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            data: Array to be passed to xarray.DataArray</span>
@@ -668,6 +678,37 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate an `Analogs` with 4 channels and 100 frames filled with some random data:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            n_channels = 4</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            data = np.random.random(size=(n_channels, n_frames))</span>
+<span class="sd">            analogs = Analogs(data)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can add the channel names:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span>
+<span class="sd">            analogs = Analogs(data, channels=names)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            And an associate time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            rate = 100  # Hz</span>
+<span class="sd">            time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">            analogs = Analogs(data, channels=names, time_frames=time_frames)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        !!! note</span>
+<span class="sd">            Calling `Analogs()` generate an empty array.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -688,29 +729,7 @@
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions</p>
-<p>To instantiate an <code>Analogs</code> with 4 channels and 100 frames filled with some random data:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can add the channel names:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
-</code></pre></div>
-
-<p>And an associate time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Calling <code>Analogs()</code> generate an empty array.</p>
+<p>Analogs DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -769,19 +788,38 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate an <code>Analogs</code> with 4 channels and 100 frames filled with some random data:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can add the channel names:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+</code></pre></div>
+
+<p>And an associate time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
+<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling <code>Analogs()</code> generate an empty array.</p>
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_c3d"><code class="codehilite"><span class="n">from_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_c3d" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>401
-402
-403
-404
-405
-406
-407
-408
-409
-410
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>410
 411
 412
 413
@@ -824,7 +862,17 @@
 450
 451
 452
-453</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_c3d</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -834,34 +882,7 @@
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray from a c3d file</span>
-
-<span class="sd">        To read [this c3d file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        data_path = &quot;./tests/data/markers_analogs.c3d&quot;</span>
-<span class="sd">        analogs = Analogs.from_c3d(data_path)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;Voltage.1&quot;, &quot;Voltage.2&quot;, &quot;Voltage.3&quot;]</span>
-<span class="sd">        analogs = Analogs.from_c3d(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Sometimes the channel name is delimited by a suffix or prefix.</span>
-<span class="sd">        To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
-<span class="sd">        For example, if the name is `&quot;Voltage.1&quot;` and you specify `suffix_delimiter=&quot;.&quot;`, you will select &quot;Voltage&quot;.</span>
-<span class="sd">        Similarly, if you specify `prefix_delimiter=&quot;.&quot;:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</span>
-<span class="sd">        analogs = Analogs.from_c3d(data_path, usecols=channels, prefix_delimiter=&quot;.&quot;)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Analogs DataArray from a c3d file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -873,36 +894,43 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this c3d file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            data_path = &quot;./tests/data/markers_analogs.c3d&quot;</span>
+<span class="sd">            analogs = Analogs.from_c3d(data_path)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;Voltage.1&quot;, &quot;Voltage.2&quot;, &quot;Voltage.3&quot;]</span>
+<span class="sd">            analogs = Analogs.from_c3d(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Sometimes the channel name is delimited by a suffix or prefix.</span>
+<span class="sd">            To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
+<span class="sd">            For example, if the name is `&quot;Voltage.1&quot;` and you specify `suffix_delimiter=&quot;.&quot;`, you will select &quot;Voltage&quot;.</span>
+<span class="sd">            Similarly, if you specify `prefix_delimiter=&quot;.&quot;:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</span>
+<span class="sd">            analogs = Analogs.from_c3d(data_path, usecols=channels, prefix_delimiter=&quot;.&quot;)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="p">,</span> <span class="n">attrs</span>
         <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray from a c3d file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d">this c3d file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers_analogs.c3d&quot;</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Voltage.1&quot;</span><span class="p">,</span> <span class="s2">&quot;Voltage.2&quot;</span><span class="p">,</span> <span class="s2">&quot;Voltage.3&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Sometimes the channel name is delimited by a suffix or prefix.
-To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
-For example, if the name is <code>"Voltage.1"</code> and you specify <code>suffix_delimiter="."</code>, you will select "Voltage".
-Similarly, if you specify `prefix_delimiter=".":</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Analogs DataArray from a c3d file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -961,14 +989,34 @@ Similarly, if you specify `prefix_delimiter=".":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d">this c3d file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers_analogs.c3d&quot;</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Voltage.1&quot;</span><span class="p">,</span> <span class="s2">&quot;Voltage.2&quot;</span><span class="p">,</span> <span class="s2">&quot;Voltage.3&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Sometimes the channel name is delimited by a suffix or prefix.
+To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
+For example, if the name is <code>"Voltage.1"</code> and you specify <code>suffix_delimiter="."</code>, you will select "Voltage".
+Similarly, if you specify `prefix_delimiter=".":</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_csv"><code class="codehilite"><span class="n">from_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">last_column_to_remove</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pandas_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_csv" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>118
-119
-120
-121
-122
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>122
 123
 124
 125
@@ -1069,7 +1117,12 @@ Similarly, if you specify `prefix_delimiter=".":</p>
 220
 221
 222
-223</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+223
+224
+225
+226
+227
+228</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_csv</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -1086,60 +1139,7 @@ Similarly, if you specify `prefix_delimiter=".":</p>
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray from a csv file</span>
-
-<span class="sd">        To read [this csv file](https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.csv),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        data_path = &quot;./tests/data/analogs.csv&quot;</span>
-<span class="sd">        analogs = Analogs.from_csv(data_path, header=3, first_row=5, first_column=2)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;IM EMG1&quot;, &quot;IM EMG2&quot;, &quot;IM EMG3&quot;]</span>
-<span class="sd">        analogs = Analogs.from_csv(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [5, 6, 7]</span>
-<span class="sd">        analogs = Analogs.from_csv(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Sometimes the channel name is delimited by a suffix or prefix.</span>
-<span class="sd">        To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
-<span class="sd">        For example, if the name is `&quot;IM EMG1&quot;` and you specify `suffix_delimiter=&quot; &quot;`, you will select &quot;IM&quot;.</span>
-<span class="sd">        Similarly, if you specify `prefix_delimiter=&quot; &quot;:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;EMG1&quot;, &quot;EMG2&quot;, &quot;EMG3&quot;]</span>
-<span class="sd">        analogs = Analogs.from_csv(</span>
-<span class="sd">            data_path,</span>
-<span class="sd">            header=3,</span>
-<span class="sd">            first_row=5,</span>
-<span class="sd">            first_column=2,</span>
-<span class="sd">            usecols=channels,</span>
-<span class="sd">            suffix_delimiter=&quot; &quot;,</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        It is also possible to specify a column containing the time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        analogs = Analogs.from_csv(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=1, time_column=0</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
+<span class="sd">        Analogs DataArray from a csv file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1158,8 +1158,62 @@ Similarly, if you specify `prefix_delimiter=".":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this csv file](https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.csv),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            data_path = &quot;./tests/data/analogs.csv&quot;</span>
+<span class="sd">            analogs = Analogs.from_csv(data_path, header=3, first_row=5, first_column=2)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;IM EMG1&quot;, &quot;IM EMG2&quot;, &quot;IM EMG3&quot;]</span>
+<span class="sd">            analogs = Analogs.from_csv(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [5, 6, 7]</span>
+<span class="sd">            analogs = Analogs.from_csv(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Sometimes the channel name is delimited by a suffix or prefix.</span>
+<span class="sd">            To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
+<span class="sd">            For example, if the name is `&quot;IM EMG1&quot;` and you specify `suffix_delimiter=&quot; &quot;`, you will select &quot;IM&quot;.</span>
+<span class="sd">            Similarly, if you specify `prefix_delimiter=&quot; &quot;:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;EMG1&quot;, &quot;EMG2&quot;, &quot;EMG3&quot;]</span>
+<span class="sd">            analogs = Analogs.from_csv(</span>
+<span class="sd">                data_path,</span>
+<span class="sd">                header=3,</span>
+<span class="sd">                first_row=5,</span>
+<span class="sd">                first_column=2,</span>
+<span class="sd">                usecols=channels,</span>
+<span class="sd">                suffix_delimiter=&quot; &quot;,</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            It is also possible to specify a column containing the time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            analogs = Analogs.from_csv(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=1, time_column=0</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_csv_or_excel</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_csv_or_excel</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
             <span class="s2">&quot;csv&quot;</span><span class="p">,</span>
             <span class="n">filename</span><span class="p">,</span>
@@ -1179,50 +1233,7 @@ Similarly, if you specify `prefix_delimiter=".":</p>
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray from a csv file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.csv">this csv file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/analogs.csv&quot;</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IM EMG1&quot;</span><span class="p">,</span> <span class="s2">&quot;IM EMG2&quot;</span><span class="p">,</span> <span class="s2">&quot;IM EMG3&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Sometimes the channel name is delimited by a suffix or prefix.
-To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
-For example, if the name is <code>"IM EMG1"</code> and you specify <code>suffix_delimiter=" "</code>, you will select "IM".
-Similarly, if you specify `prefix_delimiter=" ":</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;EMG1&quot;</span><span class="p">,</span> <span class="s2">&quot;EMG2&quot;</span><span class="p">,</span> <span class="s2">&quot;EMG3&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span>
-    <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
-    <span class="n">suffix_delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>It is also possible to specify a column containing the time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
-</code></pre></div>
-
+<p>Analogs DataArray from a csv file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1323,15 +1334,56 @@ Similarly, if you specify `prefix_delimiter=" ":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.csv">this csv file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/analogs.csv&quot;</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;IM EMG1&quot;</span><span class="p">,</span> <span class="s2">&quot;IM EMG2&quot;</span><span class="p">,</span> <span class="s2">&quot;IM EMG3&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Sometimes the channel name is delimited by a suffix or prefix.
+To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
+For example, if the name is <code>"IM EMG1"</code> and you specify <code>suffix_delimiter=" "</code>, you will select "IM".
+Similarly, if you specify `prefix_delimiter=" ":</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;EMG1&quot;</span><span class="p">,</span> <span class="s2">&quot;EMG2&quot;</span><span class="p">,</span> <span class="s2">&quot;EMG3&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+    <span class="n">suffix_delimiter</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>It is also possible to specify a column containing the time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_excel"><code class="codehilite"><span class="n">from_excel</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">last_column_to_remove</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pandas_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_excel" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>225
-226
-227
-228
-229
-230
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>230
 231
 232
 233
@@ -1417,7 +1469,14 @@ Similarly, if you specify `prefix_delimiter=" ":</p>
 313
 314
 315
-316</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+316
+317
+318
+319
+320
+321
+322
+323</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_excel</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -1435,43 +1494,7 @@ Similarly, if you specify `prefix_delimiter=" ":</p>
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray from a excel file</span>
-
-<span class="sd">        To read [this excel file](https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.xlsx),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        data_path = &quot;./tests/data/analogs.xlsx&quot;</span>
-<span class="sd">        analogs = Analogs.from_excel(data_path, header=3, first_row=5, first_column=2)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;A&quot;]</span>
-<span class="sd">        analogs = Analogs.from_excel(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [1]</span>
-<span class="sd">        analogs = Analogs.from_excel(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        It is also possible to specify a column containing the time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        analogs = Analogs.from_excel(</span>
-<span class="sd">            data_path, header=3, first_row=5, first_column=1, time_column=0</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
+<span class="sd">        Analogs DataArray from a excel file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1491,8 +1514,46 @@ Similarly, if you specify `prefix_delimiter=" ":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this excel file](https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.xlsx),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            data_path = &quot;./tests/data/analogs.xlsx&quot;</span>
+<span class="sd">            analogs = Analogs.from_excel(data_path, header=3, first_row=5, first_column=2)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;A&quot;]</span>
+<span class="sd">            analogs = Analogs.from_excel(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [1]</span>
+<span class="sd">            analogs = Analogs.from_excel(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            It is also possible to specify a column containing the time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            analogs = Analogs.from_excel(</span>
+<span class="sd">                data_path, header=3, first_row=5, first_column=1, time_column=0</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_csv_or_excel</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_csv_or_excel</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
             <span class="s2">&quot;excel&quot;</span><span class="p">,</span>
             <span class="n">filename</span><span class="p">,</span>
@@ -1513,35 +1574,7 @@ Similarly, if you specify `prefix_delimiter=" ":</p>
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray from a excel file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.xlsx">this excel file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/analogs.xlsx&quot;</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>It is also possible to specify a column containing the time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
-</code></pre></div>
-
+<p>Analogs DataArray from a excel file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1648,18 +1681,41 @@ type:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/analogs.xlsx">this excel file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/analogs.xlsx&quot;</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>It is also possible to specify a column containing the time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_mot"><code class="codehilite"><span class="n">from_mot</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_mot" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>360
-361
-362
-363
-364
-365
-366
-367
-368
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>368
 369
 370
 371
@@ -1690,36 +1746,21 @@ type:</p>
 396
 397
 398
-399</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_mot</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">end_header</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray from a mot file</span>
-
-<span class="sd">        To read [this mot file](https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_kin.mot),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        data_path = &quot;./tests/data/inverse_kin.mot&quot;</span>
-<span class="sd">        analogs = Analogs.from_mot(data_path)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;elbow_flexion&quot;, &quot;pro_sup&quot;]</span>
-<span class="sd">        analogs = Analogs.from_mot(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [3, 4]</span>
-<span class="sd">        analogs = Analogs.from_mot(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Analogs DataArray from a mot file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1728,31 +1769,38 @@ type:</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this mot file](https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_kin.mot),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            data_path = &quot;./tests/data/inverse_kin.mot&quot;</span>
+<span class="sd">            analogs = Analogs.from_mot(data_path)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;elbow_flexion&quot;, &quot;pro_sup&quot;]</span>
+<span class="sd">            analogs = Analogs.from_mot(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [3, 4]</span>
+<span class="sd">            analogs = Analogs.from_mot(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_sto_or_mot</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_sto_or_mot</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray from a mot file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_kin.mot">this mot file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/inverse_kin.mot&quot;</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;elbow_flexion&quot;</span><span class="p">,</span> <span class="s2">&quot;pro_sup&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Analogs DataArray from a mot file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1799,13 +1847,31 @@ type:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_kin.mot">this mot file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/inverse_kin.mot&quot;</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;elbow_flexion&quot;</span><span class="p">,</span> <span class="s2">&quot;pro_sup&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_mot</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_random_data" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 79
- 80
- 81
- 82
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 82
  83
  84
  85
@@ -1839,30 +1905,16 @@ type:</p>
 113
 114
 115
-116</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+116
+117
+118
+119
+120</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create random data from a specified distribution (normal by default) using random walk</span>
-
-<span class="sd">        To instantiate an `Analogs` with some random data sampled from a normal distribution:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        n_channels = 10</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        size = n_channels, n_frames</span>
-<span class="sd">        analogs = Analogs.from_random_data(size=size)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can choose any distribution available in</span>
-<span class="sd">            [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        analogs = Analogs.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Create random data from a specified distribution (normal by default) using random walk.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            distribution: Distribution available in</span>
@@ -1873,6 +1925,25 @@ type:</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Random Analogs `xarray.DataArray` sampled from a given distribution</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate an `Analogs` with some random data sampled from a normal distribution:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            n_channels = 10</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            size = n_channels, n_frames</span>
+<span class="sd">            analogs = Analogs.from_random_data(size=size)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can choose any distribution available in</span>
+<span class="sd">                [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            analogs = Analogs.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Analogs</span><span class="p">(</span>
             <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1881,21 +1952,7 @@ type:</p>
 </td></tr></table>
 
 </details>
-<p>Create random data from a specified distribution (normal by default) using random walk</p>
-<p>To instantiate an <code>Analogs</code> with some random data sampled from a normal distribution:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">size</span> <span class="o">=</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can choose any distribution available in
-    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Create random data from a specified distribution (normal by default) using random walk.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1948,17 +2005,27 @@ type:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate an <code>Analogs</code> with some random data sampled from a normal distribution:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can choose any distribution available in
+    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.analogs.Analogs.from_sto"><code class="codehilite"><span class="n">from_sto</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.analogs.Analogs.from_sto" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>318
-319
-320
-321
-322
-323
-324
-325
+<details class="note"><summary>Show source code in <code>motion/analogs.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>325
 326
 327
 328
@@ -1991,36 +2058,20 @@ type:</p>
 355
 356
 357
-358</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+358
+359
+360
+361
+362
+363
+364
+365
+366</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_sto</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">end_header</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Analogs DataArray from a sto file</span>
-
-<span class="sd">        To read [this sto file](https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_dyn.sto),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
-
-<span class="sd">        data_path = &quot;./tests/data/inverse_dyn.sto&quot;</span>
-<span class="sd">        analogs = Analogs.from_sto(data_path)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;shoulder_plane_moment&quot;, &quot;shoulder_ele_moment&quot;]</span>
-<span class="sd">        analogs = Analogs.from_sto(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [3, 4]</span>
-<span class="sd">        analogs = Analogs.from_sto(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Analogs DataArray from a sto file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -2030,31 +2081,38 @@ type:</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Analogs `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this sto file](https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_dyn.sto),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Analogs</span>
+
+<span class="sd">            data_path = &quot;./tests/data/inverse_dyn.sto&quot;</span>
+<span class="sd">            analogs = Analogs.from_sto(data_path)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;shoulder_plane_moment&quot;, &quot;shoulder_ele_moment&quot;]</span>
+<span class="sd">            analogs = Analogs.from_sto(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [3, 4]</span>
+<span class="sd">            analogs = Analogs.from_sto(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_sto_or_mot</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_sto_or_mot</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">end_header</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Analogs DataArray from a sto file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_dyn.sto">this sto file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/inverse_dyn.sto&quot;</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;shoulder_plane_moment&quot;</span><span class="p">,</span> <span class="s2">&quot;shoulder_ele_moment&quot;</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Analogs DataArray from a sto file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -2101,6 +2159,27 @@ type:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/inverse_dyn.sto">this sto file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/inverse_dyn.sto&quot;</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;shoulder_plane_moment&quot;</span><span class="p">,</span> <span class="s2">&quot;shoulder_ele_moment&quot;</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_sto</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 </div>
                 

@@ -239,10 +239,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../user-guide/" title="User Guide" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../object-creation/" title="Object creation" class="md-nav__link">
+      Object creation
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data-processing/" title="Data processing" class="md-nav__link">
+      Data processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -497,11 +533,10 @@
                 <h1 id="anglespy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/angles.py"><code>angles.py</code></a><a class="headerlink" href="#anglespy" title="Permanent link">&para;</a></h1>
 <h2 id="motion.angles.Angles"><code class="codehilite"><span class="n">Angles</span></code><a class="headerlink" href="#motion.angles.Angles" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
+<p>Joint angles.</p>
 <h3 id="motion.angles.Angles.__new__"><code class="codehilite"><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(staticmethod)</em><a class="headerlink" href="#motion.angles.Angles.__new__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>11
-12
-13
+<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
 14
 15
 16
@@ -553,7 +588,11 @@
 62
 63
 64
-65</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">time_frames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -561,30 +600,7 @@
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Angles DataArray with `row`, `col` and `time_frame` dimensions</span>
-
-<span class="sd">        To instantiate an `Angles` 4 by 4 and 100 frames filled with some random data:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from motion import Angles</span>
-
-<span class="sd">        n_row = 4</span>
-<span class="sd">        n_col = 4</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        data = np.random.random(size=(n_row, n_col, n_frames))</span>
-<span class="sd">        angles = Angles(data)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can an associate time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        rate = 100  # Hz</span>
-<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">        angles = Angles(data, time_frames=time_frames)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Calling `Angles()` generate an empty array.</span>
+<span class="sd">        Angles DataArray with `axis`, `channel` and `time_frame` dimensions.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            data: Array to be passed to xarray.DataArray</span>
@@ -594,6 +610,31 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Angles `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate an `Angles` 4 by 4 and 100 frames filled with some random data:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from motion import Angles</span>
+
+<span class="sd">            n_axis = 3</span>
+<span class="sd">            n_channel = 3</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            data = np.random.random(size=(n_axis, n_channel, n_frames))</span>
+<span class="sd">            angles = Angles(data)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can an associate time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            rate = 100  # Hz</span>
+<span class="sd">            time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">            angles = Angles(data, time_frames=time_frames)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        !!! note</span>
+<span class="sd">            Calling `Angles()` generate an empty array.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -602,7 +643,7 @@
             <span class="n">coords</span><span class="p">[</span><span class="s2">&quot;time_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_frames</span>
         <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
             <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-            <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;row&quot;</span><span class="p">,</span> <span class="s2">&quot;col&quot;</span><span class="p">,</span> <span class="s2">&quot;time_frame&quot;</span><span class="p">),</span>
+            <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;axis&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;time_frame&quot;</span><span class="p">),</span>
             <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
             <span class="n">name</span><span class="o">=</span><span class="s2">&quot;angles&quot;</span><span class="p">,</span>
             <span class="o">*</span><span class="n">args</span><span class="p">,</span>
@@ -612,25 +653,7 @@
 </td></tr></table>
 
 </details>
-<p>Angles DataArray with <code>row</code>, <code>col</code> and <code>time_frame</code> dimensions</p>
-<p>To instantiate an <code>Angles</code> 4 by 4 and 100 frames filled with some random data:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
-
-<span class="n">n_row</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_col</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can an associate time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Calling <code>Angles()</code> generate an empty array.</p>
+<p>Angles DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -683,14 +706,34 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate an <code>Angles</code> 4 by 4 and 100 frames filled with some random data:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
+
+<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_channel</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channel</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can an associate time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
+<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+</code></pre></div>
+
 </div>
-<h3 id="motion.angles.Angles.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.angles.Angles.from_random_data" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling <code>Angles()</code> generate an empty array.</p>
+</div>
+</div>
+<h3 id="motion.angles.Angles.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.angles.Angles.from_random_data" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 67
- 68
- 69
- 70
- 71
+<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 71
  72
  73
  74
@@ -722,29 +765,17 @@
 100
 101
 102
-103</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+103
+104
+105
+106
+107
+108</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
-        <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create random data from a specified distribution (normal by default) using random walk</span>
-
-<span class="sd">        To instantiate an `Angles` with some random data sampled from a normal distribution:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Angles</span>
-
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        size = 10, 10, n_frames</span>
-<span class="sd">        angles = Angles.from_random_data(size=size)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can choose any distribution available in</span>
-<span class="sd">            [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        angles = Angles.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Create random data from a specified distribution (normal by default) using random walk.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            distribution: Distribution available in</span>
@@ -755,6 +786,24 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Random angles `xarray.DataArray` sampled from a given distribution</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate an `Angles` with some random data sampled from a normal distribution:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Angles</span>
+
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            size = 10, 10, n_frames</span>
+<span class="sd">            angles = Angles.from_random_data(size=size)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can choose any distribution available in</span>
+<span class="sd">                [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            angles = Angles.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Angles</span><span class="p">(</span>
             <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -763,20 +812,7 @@
 </td></tr></table>
 
 </details>
-<p>Create random data from a specified distribution (normal by default) using random walk</p>
-<p>To instantiate an <code>Angles</code> with some random data sampled from a normal distribution:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
-
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_frames</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can choose any distribution available in
-    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Create random data from a specified distribution (normal by default) using random walk.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -798,7 +834,7 @@
 <td><code>size</code></td>
 <td><code>tuple</code></td>
 <td>Shape of the desired array</td>
-<td><code>(10, 10, 100)</code></td>
+<td><code>(3, 10, 100)</code></td>
 </tr>
 <tr>
 <td><code>*args</code></td>
@@ -829,15 +865,26 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate an <code>Angles</code> with some random data sampled from a normal distribution:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
+
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_frames</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can choose any distribution available in
+    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.angles.Angles.from_rototrans"><code class="codehilite"><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.angles.Angles.from_rototrans" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>105
-106
-107
-108
-109
-110
+<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>110
 111
 112
 113
@@ -858,24 +905,18 @@
 128
 129
 130
-131</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+131
+132
+133
+134
+135
+136
+137</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_rototrans</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Angles DataArray from a rototranslation matrix and specified angle sequence</span>
-
-<span class="sd">        To get the euler angles from a random rototranslation matrix with a given angle sequence type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Angles, Rototrans</span>
-
-<span class="sd">        size = (4, 4, 100)</span>
-<span class="sd">        rt = Rototrans.from_random_data(size=size)</span>
-<span class="sd">        angles_sequence = &quot;xyz&quot;</span>
-
-<span class="sd">        angles = Angles.from_rototrans(rototrans=rt, angle_sequence=angles_sequence)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Angles DataArray from a rototranslation matrix and specified angle sequence.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            rototrans: Rototranslation matrix created with motion.Rototrans()</span>
@@ -883,23 +924,26 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Angles `xarray.DataArray` from the specified rototrans and angles sequence</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To get the euler angles from a random rototranslation matrix with a given angle sequence type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Angles, Rototrans</span>
+
+<span class="sd">            size = (4, 4, 100)</span>
+<span class="sd">            rt = Rototrans.from_random_data(size=size)</span>
+<span class="sd">            angles_sequence = &quot;xyz&quot;</span>
+
+<span class="sd">            angles = Angles.from_rototrans(rototrans=rt, angle_sequence=angles_sequence)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">angles_from_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">angles</span><span class="o">.</span><span class="n">angles_from_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Angles DataArray from a rototranslation matrix and specified angle sequence</p>
-<p>To get the euler angles from a random rototranslation matrix with a given angle sequence type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
-
-<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
-
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="o">=</span><span class="n">rt</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Angles DataArray from a rototranslation matrix and specified angle sequence.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -940,6 +984,19 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To get the euler angles from a random rototranslation matrix with a given angle sequence type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
+
+<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
+
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="o">=</span><span class="n">rt</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 </div>
                 

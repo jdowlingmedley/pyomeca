@@ -239,10 +239,46 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../../user-guide/" title="User Guide" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
       User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../object-creation/" title="Object creation" class="md-nav__link">
+      Object creation
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data-processing/" title="Data processing" class="md-nav__link">
+      Data processing
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -539,10 +575,10 @@
                 <h1 id="markerspy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/markers.py"><code>markers.py</code></a><a class="headerlink" href="#markerspy" title="Permanent link">&para;</a></h1>
 <h2 id="motion.markers.Markers"><code class="codehilite"><span class="n">Markers</span></code><a class="headerlink" href="#motion.markers.Markers" title="Permanent link">&para;</a></h2>
 <div class="autodoc">
+<p>Skin marker positions.</p>
 <h3 id="motion.markers.Markers.__new__"><code class="codehilite"><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(staticmethod)</em><a class="headerlink" href="#motion.markers.Markers.__new__" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
-14
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>14
 15
 16
 17
@@ -610,7 +646,10 @@
 79
 80
 81
-82</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+82
+83
+84
+85</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">channels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -619,37 +658,7 @@
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Markers DataArray with `axis`, `channel` and `time_frame` dimensions</span>
-
-<span class="sd">        To instantiate a `Markers` with 4 channels and 100 frames filled with some random data:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        import numpy as np</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        n_axis = 3</span>
-<span class="sd">        n_channels = 4</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        data = np.random.random(size=(n_axis, n_channels, n_frames))</span>
-<span class="sd">        markers = Markers(data)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can add the channel names:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span>
-<span class="sd">        markers = Markers(data, channels=names)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        And an associate time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        rate = 100  # Hz</span>
-<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">        markers = Markers(data, channels=names, time_frames=time_frames)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Calling `Markers()` generate an empty array.</span>
+<span class="sd">        Markers DataArray with `axis`, `channel` and `time_frame` dimensions.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            data: Array to be passed to xarray.DataArray</span>
@@ -660,6 +669,38 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Markers `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate a `Markers` with 4 channels and 100 frames filled with some random data:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            n_axis = 3</span>
+<span class="sd">            n_channels = 4</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            data = np.random.random(size=(n_axis, n_channels, n_frames))</span>
+<span class="sd">            markers = Markers(data)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can add the channel names:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            names = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;]</span>
+<span class="sd">            markers = Markers(data, channels=names)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            And an associate time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            rate = 100  # Hz</span>
+<span class="sd">            time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">            markers = Markers(data, channels=names, time_frames=time_frames)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">        !!! note</span>
+<span class="sd">            Calling `Markers()` generate an empty array.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -684,30 +725,7 @@
 </td></tr></table>
 
 </details>
-<p>Markers DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions</p>
-<p>To instantiate a <code>Markers</code> with 4 channels and 100 frames filled with some random data:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can add the channel names:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
-</code></pre></div>
-
-<p>And an associate time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Calling <code>Markers()</code> generate an empty array.</p>
+<p>Markers DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -766,16 +784,39 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate a <code>Markers</code> with 4 channels and 100 frames filled with some random data:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can add the channel names:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+</code></pre></div>
+
+<p>And an associate time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
+<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling <code>Markers()</code> generate an empty array.</p>
+</div>
 </div>
 <h3 id="motion.markers.Markers.from_c3d"><code class="codehilite"><span class="n">from_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.markers.Markers.from_c3d" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>341
-342
-343
-344
-345
-346
-347
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>347
 348
 349
 350
@@ -821,7 +862,14 @@
 390
 391
 392
-393</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+393
+394
+395
+396
+397
+398
+399
+400</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_c3d</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -831,34 +879,7 @@
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Markers DataArray from a c3d file</span>
-
-<span class="sd">        To read [this c3d file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        data_path = &quot;./tests/data/markers_analogs.c3d&quot;</span>
-<span class="sd">        markers = Markers.from_c3d(data_path)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;Daphnee:ASISl&quot;, &quot;Daphnee:PSISr&quot;, &quot;Daphnee:PSISl&quot;]</span>
-<span class="sd">        markers = Markers.from_c3d(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Sometimes the channel name is delimited by a suffix or prefix.</span>
-<span class="sd">        To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
-<span class="sd">        For example, if the name is `&quot;&quot;Daphnee:ASISl&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;Daphnee&quot;.</span>
-<span class="sd">        Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;ASISl&quot;, &quot;PSISr&quot;, &quot;PSISl&quot;]</span>
-<span class="sd">        markers = Markers.from_c3d(data_path, prefix_delimiter=&quot;:&quot;)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Markers DataArray from a c3d file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -870,36 +891,43 @@
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Markers `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this c3d file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            data_path = &quot;./tests/data/markers_analogs.c3d&quot;</span>
+<span class="sd">            markers = Markers.from_c3d(data_path)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;Daphnee:ASISl&quot;, &quot;Daphnee:PSISr&quot;, &quot;Daphnee:PSISl&quot;]</span>
+<span class="sd">            markers = Markers.from_c3d(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Sometimes the channel name is delimited by a suffix or prefix.</span>
+<span class="sd">            To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
+<span class="sd">            For example, if the name is `&quot;&quot;Daphnee:ASISl&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;Daphnee&quot;.</span>
+<span class="sd">            Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;ASISl&quot;, &quot;PSISr&quot;, &quot;PSISl&quot;]</span>
+<span class="sd">            markers = Markers.from_c3d(data_path, prefix_delimiter=&quot;:&quot;)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="p">,</span> <span class="n">attrs</span>
         <span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Markers DataArray from a c3d file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d">this c3d file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers_analogs.c3d&quot;</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Daphnee:ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISr&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISl&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Sometimes the channel name is delimited by a suffix or prefix.
-To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
-For example, if the name is <code>""Daphnee:ASISl"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "Daphnee".
-Similarly, if you specify `prefix_delimiter=":":</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISr&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISl&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Markers DataArray from a c3d file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -958,14 +986,34 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d">this c3d file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers_analogs.c3d&quot;</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Daphnee:ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISr&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISl&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Sometimes the channel name is delimited by a suffix or prefix.
+To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
+For example, if the name is <code>""Daphnee:ASISl"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "Daphnee".
+Similarly, if you specify `prefix_delimiter=":":</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISr&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISl&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.markers.Markers.from_csv"><code class="codehilite"><span class="n">from_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">last_column_to_remove</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pandas_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.markers.Markers.from_csv" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>124
-125
-126
-127
-128
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>128
 129
 130
 131
@@ -1066,7 +1114,12 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 226
 227
 228
-229</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+229
+230
+231
+232
+233
+234</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_csv</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -1083,60 +1136,7 @@ Similarly, if you specify `prefix_delimiter=":":</p>
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Markers DataArray from a csv file</span>
-
-<span class="sd">        To read [this csv file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.csv),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        data_path = &quot;./tests/data/markers.csv&quot;</span>
-<span class="sd">        markers = Markers.from_csv(data_path, header=2, first_row=5, first_column=2)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;Daphnee:ASISr&quot;, &quot;Daphnee:ASISl&quot;, &quot;Daphnee:PSISr&quot;]</span>
-<span class="sd">        markers = Markers.from_csv(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [5, 6, 7]</span>
-<span class="sd">        markers = Markers.from_csv(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Sometimes the channel name is delimited by a suffix or prefix.</span>
-<span class="sd">        To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
-<span class="sd">        For example, if the name is `&quot;Daphnee:ASISr&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;Daphnee&quot;.</span>
-<span class="sd">        Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;ASISr&quot;, &quot;ASISl&quot;, &quot;PSISr&quot;]</span>
-<span class="sd">        markers = Markers.from_csv(</span>
-<span class="sd">            data_path,</span>
-<span class="sd">            header=2,</span>
-<span class="sd">            first_row=5,</span>
-<span class="sd">            first_column=2,</span>
-<span class="sd">            usecols=channels,</span>
-<span class="sd">            prefix_delimiter=&quot;:&quot;,</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        It is also possible to specify a column containing the time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        markers = Markers.from_csv(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=1, time_column=0</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
+<span class="sd">        Markers DataArray from a csv file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1155,8 +1155,62 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Markers `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this csv file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.csv),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            data_path = &quot;./tests/data/markers.csv&quot;</span>
+<span class="sd">            markers = Markers.from_csv(data_path, header=2, first_row=5, first_column=2)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;Daphnee:ASISr&quot;, &quot;Daphnee:ASISl&quot;, &quot;Daphnee:PSISr&quot;]</span>
+<span class="sd">            markers = Markers.from_csv(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [5, 6, 7]</span>
+<span class="sd">            markers = Markers.from_csv(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Sometimes the channel name is delimited by a suffix or prefix.</span>
+<span class="sd">            To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
+<span class="sd">            For example, if the name is `&quot;Daphnee:ASISr&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;Daphnee&quot;.</span>
+<span class="sd">            Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;ASISr&quot;, &quot;ASISl&quot;, &quot;PSISr&quot;]</span>
+<span class="sd">            markers = Markers.from_csv(</span>
+<span class="sd">                data_path,</span>
+<span class="sd">                header=2,</span>
+<span class="sd">                first_row=5,</span>
+<span class="sd">                first_column=2,</span>
+<span class="sd">                usecols=channels,</span>
+<span class="sd">                prefix_delimiter=&quot;:&quot;,</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            It is also possible to specify a column containing the time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            markers = Markers.from_csv(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=1, time_column=0</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_csv_or_excel</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_csv_or_excel</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
             <span class="s2">&quot;csv&quot;</span><span class="p">,</span>
             <span class="n">filename</span><span class="p">,</span>
@@ -1176,50 +1230,7 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </td></tr></table>
 
 </details>
-<p>Markers DataArray from a csv file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.csv">this csv file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.csv&quot;</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Daphnee:ASISr&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISr&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Sometimes the channel name is delimited by a suffix or prefix.
-To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
-For example, if the name is <code>"Daphnee:ASISr"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "Daphnee".
-Similarly, if you specify `prefix_delimiter=":":</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ASISr&quot;</span><span class="p">,</span> <span class="s2">&quot;ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISr&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span>
-    <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
-    <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>It is also possible to specify a column containing the time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
-</code></pre></div>
-
+<p>Markers DataArray from a csv file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1320,15 +1331,56 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.csv">this csv file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.csv&quot;</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Daphnee:ASISr&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;Daphnee:PSISr&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Sometimes the channel name is delimited by a suffix or prefix.
+To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
+For example, if the name is <code>"Daphnee:ASISr"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "Daphnee".
+Similarly, if you specify `prefix_delimiter=":":</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ASISr&quot;</span><span class="p">,</span> <span class="s2">&quot;ASISl&quot;</span><span class="p">,</span> <span class="s2">&quot;PSISr&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+    <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>It is also possible to specify a column containing the time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_csv</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.markers.Markers.from_excel"><code class="codehilite"><span class="n">from_excel</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">last_column_to_remove</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pandas_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.markers.Markers.from_excel" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>231
-232
-233
-234
-235
-236
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>236
 237
 238
 239
@@ -1431,7 +1483,13 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 336
 337
 338
-339</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+339
+340
+341
+342
+343
+344
+345</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_excel</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
@@ -1449,60 +1507,7 @@ Similarly, if you specify `prefix_delimiter=":":</p>
         <span class="n">attrs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Markers DataArray from a excel file</span>
-
-<span class="sd">        To read [this excel file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.xlsx),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        data_path = &quot;./tests/data/markers.xlsx&quot;</span>
-<span class="sd">        markers = Markers.from_excel(data_path, header=2, first_row=5, first_column=2)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;boite:gauche_ext&quot;]</span>
-<span class="sd">        markers = Markers.from_excel(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [1]</span>
-<span class="sd">        markers = Markers.from_excel(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Sometimes the channel name is delimited by a suffix or prefix.</span>
-<span class="sd">        To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
-<span class="sd">        For example, if the name is `&quot;boite:gauche_ext&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;boite&quot;.</span>
-<span class="sd">        Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;gauche_ext&quot;]</span>
-<span class="sd">        markers = Markers.from_excel(</span>
-<span class="sd">            data_path,</span>
-<span class="sd">            header=2,</span>
-<span class="sd">            first_row=5,</span>
-<span class="sd">            first_column=2,</span>
-<span class="sd">            usecols=channels,</span>
-<span class="sd">            prefix_delimiter=&quot;:&quot;,</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        It is also possible to specify a column containing the time vector:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        markers = Markers.from_excel(</span>
-<span class="sd">            data_path, header=2, first_row=5, first_column=1, time_column=0</span>
-<span class="sd">        )</span>
-<span class="sd">        ```</span>
+<span class="sd">        Markers DataArray from an Excel file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1522,8 +1527,62 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Markers `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this excel file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.xlsx),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            data_path = &quot;./tests/data/markers.xlsx&quot;</span>
+<span class="sd">            markers = Markers.from_excel(data_path, header=2, first_row=5, first_column=2)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;boite:gauche_ext&quot;]</span>
+<span class="sd">            markers = Markers.from_excel(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [1]</span>
+<span class="sd">            markers = Markers.from_excel(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=2, usecols=channels</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Sometimes the channel name is delimited by a suffix or prefix.</span>
+<span class="sd">            To access the prefix, you can specify `prefix_delimiter` and `suffix_delimiter` for the suffix.</span>
+<span class="sd">            For example, if the name is `&quot;boite:gauche_ext&quot;` and you specify `suffix_delimiter=&quot;:&quot;`, you will select &quot;boite&quot;.</span>
+<span class="sd">            Similarly, if you specify `prefix_delimiter=&quot;:&quot;:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;gauche_ext&quot;]</span>
+<span class="sd">            markers = Markers.from_excel(</span>
+<span class="sd">                data_path,</span>
+<span class="sd">                header=2,</span>
+<span class="sd">                first_row=5,</span>
+<span class="sd">                first_column=2,</span>
+<span class="sd">                usecols=channels,</span>
+<span class="sd">                prefix_delimiter=&quot;:&quot;,</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            It is also possible to specify a column containing the time vector:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            markers = Markers.from_excel(</span>
+<span class="sd">                data_path, header=2, first_row=5, first_column=1, time_column=0</span>
+<span class="sd">            )</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_csv_or_excel</span><span class="p">(</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_csv_or_excel</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
             <span class="s2">&quot;excel&quot;</span><span class="p">,</span>
             <span class="n">filename</span><span class="p">,</span>
@@ -1544,50 +1603,7 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </td></tr></table>
 
 </details>
-<p>Markers DataArray from a excel file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.xlsx">this excel file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.xlsx&quot;</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;boite:gauche_ext&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>Sometimes the channel name is delimited by a suffix or prefix.
-To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
-For example, if the name is <code>"boite:gauche_ext"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "boite".
-Similarly, if you specify `prefix_delimiter=":":</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gauche_ext&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span>
-    <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
-    <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<p>It is also possible to specify a column containing the time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
-    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
-<span class="p">)</span>
-</code></pre></div>
-
+<p>Markers DataArray from an Excel file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1694,13 +1710,56 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.xlsx">this excel file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.xlsx&quot;</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;boite:gauche_ext&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Sometimes the channel name is delimited by a suffix or prefix.
+To access the prefix, you can specify <code>prefix_delimiter</code> and <code>suffix_delimiter</code> for the suffix.
+For example, if the name is <code>"boite:gauche_ext"</code> and you specify <code>suffix_delimiter=":"</code>, you will select "boite".
+Similarly, if you specify `prefix_delimiter=":":</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;gauche_ext&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">first_column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+    <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>It is also possible to specify a column containing the time vector:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_excel</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">first_row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">first_column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.markers.Markers.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.markers.Markers.from_random_data" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 84
- 85
- 86
- 87
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 87
  88
  89
  90
@@ -1735,31 +1794,16 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 119
 120
 121
-122</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+122
+123
+124
+125
+126</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create random data from a specified distribution (normal by default) using random walk</span>
-
-<span class="sd">        To instantiate a `Markers` with some random data sampled from a normal distribution:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        n_axis = 3</span>
-<span class="sd">        n_channels = 10</span>
-<span class="sd">        n_frames = 100</span>
-<span class="sd">        size = n_axis, n_channels, n_frames</span>
-<span class="sd">        markers = Markers.from_random_data(size=size)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        You can choose any distribution available in</span>
-<span class="sd">            [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        markers = Markers.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Create random data from a specified distribution (normal by default) using random walk.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            distribution: Distribution available in</span>
@@ -1770,6 +1814,26 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Random markers `xarray.DataArray` sampled from a given distribution</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To instantiate a `Markers` with some random data sampled from a normal distribution:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            n_axis = 3</span>
+<span class="sd">            n_channels = 10</span>
+<span class="sd">            n_frames = 100</span>
+<span class="sd">            size = n_axis, n_channels, n_frames</span>
+<span class="sd">            markers = Markers.from_random_data(size=size)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            You can choose any distribution available in</span>
+<span class="sd">                [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            markers = Markers.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Markers</span><span class="p">(</span>
             <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -1778,22 +1842,7 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </td></tr></table>
 
 </details>
-<p>Create random data from a specified distribution (normal by default) using random walk</p>
-<p>To instantiate a <code>Markers</code> with some random data sampled from a normal distribution:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">size</span> <span class="o">=</span> <span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can choose any distribution available in
-    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Create random data from a specified distribution (normal by default) using random walk.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1846,17 +1895,28 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate a <code>Markers</code> with some random data sampled from a normal distribution:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_channels</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">size</span> <span class="o">=</span> <span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">,</span> <span class="n">n_frames</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</code></pre></div>
+
+<p>You can choose any distribution available in
+    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 <h3 id="motion.markers.Markers.from_trc"><code class="codehilite"><span class="n">from_trc</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.markers.Markers.from_trc" title="Permanent link">&para;</a></h3>
 <div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>395
-396
-397
-398
-399
-400
-401
-402
+<details class="note"><summary>Show source code in <code>motion/markers.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>402
 403
 404
 405
@@ -1885,34 +1945,18 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 428
 429
 430
-431</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
+431
+432
+433
+434
+435
+436
+437
+438
+439</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_trc</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Markers DataArray from a trc file</span>
-
-<span class="sd">        To read [this trc file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.trc),</span>
-<span class="sd">        type:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
-
-<span class="sd">        data_path = &quot;./tests/data/markers.trc&quot;</span>
-<span class="sd">        markers = Markers.from_trc(data_path)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [&quot;STER&quot;, &quot;STERl&quot;]</span>
-<span class="sd">        markers = Markers.from_trc(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
-
-<span class="sd">        Or by position:</span>
-
-<span class="sd">        ```python</span>
-<span class="sd">        channels = [3, 4]</span>
-<span class="sd">        markers = Markers.from_trc(data_path, usecols=channels)</span>
-<span class="sd">        ```</span>
+<span class="sd">        Markers DataArray from a trc file.</span>
 
 <span class="sd">        Arguments:</span>
 <span class="sd">            filename: Any valid string path</span>
@@ -1920,31 +1964,38 @@ Similarly, if you specify `prefix_delimiter=":":</p>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Markers `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">        !!! example</span>
+<span class="sd">            To read [this trc file](https://github.com/romainmartinez/motion/blob/master/tests/data/markers.trc),</span>
+<span class="sd">            type:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            from motion import Markers</span>
+
+<span class="sd">            data_path = &quot;./tests/data/markers.trc&quot;</span>
+<span class="sd">            markers = Markers.from_trc(data_path)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [&quot;STER&quot;, &quot;STERl&quot;]</span>
+<span class="sd">            markers = Markers.from_trc(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
+
+<span class="sd">            Or by position:</span>
+
+<span class="sd">            ```python</span>
+<span class="sd">            channels = [3, 4]</span>
+<span class="sd">            markers = Markers.from_trc(data_path, usecols=channels)</span>
+<span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">read_trc</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">read</span><span class="o">.</span><span class="n">read_trc</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>Markers DataArray from a trc file</p>
-<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.trc">this trc file</a>,
-type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
-
-<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.trc&quot;</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
-</code></pre></div>
-
-<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;STER&quot;</span><span class="p">,</span> <span class="s2">&quot;STERl&quot;</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
-<p>Or by position:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
-</code></pre></div>
-
+<p>Markers DataArray from a trc file.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1985,6 +2036,27 @@ type:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To read <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers.trc">this trc file</a>,
+type:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">&quot;./tests/data/markers.trc&quot;</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you know the channel names, you can retrieve only the ones you are interested in by specifying strings:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;STER&quot;</span><span class="p">,</span> <span class="s2">&quot;STERl&quot;</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Or by position:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_trc</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
 </div>
 </div>
                 
