@@ -9,7 +9,7 @@
 {%- elif 'name' in nb.metadata.get('language_info', {}) -%}
     {{ nb.metadata.language_info.name }}
 {%- endif %}
-{{ cell.source}}
+{{ cell.source.replace(";", "") }}
 ```
 {% else %}
 {% endif %}

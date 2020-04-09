@@ -135,17 +135,22 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/" title="Overview">
+      Overview
+    </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../getting-started/" title="Getting Started">
       Getting Started
     </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
-<label class="md-nav__link" for="nav-2">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-3">
       User Guide
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-<label class="md-nav__title" for="nav-2">
+<label class="md-nav__title" for="nav-3">
         User Guide
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -173,12 +178,12 @@
     </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
-<label class="md-nav__link" for="nav-5">
+<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       API reference
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
         API reference
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -311,14 +316,14 @@
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="motion.angles.Angles.__new__">
 <code class="highlight language-python">
-__new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+__new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-special"><code>special</code></small>
 <small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
 </span>
 </h3>
 <div class="doc doc-contents">
-<p>Angles DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions
+<p>Angles DataArray with <code>axis</code>, <code>channel</code> and <code>time</code> dimensions
  used for joint angles.</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -340,7 +345,7 @@ __new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</spa
 <td><code>None</code></td>
 </tr>
 <tr>
-<td><code>time_frames</code></td>
+<td><code>time</code></td>
 <td><code>Optional[Union[&lt;built-in function array&gt;, list, pandas.core.series.Series]]</code></td>
 <td>
 <p>Time vector in seconds associated with the <code>data</code> parameter</p>
@@ -399,8 +404,8 @@ __new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</spa
 <p>You can an associate time vector:</p>
 <div class="codehilite">
 <pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -479,17 +484,17 @@ __new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</spa
 <pre><span></span><code><span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
     <span class="bp">cls</span><span class="p">,</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">time_frames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">*</span><span class="n">args</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
     <span class="sd">"""</span>
-<span class="sd">    Angles DataArray with `axis`, `channel` and `time_frame` dimensions</span>
+<span class="sd">    Angles DataArray with `axis`, `channel` and `time` dimensions</span>
 <span class="sd">     used for joint angles.</span>
 
 <span class="sd">    Arguments:</span>
 <span class="sd">        data: Array to be passed to xarray.DataArray</span>
-<span class="sd">        time_frames: Time vector in seconds associated with the `data` parameter</span>
+<span class="sd">        time: Time vector in seconds associated with the `data` parameter</span>
 <span class="sd">        args: Positional argument(s) to be passed to xarray.DataArray</span>
 <span class="sd">        kwargs: Keyword argument(s) to be passed to xarray.DataArray</span>
 
@@ -514,8 +519,8 @@ __new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</spa
 
 <span class="sd">        ```python</span>
 <span class="sd">        rate = 100  # Hz</span>
-<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">        angles = Angles(data, time_frames=time_frames)</span>
+<span class="sd">        time = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">        angles = Angles(data, time=time)</span>
 <span class="sd">        ```</span>
 
 <span class="sd">    !!! note</span>
@@ -524,11 +529,11 @@ __new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</spa
     <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">time_frames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">coords</span><span class="p">[</span><span class="s2">"time_frame"</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_frames</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">coords</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
     <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
         <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-        <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">"axis"</span><span class="p">,</span> <span class="s2">"channel"</span><span class="p">,</span> <span class="s2">"time_frame"</span><span class="p">),</span>
+        <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">"axis"</span><span class="p">,</span> <span class="s2">"channel"</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">),</span>
         <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">"angles"</span><span class="p">,</span>
         <span class="o">*</span><span class="n">args</span><span class="p">,</span>

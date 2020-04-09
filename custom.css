@@ -56,3 +56,7 @@ div.doc-contents {
 .xr-dim-list li:not(:last-child):after {
   content: none !important;
 }
+
+code th {
+  min-width: 0 !important;
+}

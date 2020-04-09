@@ -135,17 +135,22 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/" title="Overview">
+      Overview
+    </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../getting-started/" title="Getting Started">
       Getting Started
     </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
-<label class="md-nav__link" for="nav-2">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-3">
       User Guide
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-<label class="md-nav__title" for="nav-2">
+<label class="md-nav__title" for="nav-3">
         User Guide
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -173,12 +178,12 @@
     </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
-<label class="md-nav__link" for="nav-5">
+<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       API reference
     </label>
 <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
         API reference
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
@@ -940,7 +945,7 @@ center<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <td><code>mu</code></td>
 <td><code>Union[xarray.core.dataarray.DataArray, &lt;built-in function array&gt;, float, int]</code></td>
 <td>
-<p>mean of the signal to subtract. If not provided, takes the mean along the time_frame axis</p>
+<p>mean of the signal to subtract. If not provided, takes the mean along the time axis</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -1048,7 +1053,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 <span class="sd">    Center an array (i.e., subtract the mean).</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        mu: mean of the signal to subtract. If not provided, takes the mean along the time_frame axis</span>
+<span class="sd">        mu: mean of the signal to subtract. If not provided, takes the mean along the time axis</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        a `xarray.DataArray` containing the root-mean-square of the matrix</span>
@@ -1427,9 +1432,9 @@ detect_outliers<span class="p">(</span><span class="bp">self</span><span class="
 <span class="n">threshold</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">outliers</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">detect_outliers</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span>
 
-<span class="n">analogs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">analogs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">outliers</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outliers"</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"o"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outliers"</span>
 <span class="p">)</span>
 
 <span class="n">mu</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1553,9 +1558,9 @@ can detect outliers for any number of dimensions.</p>
 <span class="sd">        threshold = 1</span>
 <span class="sd">        outliers = analogs.meca.detect_outliers(threshold=threshold)</span>
 
-<span class="sd">        analogs.plot.line(x="time_frame", color="black", add_legend=False)</span>
+<span class="sd">        analogs.plot.line(x="time", color="black", add_legend=False)</span>
 <span class="sd">        analogs.where(outliers).plot.line(</span>
-<span class="sd">            x="time_frame", color="red", add_legend=False, marker="o", label="outliers"</span>
+<span class="sd">            x="time", color="red", add_legend=False, marker="o", label="outliers"</span>
 <span class="sd">        )</span>
 
 <span class="sd">        mu = analogs.mean()</span>
@@ -1667,8 +1672,8 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
 <span class="c1"># plot signal vs. time</span>
-<span class="n">analogs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">analogs_low_passed</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">analogs</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"black"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">analogs_low_passed</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">add_legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Signal vs. Time"</span><span class="p">)</span>
 
 <span class="c1"># plot amplitudes vs. frequencies</span>
@@ -1780,8 +1785,8 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <span class="sd">        fig, ax = plt.subplots(ncols=2, figsize=(10, 4))</span>
 
 <span class="sd">        # plot signal vs. time</span>
-<span class="sd">        analogs.plot.line(x="time_frame", ax=ax[0], color="black", add_legend=False)</span>
-<span class="sd">        analogs_low_passed.plot.line(x="time_frame", ax=ax[0], color="red", add_legend=False)</span>
+<span class="sd">        analogs.plot.line(x="time", ax=ax[0], color="black", add_legend=False)</span>
+<span class="sd">        analogs_low_passed.plot.line(x="time", ax=ax[0], color="red", add_legend=False)</span>
 <span class="sd">        ax[0].set_title("Signal vs. Time")</span>
 
 <span class="sd">        # plot amplitudes vs. frequencies</span>
@@ -2491,7 +2496,7 @@ normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <td><code>ref</code></td>
 <td><code>Union[xarray.core.dataarray.DataArray, &lt;built-in function array&gt;, float, int]</code></td>
 <td>
-<p>Reference value. Could have multiple dimensions. If not provided, takes the mean along the time_frame axis</p>
+<p>Reference value. Could have multiple dimensions. If not provided, takes the mean along the time axis</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -2605,7 +2610,7 @@ To specify any other value, use the <code>ref</code> parameter:</p>
 
 <span class="sd">    Arguments:</span>
 <span class="sd">        ref: Reference value. Could have multiple dimensions.</span>
-<span class="sd">          If not provided, takes the mean along the time_frame axis</span>
+<span class="sd">          If not provided, takes the mean along the time axis</span>
 <span class="sd">        scale: Scale on which to express array (e.g. if 100, the signal is normalized from 0 to 100)</span>
 <span class="sd">    Returns:</span>
 <span class="sd">        A `xarray.DataArray` containing the normalized signal</span>
@@ -3129,7 +3134,7 @@ square<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <div class="doc doc-object doc-method">
 <h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.time_normalize">
 <code class="highlight language-python">
-time_normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_vector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">norm_time_frame</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+time_normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_vector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">norm_time</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
 </h3>
 <div class="doc doc-contents">
 <p>Time normalization used for temporal alignment of data.</p>
@@ -3148,7 +3153,7 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 <td><code>time_vector</code></td>
 <td><code>Union[xarray.core.dataarray.DataArray, &lt;built-in function array&gt;]</code></td>
 <td>
-<p>desired time vector (first to last time_frame with n_frames points by default)</p>
+<p>desired time vector (first to last time with n_frames points by default)</p>
 </td>
 <td><code>None</code></td>
 </tr>
@@ -3161,10 +3166,10 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 <td><code>100</code></td>
 </tr>
 <tr>
-<td><code>norm_time_frame</code></td>
+<td><code>norm_time</code></td>
 <td><code>bool</code></td>
 <td>
-<p>Normalize the time_frame dimension from 0 to 100 if True</p>
+<p>Normalize the time dimension from 0 to 100 if True</p>
 </td>
 <td><code>False</code></td>
 </tr>
@@ -3197,12 +3202,12 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">847</span><span class="p">))</span>
 <span class="n">time_normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time_normalized</span><span class="o">.</span><span class="n">time_frame</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># 100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_normalized</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># 100</span>
 </code></pre>
 </div>
-<p>To normalize the corresponding time_frame dimension from 0 to 100%, specify <code>norm_time_frame=True</code>:</p>
+<p>To normalize the corresponding time dimension from 0 to 100%, specify <code>norm_time=True</code>:</p>
 <div class="codehilite">
-<pre><span></span><code><span class="n">time_normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">norm_time_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<pre><span></span><code><span class="n">time_normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">norm_time</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">time_normalized</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
@@ -3212,7 +3217,7 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 However, you can specify the desired number of frames:</p>
 <div class="codehilite">
 <pre><span></span><code><span class="n">time_normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">n_frames</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">time_normalized</span><span class="o">.</span><span class="n">time_frame</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># 500</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_normalized</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># 500</span>
 </code></pre>
 </div>
 <p>You can also specify the desired time_vector directly in the <code>time_vector</code> parameter:</p>
@@ -3296,15 +3301,15 @@ However, you can specify the desired number of frames:</p>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">time_vector</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">n_frames</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="n">norm_time_frame</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">norm_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
     <span class="sd">"""</span>
 <span class="sd">    Time normalization used for temporal alignment of data.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        time_vector: desired time vector (first to last time_frame with n_frames points by default)</span>
+<span class="sd">        time_vector: desired time vector (first to last time with n_frames points by default)</span>
 <span class="sd">        n_frames: if time_vector is not specified, the length of the desired time vector</span>
-<span class="sd">        norm_time_frame: Normalize the time_frame dimension from 0 to 100 if True</span>
+<span class="sd">        norm_time: Normalize the time dimension from 0 to 100 if True</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        A time-normalized `xarray.DataArray`</span>
@@ -3319,13 +3324,13 @@ However, you can specify the desired number of frames:</p>
 
 <span class="sd">        analogs = Analogs.from_random_data(size=(1, 847))</span>
 <span class="sd">        time_normalized = analogs.meca.time_normalize()</span>
-<span class="sd">        print(time_normalized.time_frame.size)  # 100</span>
+<span class="sd">        print(time_normalized.time.size)  # 100</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        To normalize the corresponding time_frame dimension from 0 to 100%, specify `norm_time_frame=True`:</span>
+<span class="sd">        To normalize the corresponding time dimension from 0 to 100%, specify `norm_time=True`:</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        time_normalized = analogs.meca.time_normalize(norm_time_frame=True)</span>
+<span class="sd">        time_normalized = analogs.meca.time_normalize(norm_time=True)</span>
 <span class="sd">        time_normalized.plot()</span>
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
@@ -3337,7 +3342,7 @@ However, you can specify the desired number of frames:</p>
 
 <span class="sd">        ```python</span>
 <span class="sd">        time_normalized = analogs.meca.time_normalize(n_frames=500)</span>
-<span class="sd">        print(time_normalized.time_frame.size)  # 500</span>
+<span class="sd">        print(time_normalized.time.size)  # 500</span>
 <span class="sd">        ```</span>
 
 <span class="sd">        You can also specify the desired time_vector directly in the `time_vector` parameter:</span>
@@ -3349,7 +3354,7 @@ However, you can specify the desired number of frames:</p>
 <span class="sd">        ```</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">interp</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">time_vector</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">,</span> <span class="n">norm_time_frame</span><span class="o">=</span><span class="n">norm_time_frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">time_vector</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">,</span> <span class="n">norm_time</span><span class="o">=</span><span class="n">norm_time</span>
     <span class="p">)</span>
 </code></pre>
 </div>
