@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
 <meta content="An Open-Source Framework for Biomechanical Analysis" name="description"/>
-<link href="https://romainmartinez.github.io/motion/case-studies/" rel="canonical"/>
+<link href="https://romainmartinez.github.io/motion/overview/" rel="canonical"/>
 <meta content="Romain Martinez" name="author"/>
 <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
 <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
@@ -20,7 +20,7 @@
 <meta content="[\s\-]+" name="lang:search.tokenizer"/>
 <link href="../images/favicon.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-4.6.3" name="generator"/>
-<title>Case Studies - Motion</title>
+<title>Overview - Motion</title>
 <link href="../assets/stylesheets/application.adb8469c.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
 <meta content="#546e7a" name="theme-color"/>
@@ -40,6 +40,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+<a class="md-skip" href="#working-with-labelled-multi-dimensional-arrays" tabindex="0">
+        Skip to content
+      </a>
 <header class="md-header" data-md-component="header">
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
@@ -58,7 +61,7 @@
             </span>
 <span class="md-header-nav__topic">
               
-                Case Studies
+                Overview
               
             </span>
 </div>
@@ -159,9 +162,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./" title="Case Studies">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../case-studies/" title="Case Studies">
       Case Studies
     </a>
 </li>
@@ -213,45 +215,126 @@
 </div>
 </div>
 </div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#working-with-labelled-multi-dimensional-arrays">
+    Working with labelled multi-dimensional arrays
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-functionalities">
+    Core functionalities
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/case-studies.md" title="Edit this page"></a>
-<h1>Case Studies</h1>
+<a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/overview.md" title="Edit this page"></a>
+<h1>Overview</h1>
+<h2 id="working-with-labelled-multi-dimensional-arrays">Working with labelled multi-dimensional arrays</h2>
+<p>Motion introduces a concise interface to read, analyse, visualize and plot biomechanical data.</p>
+<p>Such data are typically <em>multi-dimensional</em>, such as joint angles with associated axes, degrees of freedom and time frames.</p>
+<div id="angles-matrix"></div>
+<p><a href="https:numpy.org">NumPy</a> is the fundamental package for multi-dimensional computing with Python.
+While NumPy provides an efficient data structure and an intuitive interface, biomechanical datasets are usually more than just raw numbers and have labels which encode how the array values map to different dimensions such as axes, degrees of freedom, channels or time frames.</p>
+<p>Motion is build upon and extend the core strengths of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>, which keeps tracks of labels and provides a powerful and concise interface which makes it easy to:</p>
+<ul>
+<li>Apply any operations over dimensions by name (<code>array.sum(dim="time_frame")</code>) instead of arbitrary axis (<code>array.sum(axis=2)</code>).</li>
+<li>Select values by labels (<code>array.sel(axis="x")</code> or <code>emg.sel(channel="biceps")</code>)</li>
+<li>Vectorize computation across multiple dimensions.</li>
+<li>Use the <a href="https://vita.had.co.nz/papers/plyr.pdf">split-apply-combine</a> paradigm, for example: <code>emg.groupby("channel").mean()</code> or any custom function: <code>emg.groupby('channel').map(lambda x: x - x.mean())</code>).</li>
+<li>Keep track of metadata in the <code>array.attrs</code> Python dictionary (<code>array.attrs["rate"]</code>).</li>
+<li>Extent the xarray interface with domain specific functionalities with custom accessors on xarray objects. In motion, the biomechanics specific functions are registered under the <code>meca</code> name space (<code>array.meca</code>).</li>
+</ul>
+<p>Working with labels makes it much easier to work with multi-dimensional arrays as you do not have to keep track of the order of the dimensions or insert dummy dimensions to align arrays.
+This allows for a more intuitive, more concise, and less error-prone developer experience.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As the underlying data-structure is still a NumPy array, NumPy functions (<code>np.abs(array)</code>) and indexing (<code>array[:, 0, 1]</code>) work out of the box.</p>
+</div>
+<p>By leveraging xarray data structures, Motion inherit their features such as built-in <a href="http://xarray.pydata.org/en/stable/interpolation.html">interpolation</a>, <a href="http://xarray.pydata.org/en/stable/computation.html">computation</a>, <a href="http://xarray.pydata.org/en/stable/groupby.html">GroupBy</a>, <a href="http://xarray.pydata.org/en/stable/combining.html">data wrangling</a>, <a href="http://xarray.pydata.org/en/stable/dask.html">parallel computing</a> and <a href="http://xarray.pydata.org/en/stable/plotting.html">plotting</a>.</p>
+<div class="admonition info">
+<p class="admonition-title">Extending xarray</p>
+<p>Xarray is designed as a general purpose library and tries to avoid including domain specific functionalities.
+But inevitably, the need for more domain specific logic arises.
+That's why motion and <a href="http://xarray.pydata.org/en/stable/related-projects.html">dozens of other scientific packages</a> extend xarray.</p>
+<p>Extending data structure in Python is usually achieved with class inheritance.
+However inheritance is not very robust for large class such as <code>xarray.DataArray</code>.
+To add domain specific functionality, motion follows xarray developpers' recommendations and use a custom "accessor".
+To read why, you can check out the <a href="http://xarray.pydata.org/en/stable/internals.html#extending-xarray">xarray documentation</a>.</p>
+</div>
+<h2 id="core-functionalities">Core functionalities</h2>
+<p>Motion has four data structures build upon <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>.
+Each structure is associated with a specific biomechanical data type and have specialized functionalities:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Dimensions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/api/analogs/#motion.analogs.Analogs"><code>Analogs</code></a></td>
+<td><code>("channel", "time_frame")</code></td>
+<td>Generic signals such as EMGs, force signals or any other analog signal</td>
+</tr>
+<tr>
+<td><a href="/api/angles/#motion.angles.Angles"><code>Angles</code></a></td>
+<td><code>("axis", "channel", "time_frame")</code></td>
+<td>Joint angles</td>
+</tr>
+<tr>
+<td><a href="/api/markers/#motion.markers.Markers"><code>Markers</code></a></td>
+<td><code>("axis", "channel", "time_frame")</code></td>
+<td>Skin marker positions</td>
+</tr>
+<tr>
+<td><a href="/api/rototrans/#motion.rototrans.Rototrans"><code>Rototrans</code></a></td>
+<td><code>("row", "col", "time_frame")</code></td>
+<td>Rototranslation matrix</td>
+</tr>
+</tbody>
+</table>
+<p>There is technically dozens of functions in motion, but you can actually bucket then into two specific categories:</p>
+<ol>
+<li><a href="/object-creation/">Object creation</a> with the <code>from_*</code> methods. For example, if you want to define a marker array from a csv file: <code>markers = Markers.from_csv(...)</code>.</li>
+<li><a href="/data-processing/">Data processing</a> with the <code>meca</code> array accessor. To low-pass filter our previous markers: <code>markers.meca.low_pass(...)</code>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check out the API reference to see the parameters, use cases and examples associated with each function.</p>
+</div>
+<p>You can explore all of motion's public API on the following interactive visualization. 
+Hover the mouse over any bloc to display a short description with some examples
+ and click to jump to the corresponding API reference. </p>
+<div id="api-exploration">
+<div class="admonition info tooltip" id="tooltip">
+<p class="admonition-title" id="tooltip-title"></p>
+<p id="tooltip-docstring"></p>
+</div>
+</div>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="../js/charts.js"></script>
+<script>
+    drawMatrix("angles-matrix", [3, 2, 5], ["axes", "degrees of freedom", "time frames"], "Joint angles");
+    drawApi("api-exploration");
+</script>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
-<div class="md-footer-nav">
-<nav class="md-footer-nav__inner md-grid">
-<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../data-processing/" rel="prev" title="Data processing">
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-</div>
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Data processing
-              </span>
-</div>
-</a>
-<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../about/" rel="next" title="About">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-                  Next
-                </span>
-                About
-              </span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-</div>
-</a>
-</nav>
-</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

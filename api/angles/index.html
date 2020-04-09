@@ -1,542 +1,422 @@
 
+<!DOCTYPE html>
 
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="An Open-Source Framework for Biomechanical Analysis">
-      
-      
-      
-        <meta name="author" content="Romain Martinez">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
-    
-    
-      
-        <title>Angles - Motion</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546e7a">
-      
-    
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-    
-    
-      <link rel="stylesheet" href="../../custom.css">
-    
-    
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#anglespy" tabindex="0" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<meta content="An Open-Source Framework for Biomechanical Analysis" name="description"/>
+<link href="https://romainmartinez.github.io/motion/api/angles/" rel="canonical"/>
+<meta content="Romain Martinez" name="author"/>
+<meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+<meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+<meta content="en" name="lang:search.language"/>
+<meta content="True" name="lang:search.pipeline.stopwords"/>
+<meta content="True" name="lang:search.pipeline.trimmer"/>
+<meta content="No matching documents" name="lang:search.result.none"/>
+<meta content="1 matching document" name="lang:search.result.one"/>
+<meta content="# matching documents" name="lang:search.result.other"/>
+<meta content="[\s\-]+" name="lang:search.tokenizer"/>
+<link href="../../images/favicon.ico" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-4.6.3" name="generator"/>
+<title>Angles - Motion</title>
+<link href="../../assets/stylesheets/application.adb8469c.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
+<meta content="#546e7a" name="theme-color"/>
+<script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+<link href="../../assets/fonts/material-icons.css" rel="stylesheet"/>
+<link href="../../custom.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="teal" data-md-color-primary="blue-grey" dir="ltr">
+<svg class="md-svg">
+<defs>
+<svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg"><path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor"></path></svg>
+</defs>
+</svg>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+<a class="md-skip" href="#anglespy" tabindex="0">
         Skip to content
       </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Motion" aria-label="Motion" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a aria-label="Motion" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<img alt="logo" height="24" src="../../images/logo.svg" width="24"/>
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
               Motion
             </span>
-            <span class="md-header-nav__topic">
+<span class="md-header-nav__topic">
               
                 Angles
               
             </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-icon md-search__icon" for="__search"></label>
+<button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+        
       </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
             Type to start searching
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/pyomeca/pyomeca/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<div class="md-header-nav__source">
+<a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
+<div class="md-source__icon">
+<svg height="24" viewbox="0 0 24 24" width="24">
+<use height="24" width="24" xlink:href="#__github"></use>
+</svg>
+</div>
+<div class="md-source__repository">
     pyomeca/pyomeca
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Motion" class="md-nav__button md-logo">
-      
-        <img alt="logo" src="../../images/logo.svg" width="48" height="48">
-      
-    </a>
+<div class="md-container">
+<main class="md-main" role="main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title md-nav__title--site" for="__drawer">
+<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<img alt="logo" height="48" src="../../images/logo.svg" width="48"/>
+</a>
     Motion
   </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/pyomeca/pyomeca/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
+<div class="md-source__icon">
+<svg height="24" viewbox="0 0 24 24" width="24">
+<use height="24" width="24" xlink:href="#__github"></use>
+</svg>
+</div>
+<div class="md-source__repository">
     pyomeca/pyomeca
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/" title="Getting Started">
       Getting Started
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
       User Guide
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
         User Guide
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../object-creation/" title="Object creation" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../object-creation/" title="Object creation">
       Object creation
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-processing/" title="Data processing" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../data-processing/" title="Data processing">
       Data processing
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../case-studies/" title="Case Studies" class="md-nav__link">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../case-studies/" title="Case Studies">
       Case Studies
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../about/" title="About" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../about/" title="About">
       About
     </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-toggle md-nav__toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
       API reference
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
         API reference
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../analogs/" title="Analogs" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../analogs/" title="Analogs">
       Analogs
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
         Angles
       </label>
-    
-    <a href="./" title="Angles" class="md-nav__link md-nav__link--active">
+<a class="md-nav__link md-nav__link--active" href="./" title="Angles">
       Angles
     </a>
-    
-      
 <nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#motion.angles.Angles" class="md-nav__link">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles">
+    motion.angles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles">
     Angles
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.9595new9595" class="md-nav__link">
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.__new__">
     __new__()
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.from_random_data" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.from_random_data">
     from_random_data()
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.from_rototrans" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.from_rototrans">
     from_rototrans()
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
+</ul>
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../markers/" title="Markers" class="md-nav__link">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../markers/" title="Markers">
       Markers
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../dataarray_accessor/" title="Dataarray_accessor" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dataarray_accessor/" title="Dataarray_accessor">
       Dataarray_accessor
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../rototrans/" title="Rototrans" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rototrans/" title="Rototrans">
       Rototrans
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
 <nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#motion.angles.Angles" class="md-nav__link">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles">
+    motion.angles
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles">
     Angles
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.9595new9595" class="md-nav__link">
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.__new__">
     __new__()
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.from_random_data" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.from_random_data">
     from_random_data()
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#motion.angles.Angles.from_rototrans" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#motion.angles.Angles.from_rototrans">
     from_rototrans()
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/pyomeca/pyomeca/edit/master/docs/api/angles.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <h1 id="anglespy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/angles.py"><code>angles.py</code></a><a class="headerlink" href="#anglespy" title="Permanent link">&para;</a></h1>
-<h2 id="motion.angles.Angles"><code class="codehilite"><span class="n">Angles</span></code><a class="headerlink" href="#motion.angles.Angles" title="Permanent link">&para;</a></h2>
-<div class="autodoc">
-<p>Joint angles.</p>
-<h3 id="motion.angles.Angles.__new__"><code class="codehilite"><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(staticmethod)</em><a class="headerlink" href="#motion.angles.Angles.__new__" title="Permanent link">&para;</a></h3>
-<div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/api/angles.md" title="Edit this page"></a>
+<h1 id="anglespy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/angles.py"><code>angles.py</code></a></h1>
+<div class="doc doc-object doc-module">
+<h6 class="hidden-toc" href="#motion.angles" id="motion.angles" style="visibility: hidden; width: 0; height: 0;">
+</h6>
+<div class="doc doc-contents first">
+<div class="doc doc-children">
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="motion.angles.Angles">
+<code>Angles</code>
+</h2>
+<div class="doc doc-contents">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="motion.angles.Angles.__new__">
+<code class="highlight language-python">
+__new__<span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+<small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+</span>
+</h3>
+<div class="doc doc-contents">
+<p>Angles DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions
+ used for joint angles.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td><code>Optional[Union[&lt;built-in function array&gt;, numpy.ndarray, xarray.core.dataarray.DataArray, list]]</code></td>
+<td>
+<p>Array to be passed to xarray.DataArray</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>time_frames</code></td>
+<td><code>Optional[Union[&lt;built-in function array&gt;, list, pandas.core.series.Series]]</code></td>
+<td>
+<p>Time vector in seconds associated with the <code>data</code> parameter</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>args</code></td>
+<td><code></code></td>
+<td>
+<p>Positional argument(s) to be passed to xarray.DataArray</p>
+</td>
+<td><code>()</code></td>
+</tr>
+<tr>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Keyword argument(s) to be passed to xarray.DataArray</p>
+</td>
+<td><code>{}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DataArray</code></td>
+<td>
+<p>Angles <code>xarray.DataArray</code> with the specified data and coordinates</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>To instantiate an <code>Angles</code> 4 by 4 and 100 frames filled with some random data:</p>
+<div class="codehilite">
+<pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
+
+<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_channel</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channel</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>You can an associate time vector:</p>
+<div class="codehilite">
+<pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
+<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
+</code></pre>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Calling <code>Angles()</code> generate an empty array.</p>
+</div>
+<details class="quote">
+<summary>Source code in <code>motion/angles.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>11
+12
+13
 14
 15
 16
@@ -591,70 +471,88 @@
 65
 66
 67
-68
-69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
-        <span class="bp">cls</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">time_frames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+68</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+    <span class="bp">cls</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="nb">list</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">time_frames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Angles DataArray with `axis`, `channel` and `time_frame` dimensions</span>
+<span class="sd">     used for joint angles.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        data: Array to be passed to xarray.DataArray</span>
+<span class="sd">        time_frames: Time vector in seconds associated with the `data` parameter</span>
+<span class="sd">        args: Positional argument(s) to be passed to xarray.DataArray</span>
+<span class="sd">        kwargs: Keyword argument(s) to be passed to xarray.DataArray</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Angles `xarray.DataArray` with the specified data and coordinates</span>
+
+<span class="sd">    !!! example</span>
+<span class="sd">        To instantiate an `Angles` 4 by 4 and 100 frames filled with some random data:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        from motion import Angles</span>
+
+<span class="sd">        n_axis = 3</span>
+<span class="sd">        n_channel = 3</span>
+<span class="sd">        n_frames = 100</span>
+<span class="sd">        data = np.random.random(size=(n_axis, n_channel, n_frames))</span>
+<span class="sd">        angles = Angles(data)</span>
+<span class="sd">        ```</span>
+
+<span class="sd">        You can an associate time vector:</span>
+
+<span class="sd">        ```python</span>
+<span class="sd">        rate = 100  # Hz</span>
+<span class="sd">        time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
+<span class="sd">        angles = Angles(data, time_frames=time_frames)</span>
+<span class="sd">        ```</span>
+
+<span class="sd">    !!! note</span>
+<span class="sd">        Calling `Angles()` generate an empty array.</span>
+<span class="sd">    """</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">time_frames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">coords</span><span class="p">[</span><span class="s2">"time_frame"</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_frames</span>
+    <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">"axis"</span><span class="p">,</span> <span class="s2">"channel"</span><span class="p">,</span> <span class="s2">"time_frame"</span><span class="p">),</span>
+        <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"angles"</span><span class="p">,</span>
         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Angles DataArray with `axis`, `channel` and `time_frame` dimensions.</span>
-
-<span class="sd">        Arguments:</span>
-<span class="sd">            data: Array to be passed to xarray.DataArray</span>
-<span class="sd">            time_frames: Time vector in seconds associated with the `data` parameter</span>
-<span class="sd">            args: Positional argument(s) to be passed to xarray.DataArray</span>
-<span class="sd">            kwargs: Keyword argument(s) to be passed to xarray.DataArray</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            Angles `xarray.DataArray` with the specified data and coordinates</span>
-
-<span class="sd">        !!! example</span>
-<span class="sd">            To instantiate an `Angles` 4 by 4 and 100 frames filled with some random data:</span>
-
-<span class="sd">            ```python</span>
-<span class="sd">            import numpy as np</span>
-<span class="sd">            from motion import Angles</span>
-
-<span class="sd">            n_axis = 3</span>
-<span class="sd">            n_channel = 3</span>
-<span class="sd">            n_frames = 100</span>
-<span class="sd">            data = np.random.random(size=(n_axis, n_channel, n_frames))</span>
-<span class="sd">            angles = Angles(data)</span>
-<span class="sd">            ```</span>
-
-<span class="sd">            You can an associate time vector:</span>
-
-<span class="sd">            ```python</span>
-<span class="sd">            rate = 100  # Hz</span>
-<span class="sd">            time_frames = np.arange(start=0, stop=n_frames / rate, step=1 / rate)</span>
-<span class="sd">            angles = Angles(data, time_frames=time_frames)</span>
-<span class="sd">            ```</span>
-
-<span class="sd">        !!! note</span>
-<span class="sd">            Calling `Angles()` generate an empty array.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">coords</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">time_frames</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">coords</span><span class="p">[</span><span class="s2">&quot;time_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_frames</span>
-        <span class="k">return</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-            <span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;axis&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;time_frame&quot;</span><span class="p">),</span>
-            <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;angles&quot;</span><span class="p">,</span>
-            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-        <span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Angles DataArray with <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="motion.angles.Angles.from_random_data">
+<code class="highlight language-python">
+from_random_data<span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">'normal'</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+</span>
+</h3>
+<div class="doc doc-contents">
+<p>Create random data from a specified distribution (normal by default) using random walk.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -666,32 +564,40 @@
 </thead>
 <tbody>
 <tr>
-<td><code>data</code></td>
-<td><code>Optional[Union[&lt;built-in function array&gt;, numpy.ndarray, xarray.core.dataarray.DataArray, list]]</code></td>
-<td>Array to be passed to xarray.DataArray</td>
-<td><code>None</code></td>
+<td><code>distribution</code></td>
+<td><code>str</code></td>
+<td>
+<p>Distribution available in <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a></p>
+</td>
+<td><code>'normal'</code></td>
 </tr>
 <tr>
-<td><code>time_frames</code></td>
-<td><code>Optional[Union[&lt;built-in function array&gt;, list, pandas.core.series.Series]]</code></td>
-<td>Time vector in seconds associated with the <code>data</code> parameter</td>
-<td><code>None</code></td>
+<td><code>size</code></td>
+<td><code>tuple</code></td>
+<td>
+<p>Shape of the desired array</p>
+</td>
+<td><code>(3, 10, 100)</code></td>
 </tr>
 <tr>
-<td><code>*args</code></td>
-<td></td>
-<td>Positional argument(s) to be passed to xarray.DataArray</td>
+<td><code>args</code></td>
+<td><code></code></td>
+<td>
+<p>Positional argument(s) to be passed to numpy.random.<code>distribution</code></p>
+</td>
 <td><code>()</code></td>
 </tr>
 <tr>
-<td><code>**kwargs</code></td>
-<td></td>
-<td>Keyword argument(s) to be passed to xarray.DataArray</td>
+<td><code>kwargs</code></td>
+<td><code></code></td>
+<td>
+<p>Keyword argument(s) to be passed to numpy.random.<code>distribution</code></p>
+</td>
 <td><code>{}</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -702,38 +608,38 @@
 <tbody>
 <tr>
 <td><code>DataArray</code></td>
-<td>Angles <code>xarray.DataArray</code> with the specified data and coordinates</td>
+<td>
+<p>Random angles <code>xarray.DataArray</code> sampled from a given distribution</p>
+</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>To instantiate an <code>Angles</code> 4 by 4 and 100 frames filled with some random data:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
+<p>To instantiate an <code>Angles</code> with some random data sampled from a normal distribution:</p>
+<div class="codehilite">
+<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
 
-<span class="n">n_axis</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">n_channel</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_axis</span><span class="p">,</span> <span class="n">n_channel</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p>You can an associate time vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rate</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Hz</span>
-<span class="n">time_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">n_frames</span> <span class="o">/</span> <span class="n">rate</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="n">rate</span><span class="p">)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">time_frames</span><span class="o">=</span><span class="n">time_frames</span><span class="p">)</span>
-</code></pre></div>
-
+<span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_frames</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+</code></pre>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Calling <code>Angles()</code> generate an empty array.</p>
+<p>You can choose any distribution available in
+    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
+<div class="codehilite">
+<pre><span></span><code><span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">"uniform"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre>
 </div>
 </div>
-<h3 id="motion.angles.Angles.from_random_data"><code class="codehilite"><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.angles.Angles.from_random_data" title="Permanent link">&para;</a></h3>
-<div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 71
+<details class="quote">
+<summary>Source code in <code>motion/angles.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span> 70
+ 71
  72
  73
  74
@@ -769,51 +675,68 @@
 104
 105
 106
-107
-108</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
-        <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create random data from a specified distribution (normal by default) using random walk.</span>
+107</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_random_data</span><span class="p">(</span>
+    <span class="bp">cls</span><span class="p">,</span> <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"normal"</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Create random data from a specified distribution (normal by default) using random walk.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            distribution: Distribution available in</span>
-<span class="sd">              [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions)</span>
-<span class="sd">            size: Shape of the desired array</span>
-<span class="sd">            args: Positional argument(s) to be passed to numpy.random.`distribution`</span>
-<span class="sd">            kwargs: Keyword argument(s) to be passed to numpy.random.`distribution`</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        distribution: Distribution available in</span>
+<span class="sd">          [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions)</span>
+<span class="sd">        size: Shape of the desired array</span>
+<span class="sd">        args: Positional argument(s) to be passed to numpy.random.`distribution`</span>
+<span class="sd">        kwargs: Keyword argument(s) to be passed to numpy.random.`distribution`</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Random angles `xarray.DataArray` sampled from a given distribution</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Random angles `xarray.DataArray` sampled from a given distribution</span>
 
-<span class="sd">        !!! example</span>
-<span class="sd">            To instantiate an `Angles` with some random data sampled from a normal distribution:</span>
+<span class="sd">    !!! example</span>
+<span class="sd">        To instantiate an `Angles` with some random data sampled from a normal distribution:</span>
 
-<span class="sd">            ```python</span>
-<span class="sd">            from motion import Angles</span>
+<span class="sd">        ```python</span>
+<span class="sd">        from motion import Angles</span>
 
-<span class="sd">            n_frames = 100</span>
-<span class="sd">            size = 10, 10, n_frames</span>
-<span class="sd">            angles = Angles.from_random_data(size=size)</span>
-<span class="sd">            ```</span>
+<span class="sd">        n_frames = 100</span>
+<span class="sd">        size = 10, 10, n_frames</span>
+<span class="sd">        angles = Angles.from_random_data(size=size)</span>
+<span class="sd">        ```</span>
 
-<span class="sd">            You can choose any distribution available in</span>
-<span class="sd">                [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
+<span class="sd">        You can choose any distribution available in</span>
+<span class="sd">            [numpy.random](https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions):</span>
 
-<span class="sd">            ```python</span>
-<span class="sd">            angles = Angles.from_random_data(distribution=&quot;uniform&quot;, size=size, low=1, high=10)</span>
-<span class="sd">            ```</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Angles</span><span class="p">(</span>
-            <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
+<span class="sd">        ```python</span>
+<span class="sd">        angles = Angles.from_random_data(distribution="uniform", size=size, low=1, high=10)</span>
+<span class="sd">        ```</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">Angles</span><span class="p">(</span>
+        <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Create random data from a specified distribution (normal by default) using random walk.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h3 class="doc doc-heading" id="motion.angles.Angles.from_rototrans">
+<code class="highlight language-python">
+from_rototrans<span class="p">(</span><span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+</span>
+</h3>
+<div class="doc doc-contents">
+<p>Angles DataArray from a rototranslation matrix and specified angle sequence.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -825,32 +748,24 @@
 </thead>
 <tbody>
 <tr>
-<td><code>distribution</code></td>
+<td><code>rototrans</code></td>
+<td><code>DataArray</code></td>
+<td>
+<p>Rototranslation matrix created with motion.Rototrans()</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>angle_sequence</code></td>
 <td><code>str</code></td>
-<td>Distribution available in <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a></td>
-<td><code>'normal'</code></td>
-</tr>
-<tr>
-<td><code>size</code></td>
-<td><code>tuple</code></td>
-<td>Shape of the desired array</td>
-<td><code>(3, 10, 100)</code></td>
-</tr>
-<tr>
-<td><code>*args</code></td>
-<td></td>
-<td>Positional argument(s) to be passed to numpy.random.<code>distribution</code></td>
-<td><code>()</code></td>
-</tr>
-<tr>
-<td><code>**kwargs</code></td>
-<td></td>
-<td>Keyword argument(s) to be passed to numpy.random.<code>distribution</code></td>
-<td><code>{}</code></td>
+<td>
+<p>Euler sequence of angles. Valid values are all permutations of "xyz"</p>
+</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -861,30 +776,34 @@
 <tbody>
 <tr>
 <td><code>DataArray</code></td>
-<td>Random angles <code>xarray.DataArray</code> sampled from a given distribution</td>
+<td>
+<p>Angles <code>xarray.DataArray</code> from the specified rototrans and angles sequence</p>
+</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p>To instantiate an <code>Angles</code> with some random data sampled from a normal distribution:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span>
+<p>To get the euler angles from a random rototranslation matrix with a given angle sequence type:</p>
+<div class="codehilite">
+<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
 
-<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_frames</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-</code></pre></div>
+<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
+<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">"xyz"</span>
 
-<p>You can choose any distribution available in
-    <a href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html#distributions">numpy.random</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="o">=</span><span class="n">rt</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
+</code></pre>
 </div>
 </div>
-<h3 id="motion.angles.Angles.from_rototrans"><code class="codehilite"><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span></code> <em>(classmethod)</em><a class="headerlink" href="#motion.angles.Angles.from_rototrans" title="Permanent link">&para;</a></h3>
-<div class="autodoc">
-<details class="note"><summary>Show source code in <code>motion/angles.py</code></summary><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>110
+<details class="quote">
+<summary>Source code in <code>motion/angles.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>109
+110
 111
 112
 113
@@ -910,180 +829,110 @@
 133
 134
 135
-136
-137</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">from_rototrans</span><span class="p">(</span>
-        <span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Angles DataArray from a rototranslation matrix and specified angle sequence.</span>
+136</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_rototrans</span><span class="p">(</span>
+    <span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">:</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Angles DataArray from a rototranslation matrix and specified angle sequence.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            rototrans: Rototranslation matrix created with motion.Rototrans()</span>
-<span class="sd">            angle_sequence: Euler sequence of angles. Valid values are all permutations of &quot;xyz&quot;</span>
+<span class="sd">    Arguments:</span>
+<span class="sd">        rototrans: Rototranslation matrix created with motion.Rototrans()</span>
+<span class="sd">        angle_sequence: Euler sequence of angles. Valid values are all permutations of "xyz"</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Angles `xarray.DataArray` from the specified rototrans and angles sequence</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Angles `xarray.DataArray` from the specified rototrans and angles sequence</span>
 
-<span class="sd">        !!! example</span>
-<span class="sd">            To get the euler angles from a random rototranslation matrix with a given angle sequence type:</span>
+<span class="sd">    !!! example</span>
+<span class="sd">        To get the euler angles from a random rototranslation matrix with a given angle sequence type:</span>
 
-<span class="sd">            ```python</span>
-<span class="sd">            from motion import Angles, Rototrans</span>
+<span class="sd">        ```python</span>
+<span class="sd">        from motion import Angles, Rototrans</span>
 
-<span class="sd">            size = (4, 4, 100)</span>
-<span class="sd">            rt = Rototrans.from_random_data(size=size)</span>
-<span class="sd">            angles_sequence = &quot;xyz&quot;</span>
+<span class="sd">        size = (4, 4, 100)</span>
+<span class="sd">        rt = Rototrans.from_random_data(size=size)</span>
+<span class="sd">        angles_sequence = "xyz"</span>
 
-<span class="sd">            angles = Angles.from_rototrans(rototrans=rt, angle_sequence=angles_sequence)</span>
-<span class="sd">            ```</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">angles</span><span class="o">.</span><span class="n">angles_from_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
+<span class="sd">        angles = Angles.from_rototrans(rototrans=rt, angle_sequence=angles_sequence)</span>
+<span class="sd">        ```</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">angles</span><span class="o">.</span><span class="n">angles_from_rototrans</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rototrans</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Angles DataArray from a rototranslation matrix and specified angle sequence.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>rototrans</code></td>
-<td><code>DataArray</code></td>
-<td>Rototranslation matrix created with motion.Rototrans()</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>angle_sequence</code></td>
-<td><code>str</code></td>
-<td>Euler sequence of angles. Valid values are all permutations of "xyz"</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DataArray</code></td>
-<td>Angles <code>xarray.DataArray</code> from the specified rototrans and angles sequence</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<p>To get the euler angles from a random rototranslation matrix with a given angle sequence type:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span>
-
-<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">)</span>
-<span class="n">angles_sequence</span> <span class="o">=</span> <span class="s2">&quot;xyz&quot;</span>
-
-<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_rototrans</span><span class="p">(</span><span class="n">rototrans</span><span class="o">=</span><span class="n">rt</span><span class="p">,</span> <span class="n">angle_sequence</span><span class="o">=</span><span class="n">angles_sequence</span><span class="p">)</span>
-</code></pre></div>
-
 </div>
 </div>
 </div>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../analogs/" title="Analogs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../analogs/" rel="prev" title="Analogs">
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Analogs
               </span>
-            </div>
-          </a>
-        
-        
-          <a href="../markers/" title="Markers" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+</div>
+</a>
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../markers/" rel="next" title="Markers">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
                   Next
                 </span>
                 Markers
               </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2019 Romain Martinez
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Copyright © 2019 Romain Martinez
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        <a href="https://www.mkdocs.org" rel="noopener" target="_blank">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/romainmartinez" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
-    
-  </div>
-
-    </div>
-  </div>
+</div>
+<div class="md-footer-social">
+<link href="../../assets/fonts/font-awesome.css" rel="stylesheet"/>
+<a class="md-footer-social__link fa fa-github" href="https://github.com/romainmartinez" rel="noopener" target="_blank" title="github"></a>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
-      
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
-      
-    
-  </body>
+</div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script>
+<script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
+</body>
 </html>

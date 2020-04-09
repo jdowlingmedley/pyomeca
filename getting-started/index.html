@@ -1,695 +1,1685 @@
 
+<!DOCTYPE html>
 
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="An Open-Source Framework for Biomechanical Analysis">
-      
-      
-      
-        <meta name="author" content="Romain Martinez">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
-    
-    
-      
-        <title>Getting Started - Motion</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#546e7a">
-      
-    
-    
-      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
-    
-    
-      <link rel="stylesheet" href="../custom.css">
-    
-    
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="teal">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#working-with-labelled-multi-dimensional-arrays" tabindex="0" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ie=edge" http-equiv="x-ua-compatible"/>
+<meta content="An Open-Source Framework for Biomechanical Analysis" name="description"/>
+<link href="https://romainmartinez.github.io/motion/getting-started/" rel="canonical"/>
+<meta content="Romain Martinez" name="author"/>
+<meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+<meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+<meta content="en" name="lang:search.language"/>
+<meta content="True" name="lang:search.pipeline.stopwords"/>
+<meta content="True" name="lang:search.pipeline.trimmer"/>
+<meta content="No matching documents" name="lang:search.result.none"/>
+<meta content="1 matching document" name="lang:search.result.one"/>
+<meta content="# matching documents" name="lang:search.result.other"/>
+<meta content="[\s\-]+" name="lang:search.tokenizer"/>
+<link href="../images/favicon.ico" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-4.6.3" name="generator"/>
+<title>Getting Started - Motion</title>
+<link href="../assets/stylesheets/application.adb8469c.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
+<meta content="#546e7a" name="theme-color"/>
+<script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+<link href="../assets/fonts/material-icons.css" rel="stylesheet"/>
+<link href="../custom.css" rel="stylesheet"/>
+</head>
+<body data-md-color-accent="teal" data-md-color-primary="blue-grey" dir="ltr">
+<svg class="md-svg">
+<defs>
+<svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg"><path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor"></path></svg>
+</defs>
+</svg>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+<a class="md-skip" href="#installation" tabindex="0">
         Skip to content
       </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="Motion" aria-label="Motion" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../images/logo.svg" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
+<header class="md-header" data-md-component="header">
+<nav class="md-header-nav md-grid">
+<div class="md-flex">
+<div class="md-flex__cell md-flex__cell--shrink">
+<a aria-label="Motion" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<img alt="logo" height="24" src="../images/logo.svg" width="24"/>
+</a>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+</div>
+<div class="md-flex__cell md-flex__cell--stretch">
+<div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+<span class="md-header-nav__topic">
               Motion
             </span>
-            <span class="md-header-nav__topic">
+<span class="md-header-nav__topic">
               
                 Getting Started
               
             </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-icon md-search__icon" for="__search"></label>
+<button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+        
       </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="result">
+<div class="md-search-result__meta">
             Type to start searching
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/pyomeca/pyomeca/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<div class="md-header-nav__source">
+<a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
+<div class="md-source__icon">
+<svg height="24" viewbox="0 0 24 24" width="24">
+<use height="24" width="24" xlink:href="#__github"></use>
+</svg>
+</div>
+<div class="md-source__repository">
     pyomeca/pyomeca
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="Motion" class="md-nav__button md-logo">
-      
-        <img alt="logo" src="../images/logo.svg" width="48" height="48">
-      
-    </a>
+<div class="md-container">
+<main class="md-main" role="main">
+<div class="md-main__inner md-grid" data-md-component="container">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title md-nav__title--site" for="__drawer">
+<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<img alt="logo" height="48" src="../images/logo.svg" width="48"/>
+</a>
     Motion
   </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/pyomeca/pyomeca/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
+<div class="md-source__icon">
+<svg height="24" viewbox="0 0 24 24" width="24">
+<use height="24" width="24" xlink:href="#__github"></use>
+</svg>
+</div>
+<div class="md-source__repository">
     pyomeca/pyomeca
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
         Getting Started
       </label>
-    
-    <a href="./" title="Getting Started" class="md-nav__link md-nav__link--active">
+<a class="md-nav__link md-nav__link--active" href="./" title="Getting Started">
       Getting Started
     </a>
-    
-      
 <nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-labelled-multi-dimensional-arrays" class="md-nav__link">
-    Working with labelled multi-dimensional arrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-functionalities" class="md-nav__link">
-    Core functionalities
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
     Installation
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-overview" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quick-overview">
     Quick overview
   </a>
-  
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-creation">
+    Object creation
+  </a>
 </li>
-      
-      
-      
-      
-      
-    </ul>
-  
+<li class="md-nav__item">
+<a class="md-nav__link" href="#indexing">
+    Indexing
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#positional-indexing">
+    Positional indexing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#label-based-indexing">
+    Label-based indexing
+  </a>
+</li>
+</ul>
 </nav>
-    
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata">
+    Metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#computation">
+    Computation
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arithmetic">
+    Arithmetic
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exploring-missing-values">
+    Exploring missing values
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#electromyographic-pipeline">
+    Electromyographic pipeline
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datasets">
+    Datasets
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-io">
+    File IO
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
       User Guide
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
         User Guide
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../object-creation/" title="Object creation" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object-creation/" title="Object creation">
       Object creation
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../data-processing/" title="Data processing" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-processing/" title="Data processing">
       Data processing
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../case-studies/" title="Case Studies" class="md-nav__link">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../case-studies/" title="Case Studies">
       Case Studies
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../about/" title="About" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../about/" title="About">
       About
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
-    
-    <label class="md-nav__link" for="nav-5">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
       API reference
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+<nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
         API reference
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api/analogs/" title="Analogs" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/analogs/" title="Analogs">
       Analogs
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api/angles/" title="Angles" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/angles/" title="Angles">
       Angles
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api/markers/" title="Markers" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/markers/" title="Markers">
       Markers
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api/dataarray_accessor/" title="Dataarray_accessor" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/dataarray_accessor/" title="Dataarray_accessor">
       Dataarray_accessor
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../api/rototrans/" title="Rototrans" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/rototrans/" title="Rototrans">
       Rototrans
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
 <nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-labelled-multi-dimensional-arrays" class="md-nav__link">
-    Working with labelled multi-dimensional arrays
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-functionalities" class="md-nav__link">
-    Core functionalities
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+<label class="md-nav__title" for="__toc">Table of contents</label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
     Installation
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-overview" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quick-overview">
     Quick overview
   </a>
-  
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#object-creation">
+    Object creation
+  </a>
 </li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/pyomeca/pyomeca/edit/master/docs/getting-started.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                  <h1>Getting Started</h1>
-                
-                <h2 id="working-with-labelled-multi-dimensional-arrays">Working with labelled multi-dimensional arrays<a class="headerlink" href="#working-with-labelled-multi-dimensional-arrays" title="Permanent link">&para;</a></h2>
-<p>Motion introduces a concise interface to read, analyse, visualize and plot biomechanical data.</p>
-<p>Such data are typically <em>multi-dimensional</em>, such as joint angles with associated axes, degrees of freedom and time frames.</p>
-<div id="angles-chart"></div>
-
-<p><a href="https:numpy.org">NumPy</a> is the fundamental package for multi-dimensional computing with Python.
-While NumPy provides an efficient data structure and an intuitive interface, biomechanical datasets are usually more than just raw numbers and have labels which encode how the array values map to different dimensions such as axes, degrees of freedom, channels or time frames.</p>
-<p>Motion is build upon and extend the core strengths of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>, which keeps tracks of labels and provides a powerful and concise interface which makes it easy to:</p>
-<ul>
-<li>Apply any operations over dimensions by name (<code>array.sum(dim="time_frame")</code>) instead of arbitrary axis (<code>array.sum(axis=2)</code>).</li>
-<li>Select values by labels (<code>array.sel(axis="x")</code> or <code>emg.sel(channel="biceps")</code>)</li>
-<li>Vectorize computation across multiple dimensions.</li>
-<li>Use the <a href="https://vita.had.co.nz/papers/plyr.pdf">split-apply-combine</a> paradigm, for example: <code>emg.groupby("channel").mean()</code> or any custom function: <code>emg.groupby('channel').map(lambda x: x - x.mean())</code>).</li>
-<li>Keep track of metadata in the <code>array.attrs</code> Python dictionary (<code>array.attrs["rate"]</code>).</li>
-<li>Extent the xarray interface with domain specific functionalities with custom accessors on xarray objects. In motion, the biomechanics specific functions are registered under the <code>meca</code> name space (<code>array.meca</code>).</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#indexing">
+    Indexing
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#positional-indexing">
+    Positional indexing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#label-based-indexing">
+    Label-based indexing
+  </a>
+</li>
 </ul>
-<p>Working with labels makes it much easier to work with multi-dimensional arrays as you do not have to keep track of the order of the dimensions or insert dummy dimensions to align arrays.
-This allows for a more intuitive, more concise, and less error-prone developer experience.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>As the underlying data-structure is still a NumPy array, NumPy functions (<code>np.abs(array)</code>) and indexing (<code>array[:, 0, 1]</code>) work out of the box.</p>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metadata">
+    Metadata
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#computation">
+    Computation
+  </a>
+<nav class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arithmetic">
+    Arithmetic
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exploring-missing-values">
+    Exploring missing values
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#electromyographic-pipeline">
+    Electromyographic pipeline
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datasets">
+    Datasets
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-io">
+    File IO
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </div>
-<p>By leveraging xarray data structures, Motion inherit their features such as built-in <a href="http://xarray.pydata.org/en/stable/interpolation.html">interpolation</a>, <a href="http://xarray.pydata.org/en/stable/computation.html">computation</a>, <a href="http://xarray.pydata.org/en/stable/groupby.html">GroupBy</a>, <a href="http://xarray.pydata.org/en/stable/combining.html">data wrangling</a>, <a href="http://xarray.pydata.org/en/stable/dask.html">parallel computing</a> and <a href="http://xarray.pydata.org/en/stable/plotting.html">plotting</a>.</p>
-<div class="admonition info">
-<p class="admonition-title">Extending xarray</p>
-<p>Xarray is designed as a general purpose library and tries to avoid including domain specific functionalities.
-But inevitably, the need for more domain specific domain specific logic arises.
-That's why motion and <a href="http://xarray.pydata.org/en/stable/related-projects.html">dozens of other scientific packages</a> extend xarray.</p>
-<p>Extending data structure in Python is usually achieved with class inheritance.
-However inheritance is not very robust for large class such as <code>xarray.DataArray</code>.
-To add domain specific functionality, motion follows xarray developpers' recommendations and use a custom "accessor".
-To read why, you can check out the <a href="http://xarray.pydata.org/en/stable/internals.html#extending-xarray">xarray documentation</a>.</p>
 </div>
-<h2 id="core-functionalities">Core functionalities<a class="headerlink" href="#core-functionalities" title="Permanent link">&para;</a></h2>
-<p>Motion has four data structures build upon <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>.
-Each structure is associated with a specific biomechanical data type and have specialized functionalities:</p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Dimensions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Analogs</code> [TODO link]</td>
-<td><code>("channel", "time_frame")</code></td>
-<td>Generic signals such as EMGs, force signals or any other analog signal</td>
-</tr>
-<tr>
-<td><code>Angles</code> [TODO link]</td>
-<td><code>("axis", "channel", "time_frame")</code></td>
-<td>Joint angles</td>
-</tr>
-<tr>
-<td><code>Markers</code> [TODO link]</td>
-<td><code>("axis", "channel", "time_frame")</code></td>
-<td>Skin marker positions</td>
-</tr>
-<tr>
-<td><code>Rototrans</code> [Todo link]</td>
-<td><code>("row", "col", "time_frame")</code></td>
-<td>Rototranslation matrix</td>
-</tr>
-</tbody>
-</table>
-<p>There is technically hundred of functions in motion, but you can actually bucket then into two specific categories:</p>
-<ol>
-<li>Object creation [TODO link] with the <code>from_*</code> methods. For example, if you want to define a markers array from a csv file: <code>markers = Markers.from_csv(...)</code>.</li>
-<li>Data processing [TODO link] with the <code>meca</code> array accessor. To low-pass filter our previous markers: <code>markers.meca.low_pass(...)</code>.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Check out the API reference to see the parameters, use cases and examples associated with each function.</p>
 </div>
-<p>Check out this interactive visualization to explore all of motion's public API.
-[TODO: hover to see example]
-[TODO: click to open api tab]</p>
-<div id="api-exploration">
-    <div id="tooltip" class="admonition info tooltip">
-        <p id="tooltip-title" class="admonition-title"></p>
-        <p id="tooltip-description"></p>
-        <p id="tooltip-docstring"></p>
-    </div>
-</div>
-
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>Motion itself is a pure Python package, but its dependencies are not.
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/getting-started.md" title="Edit this page"></a>
+<h1>Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<p>Before you can use motion, you will need to get it installed.
+Motion itself is a pure Python package, but its dependencies are not.
 The easiest way to get everything installed is to use <a href="https://conda.io/en/latest/miniconda.html">conda</a>.</p>
 <p>To install motion with its recommended dependencies using the conda command line tool:</p>
 <p><div class="codehilite"><pre><span></span><code>conda install -c conda-forge motion
 </code></pre></div>
-Now that motion is installed, you should be able to import it:</p>
+Now that you have installed motion, you should be able to import it:</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">motion</span>
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Want to test motion from your browser and without installing anything?
+Try out our binder server: <a href="https://mybinder.org/v2/gh/romainmartinez/motion/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg"/></a></p>
+</div>
+<h2 id="quick-overview">Quick overview</h2>
+<p>Here is a short introduction to xarray and motion, geared mainly for new users.
+You should be able to follow along and complete this short example in 10 about minutes.</p>
+<p>We will carry out common tasks in biomechanics, including reading files, manipulating and processing data, making figures and writing files.</p>
+<h3 id="object-creation">Object creation</h3>
+<p>Let's begin by creating a biomechanical data structure with motion.
+In this tutorial, we will analyze the skin marker data available in this <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d"><code>c3d file</code></a>.</p>
+<p>Motion provides the <code>from_c3d</code> function to read <code>c3d</code> files.
+As we want to analyse markers data, we will use the <code>Markers</code> class:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
 
-<h2 id="quick-overview">Quick overview<a class="headerlink" href="#quick-overview" title="Permanent link">&para;</a></h2>
-<p>Here is a quick example of w</p>
-<script src="https://d3js.org/d3.v5.min.js"></script>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s2">"../tests/data/markers_analogs.c3d"</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">":"</span><span class="p">)</span>
+</code></pre></div>
+<p>Make sure to always have a check on the data after reading it.</p>
+<p>When used in <a href="https://jupyter.org/">Jupyter notebooks</a>, data can be explored interactively.
+A standard text representation is available otherwise.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span>
+</code></pre></div>
+<pre class="nb-output"><code><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewbox="0 0 32 32">
+<title>Show/Hide data repr</title>
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewbox="0 0 32 32">
+<title>Show/Hide attributes</title>
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
 
-<script src="../js/charts.js"></script>
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
 
-<script>
-drawMatrix("angles-chart", [3, 2, 5], ["axes", "degrees of freedom", "time frames"], "Joint angles");
-drawApi("api-exploration");
-</script>
-                
-                  
-                
-                
-              
-              
-                
+.xr-wrap {
+  min-width: 300px;
+  max-width: 700px;
+}
 
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
 
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt, dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><div class="xr-wrap"><div class="xr-header"><div class="xr-obj-type">xarray.DataArray</div><div class="xr-array-name">'markers'</div><ul class="xr-dim-list"><li><span class="xr-has-index">axis</span>: 4</li><li><span class="xr-has-index">channel</span>: 51</li><li><span class="xr-has-index">time_frame</span>: 580</li></ul></div><ul class="xr-sections"><li class="xr-section-item"><div class="xr-array-wrap"><input class="xr-array-in" id="section-3d83caf9-2bc1-43c3-b65c-18b75afce65e" type="checkbox"/><label for="section-3d83caf9-2bc1-43c3-b65c-18b75afce65e" title="Show/hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-array-preview xr-preview"><span>44.16 44.17 44.16 44.17 44.17 44.19 44.2 ... 1.0 1.0 1.0 1.0 1.0 1.0</span></div><pre class="xr-array-data">array([[[  44.16278839,   44.16666412,   44.16487122, ...,
+           99.22426605,   99.24201965,   99.25963593],
+        [  32.57229614,   32.57104111,   32.56489563, ...,
+           87.51286316,   87.52822876,   87.54118347],
+        [ -93.72181702,  -93.72447968,  -93.72324371, ...,
+          -41.1590271 ,  -41.14812851,  -41.12734985],
+        ...,
+        [ 562.26068115,  562.41027832,  562.56695557, ...,
+          625.63555908,  625.98504639,  626.25811768],
+        [ 568.24200439,  568.37792969,  568.49249268, ...,
+          624.18139648,  624.51190186,  624.78894043],
+        [ 568.44470215,  568.52038574,  568.59216309, ...,
+          623.09222412,  623.44036865,  623.75152588]],
+
+       [[-276.86193848, -276.86169434, -276.86407471, ...,
+         -259.15292358, -259.16690063, -259.17092896],
+        [-243.14048767, -243.14073181, -243.13331604, ...,
+         -225.44718933, -225.45556641, -225.46226501],
+        [ 124.78598022,  124.78731537,  124.78870392, ...,
+          141.820755  ,  141.80741882,  141.80308533],
+        ...,
+        [ 638.35144043,  638.4241333 ,  638.50653076, ...,
+          592.00372314,  592.15686035,  592.27819824],
+        [ 626.79144287,  626.86114502,  626.90710449, ...,
+          584.15661621,  584.27709961,  584.38830566],
+        [ 651.37927246,  651.45532227,  651.49957275, ...,
+          610.59655762,  610.72821045,  610.84472656]],
+
+       [[ 675.69683838,  675.69873047,  675.6986084 , ...,
+          903.97650146,  903.96801758,  903.980896  ],
+        [ 676.57452393,  676.58099365,  676.57720947, ...,
+          904.61694336,  904.61645508,  904.63104248],
+        [ 674.27874756,  674.27947998,  674.28033447, ...,
+          902.77349854,  902.77819824,  902.78143311],
+        ...,
+        [  81.34425354,   81.32899475,   81.2776413 , ...,
+           53.45215607,   53.57727814,   53.72877121],
+        [ 110.84020996,  110.81329346,  110.76582336, ...,
+           83.92819214,   84.07093048,   84.20204163],
+        [ 129.69673157,  129.6789856 ,  129.62939453, ...,
+           99.39131165,   99.52735138,   99.68258667]],
+
+       [[   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        ...,
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ]]])</pre></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-0624b282-f6d4-4780-82b4-8b449d35128e" type="checkbox"/><label class="xr-section-summary" for="section-0624b282-f6d4-4780-82b4-8b449d35128e">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">axis</span></div><div class="xr-var-dims">(axis)</div><div class="xr-var-dtype">&lt;U4</div><div class="xr-var-preview xr-preview">'x' 'y' 'z' 'ones'</div><input class="xr-var-attrs-in" disabled="" id="attrs-10b4bcc8-78bd-4310-a4d2-f68af5284822" type="checkbox"/><label for="attrs-10b4bcc8-78bd-4310-a4d2-f68af5284822" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-735e4bfc-b7cf-4a71-83c8-433f58e30949" type="checkbox"/><label for="data-735e4bfc-b7cf-4a71-83c8-433f58e30949" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['x', 'y', 'z', 'ones'], dtype='&lt;U4')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">channel</span></div><div class="xr-var-dims">(channel)</div><div class="xr-var-dtype">&lt;U14</div><div class="xr-var-preview xr-preview">'gauche_ext' ... 'LATH'</div><input class="xr-var-attrs-in" disabled="" id="attrs-4f52d1a5-2f77-4129-8ee4-4496dce022ba" type="checkbox"/><label for="attrs-4f52d1a5-2f77-4129-8ee4-4496dce022ba" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-fb7f158e-3154-4729-8dc8-a848906b07d7" type="checkbox"/><label for="data-fb7f158e-3154-4729-8dc8-a848906b07d7" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['gauche_ext', 'gauche_int', 'droite_int', 'droite_ext', 'avant_gauche',
+       'avant_droit', 'arriere_droit', 'arriere_gauche', 'ASISr', 'ASISl',
+       'PSISr', 'PSISl', 'STERr', 'STERl', 'STER', 'XIPH', 'T1', 'T10',
+       'CLAV_SC', 'CLAVm', 'CLAV_ant', 'CLAV_post', 'CLAVl', 'CLAV_AC',
+       'ACRO_tip', 'SCAP_AA', 'SCAPl', 'SCAPm', 'SCAP_CP', 'SCAP_RS',
+       'SCAP_SA', 'SCAP_IA', 'DELT', 'ARMl', 'ARMm', 'ARMp_up', 'ARMp_do',
+       'EPICl', 'EPICm', 'LARMm', 'LARMl', 'LARM_elb', 'LARM_ant', 'STYLr',
+       'STYLr_up', 'STYLu', 'WRIST', 'INDEX', 'LASTC', 'MEDH', 'LATH'],
+      dtype='&lt;U14')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time_frame</span></div><div class="xr-var-dims">(time_frame)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0 0.01 0.02 ... 5.77 5.78 5.79</div><input class="xr-var-attrs-in" disabled="" id="attrs-b400edfd-6f35-4505-8c17-6732721c9ed4" type="checkbox"/><label for="attrs-b400edfd-6f35-4505-8c17-6732721c9ed4" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-60ee326c-f858-4bae-a9c2-5024e3395a66" type="checkbox"/><label for="data-60ee326c-f858-4bae-a9c2-5024e3395a66" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array([0.  , 0.01, 0.02, ..., 5.77, 5.78, 5.79])</pre></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-2b857d8f-904b-4135-a655-2d10d76ff3f2" type="checkbox"/><label class="xr-section-summary" for="section-2b857d8f-904b-4135-a655-2d10d76ff3f2">Attributes: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>first_frame :</span></dt><dd>0</dd><dt><span>last_frame :</span></dt><dd>579</dd><dt><span>rate :</span></dt><dd>100.0</dd><dt><span>units :</span></dt><dd>mm</dd></dl></div></li></ul></div></div></code></pre>
+<p>In this case, we have generated a 3D array with the <code>axis</code>, <code>channel</code> and <code>time_frame</code> dimensions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are several ways to create objects in motion: by supplying data, from files of from other data structure.
+A more complete guide on object creation is available in the <a href="/object-creation">objection creation</a> section of the documentation.</p>
+</div>
+<h3 id="indexing">Indexing</h3>
+<p>Since we have labels associated with each dimension, we have several kind of indexing available with varying levels of convenience and intuitiveness.
+Let's see three ways to get the same data (ninth marker and first time frame).</p>
+<h4 id="positional-indexing">Positional indexing</h4>
+<p>Indexing directly works just like it does for numpy arrays.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'ASISl'
+    time_frame  float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre>
+<h4 id="label-based-indexing">Label-based indexing</h4>
+<p>Label-based indexing frees us from having to know how the data are organized.
+We do not have to rely on dimension order and can use them explicitly to index the data.</p>
+<p>The <code>isel</code> method is used when the dimension lookup is by name and the index lookup is by integer</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">time_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'ASISl'
+    time_frame  float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre>
+<p>The <code>isel</code> method is used when the dimension and index lookups are both by name.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">"ASISl"</span><span class="p">,</span> <span class="n">time_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([753.43908691,  75.9487381 , 187.7590332 ,   1.        ])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'ASISl'
+    time_frame  float64 0.0
+Attributes:
+    first_frame:  0
+    last_frame:   579
+    rate:         100.0
+    units:        mm</pre></code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>xarray offers extremely flexible indexing routines.
+For more details on indexing see the <a href="http://xarray.pydata.org/en/stable/indexing.html#indexing">xarray documentation</a>.</p>
+</div>
+<h3 id="metadata">Metadata</h3>
+<p>Biomechanical datasets are usually more than just raw numbers and have various metadata attributes.
+Some metadata are already filled by motion and available in the <code>attrs</code> Python dictionnary.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">attrs</span>
+</code></pre></div>
+<pre class="nb-output"><code> &gt;&gt; {'first_frame': 0, 'last_frame': 579, 'rate': 100.0, 'units': 'mm'}</code></pre>
+<p>They can be accessed using the standard dictionnary indexing</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"rate"</span><span class="p">]</span>
+</code></pre></div>
+<pre class="nb-output"><code> &gt;&gt; 100.0</code></pre>
+<p>Or directly as a propriety</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">rate</span>
+</code></pre></div>
+<pre class="nb-output"><code> &gt;&gt; 100.0</code></pre>
+<p>You can assign anything you wish.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"description"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Skin marker positions recorded in Montreal."</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"participant_id"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">time_frame</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"units"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"seconds"</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, channel: 51, time_frame: 580)&gt;
+array([[[  44.16278839,   44.16666412,   44.16487122, ...,
+           99.22426605,   99.24201965,   99.25963593],
+        [  32.57229614,   32.57104111,   32.56489563, ...,
+           87.51286316,   87.52822876,   87.54118347],
+        [ -93.72181702,  -93.72447968,  -93.72324371, ...,
+          -41.1590271 ,  -41.14812851,  -41.12734985],
+        ...,
+        [ 562.26068115,  562.41027832,  562.56695557, ...,
+          625.63555908,  625.98504639,  626.25811768],
+        [ 568.24200439,  568.37792969,  568.49249268, ...,
+          624.18139648,  624.51190186,  624.78894043],
+        [ 568.44470215,  568.52038574,  568.59216309, ...,
+          623.09222412,  623.44036865,  623.75152588]],
+
+       [[-276.86193848, -276.86169434, -276.86407471, ...,
+         -259.15292358, -259.16690063, -259.17092896],
+        [-243.14048767, -243.14073181, -243.13331604, ...,
+         -225.44718933, -225.45556641, -225.46226501],
+        [ 124.78598022,  124.78731537,  124.78870392, ...,
+          141.820755  ,  141.80741882,  141.80308533],
+        ...,
+        [ 638.35144043,  638.4241333 ,  638.50653076, ...,
+          592.00372314,  592.15686035,  592.27819824],
+        [ 626.79144287,  626.86114502,  626.90710449, ...,
+          584.15661621,  584.27709961,  584.38830566],
+        [ 651.37927246,  651.45532227,  651.49957275, ...,
+          610.59655762,  610.72821045,  610.84472656]],
+
+       [[ 675.69683838,  675.69873047,  675.6986084 , ...,
+          903.97650146,  903.96801758,  903.980896  ],
+        [ 676.57452393,  676.58099365,  676.57720947, ...,
+          904.61694336,  904.61645508,  904.63104248],
+        [ 674.27874756,  674.27947998,  674.28033447, ...,
+          902.77349854,  902.77819824,  902.78143311],
+        ...,
+        [  81.34425354,   81.32899475,   81.2776413 , ...,
+           53.45215607,   53.57727814,   53.72877121],
+        [ 110.84020996,  110.81329346,  110.76582336, ...,
+           83.92819214,   84.07093048,   84.20204163],
+        [ 129.69673157,  129.6789856 ,  129.62939453, ...,
+           99.39131165,   99.52735138,   99.68258667]],
+
+       [[   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        ...,
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ],
+        [   1.        ,    1.        ,    1.        , ...,
+            1.        ,    1.        ,    1.        ]]])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+  * channel     (channel) &lt;U14 'gauche_ext' 'gauche_int' ... 'MEDH' 'LATH'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 ... 5.76 5.77 5.78 5.79
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre>
+<h3 id="computation">Computation</h3>
+<h4 id="arithmetic">Arithmetic</h4>
+<p>As the underlying data-structure is a numpy array, xarray data arrays work the same way you would expect if you are used to numpy.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span> <span class="o">=</span> <span class="n">markers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time_frame: 6)&gt;
+array([[  54.16278839,   54.16666412,   54.16487122,   54.16558075,
+          54.17311096,   54.18517685],
+       [-266.86193848, -266.86169434, -266.86407471, -266.86123657,
+        -266.85812378, -266.85818481],
+       [ 685.69683838,  685.69873047,  685.6986084 ,  685.69775391,
+         685.7041626 ,  685.69592285],
+       [  11.        ,   11.        ,   11.        ,   11.        ,
+          11.        ,   11.        ]])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'gauche_ext'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># transpose</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (time_frame: 6, axis: 4)&gt;
+array([[  44.16278839, -276.86193848,  675.69683838,    1.        ],
+       [  44.16666412, -276.86169434,  675.69873047,    1.        ],
+       [  44.16487122, -276.86407471,  675.6986084 ,    1.        ],
+       [  44.16558075, -276.86123657,  675.69775391,    1.        ],
+       [  44.17311096, -276.85812378,  675.7041626 ,    1.        ],
+       [  44.18517685, -276.85818481,  675.69592285,    1.        ]])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'gauche_ext'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 0.04 0.05
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' ()&gt;
+array(111.00187318)
+Coordinates:
+    channel  &lt;U14 'gauche_ext'</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16969872, -276.86087545,  675.69866943,    1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'</pre></code></pre>
+<p>We can, however, take advantage of the labels instead of axis numbers</p>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16969872, -276.86087545,  675.69866943,    1.        ])
+Coordinates:
+  * axis     (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel  &lt;U14 'gauche_ext'</pre></code></pre>
+<p>Arithmetic operations broadcast based on dimension name. This means you don’t need to insert dummy dimensions for alignment:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">only_first_axis</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">only_first_frame</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time_frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">only_first_axis</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (time_frame: 6)&gt;
+array([44.16278839, 44.16666412, 44.16487122, 44.16558075, 44.17311096,
+       44.18517685])
+Coordinates:
+    axis        &lt;U4 'x'
+    channel     &lt;U14 'gauche_ext'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 0.04 0.05
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">only_first_frame</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4)&gt;
+array([  44.16278839, -276.86193848,  675.69683838,    1.        ])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'gauche_ext'
+    time_frame  float64 0.0
+Attributes:
+    first_frame:     0
+    last_frame:      579
+    rate:            100.0
+    units:           mm
+    description:     Skin marker positions recorded in Montreal.
+    participant_id:  12</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">only_first_frame</span> <span class="o">+</span> <span class="n">only_first_axis</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time_frame: 6)&gt;
+array([[  88.32557678,   88.32945251,   88.32765961,   88.32836914,
+          88.33589935,   88.34796524],
+       [-232.69915009, -232.69527435, -232.69706726, -232.69635773,
+        -232.68882751, -232.67676163],
+       [ 719.85962677,  719.8635025 ,  719.86170959,  719.86241913,
+         719.86994934,  719.88201523],
+       [  45.16278839,   45.16666412,   45.16487122,   45.16558075,
+          45.17311096,   45.18517685]])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'gauche_ext'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre>
+<p>Let's compare with the sum made with numpy arrays:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">only_first_axis</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="n">only_first_axis</span><span class="o">.</span><span class="n">values</span>
+</code></pre></div>
+<pre class="nb-output"><code> &gt;&gt; array([88.32557678, 88.33332825, 88.32974243, 88.3311615 , 88.34622192,
+       88.3703537 ])</code></pre>
+<p>And we do not need to worry about the order of dimensions</p>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span> <span class="o">-</span> <span class="n">subset</span><span class="o">.</span><span class="n">T</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'markers' (axis: 4, time_frame: 6)&gt;
+array([[0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0.]])
+Coordinates:
+  * axis        (axis) &lt;U4 'x' 'y' 'z' 'ones'
+    channel     &lt;U14 'gauche_ext'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 0.04 0.05</pre></code></pre>
+<p>Whereas this is not possible with numpy arrays:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">subset</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">subset</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">T</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">ValueError</span><span class="o">:</span> <span class="n">operands</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">broadcast</span> <span class="n">together</span> <span class="k">with</span> <span class="n">shapes</span> <span class="o">(</span><span class="mi">4</span><span class="o">,</span><span class="mi">6</span><span class="o">)</span> <span class="o">(</span><span class="mi">6</span><span class="o">,</span><span class="mi">4</span><span class="o">)</span> 
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>xarray supports powerful shortcust for computation.
+For more, see the <a href="http://xarray.pydata.org/en/stable/computation.html#comput">xarray documentation</a>.</p>
+</div>
+<h4 id="exploring-missing-values">Exploring missing values</h4>
+<p>When we visualize some of our markers, we can realize that there are some missing values</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s2">"SCAP_CP"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">);</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_49_0.svg"/></p>
+<p>Let's investigate those missing values</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers_null_values</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"There are </span><span class="si">{</span><span class="n">markers_null_values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2"> missing values"</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code> &gt;&gt; There are 305 missing values
+</code></pre>
+<p>What are the 5 markers with the most missing values?</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers_null_values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">)</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_53_0.svg"/></p>
+<p>The cumulative number of missing values can tell us when marker occlusions occur</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers_null_values</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="s2">"channel"</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="s2">"time_frame"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_55_0.svg"/></p>
+<p>Now that we know more about the missing values, we can use xarray for filling missing values via 1D interpolation</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markers_without_null</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">interpolate_na</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"cubic"</span><span class="p">)</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">markers</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s2">"SCAP_CP"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">)</span>
+<span class="n">markers_without_null</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">channel</span><span class="o">=</span><span class="s2">"SCAP_CP"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"interpolated"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_58_0.svg"/></p>
+<h4 id="electromyographic-pipeline">Electromyographic pipeline</h4>
+<p>Motion implements specialized functionalities commonly used in biomechanics.</p>
+<p>Let's proccess the electromyographic data contained in our <code>c3d</code> file.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+
+<span class="n">muscles</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"Delt_med"</span><span class="p">,</span>
+    <span class="s2">"Delt_post"</span><span class="p">,</span>
+    <span class="s2">"Biceps"</span><span class="p">,</span>
+    <span class="s2">"Triceps"</span><span class="p">,</span>
+    <span class="s2">"Trap_sup"</span><span class="p">,</span>
+    <span class="s2">"Trap_inf"</span><span class="p">,</span>
+    <span class="s2">"Gd_dent"</span><span class="p">,</span>
+    <span class="s2">"Supra"</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">emg</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">suffix_delimiter</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">muscles</span><span class="p">)</span>
+<span class="n">emg</span><span class="o">.</span><span class="n">time_frame</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s2">"units"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"seconds"</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">emg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"channel"</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_61_0.svg"/></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emg_processed</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">emg</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">band_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">emg</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">425</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">emg</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">emg_processed</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"time_frame"</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"channel"</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_62_0.svg"/></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emg_processed</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_wide_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_63_0.svg"/></p>
+<div class="codehilite"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">emg_processed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">"channel"</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Mean EMG activation"</span><span class="p">)</span>
+
+<span class="n">emg_processed</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"EMG activation distribution"</span><span class="p">);</span>
+</code></pre></div>
+<p><img alt="svg" src="../getting-started_files/getting-started_64_0.svg"/></p>
+<div class="codehilite"><pre><span></span><code><span class="n">emg_processed</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_wide_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><style type="text/css">
+    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col0 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col1 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col2 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col3 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col4 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col5 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col6 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col7 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col0 {
+            background-color:  #f0eaf4;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col1 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col2 {
+            background-color:  #056ead;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col3 {
+            background-color:  #046096;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col4 {
+            background-color:  #045788;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col5 {
+            background-color:  #187cb6;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col6 {
+            background-color:  #04639b;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col7 {
+            background-color:  #034d79;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col0 {
+            background-color:  #ece7f2;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col1 {
+            background-color:  #056dab;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col2 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col3 {
+            background-color:  #056dab;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col4 {
+            background-color:  #04649d;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col5 {
+            background-color:  #4295c3;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col6 {
+            background-color:  #3991c1;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col7 {
+            background-color:  #056aa6;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col0 {
+            background-color:  #ced0e6;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col1 {
+            background-color:  #045b8e;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col2 {
+            background-color:  #0567a1;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col3 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col4 {
+            background-color:  #046299;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col5 {
+            background-color:  #0567a2;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col6 {
+            background-color:  #0569a5;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col7 {
+            background-color:  #04649d;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col0 {
+            background-color:  #dbdaeb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col1 {
+            background-color:  #045382;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col2 {
+            background-color:  #046198;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col3 {
+            background-color:  #04649d;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col4 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col5 {
+            background-color:  #187cb6;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col6 {
+            background-color:  #045585;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col7 {
+            background-color:  #045f95;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col0 {
+            background-color:  #c9cee4;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col1 {
+            background-color:  #056fae;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col2 {
+            background-color:  #2685bb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col3 {
+            background-color:  #0566a0;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col4 {
+            background-color:  #0d75b3;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col5 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col6 {
+            background-color:  #2182b9;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col7 {
+            background-color:  #2081b9;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col0 {
+            background-color:  #d3d4e7;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col1 {
+            background-color:  #045e94;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col2 {
+            background-color:  #2685bb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col3 {
+            background-color:  #056ba7;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col4 {
+            background-color:  #045483;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col5 {
+            background-color:  #2786bb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col6 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col7 {
+            background-color:  #0a73b2;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col0 {
+            background-color:  #fff7fb;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col1 {
+            background-color:  #03517e;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col2 {
+            background-color:  #056faf;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col3 {
+            background-color:  #056fae;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col4 {
+            background-color:  #0566a0;
+            color:  #f1f1f1;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col5 {
+            background-color:  #549cc7;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col6 {
+            background-color:  #2a88bc;
+            color:  #000000;
+        }    #T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col7 {
+            background-color:  #023858;
+            color:  #f1f1f1;
+        }</style><table id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9"><thead>    <tr>        <th class="index_name level0">channel</th>        <th class="col_heading level0 col0">Biceps</th>        <th class="col_heading level0 col1">Delt_med</th>        <th class="col_heading level0 col2">Delt_post</th>        <th class="col_heading level0 col3">Gd_dent</th>        <th class="col_heading level0 col4">Supra</th>        <th class="col_heading level0 col5">Trap_inf</th>        <th class="col_heading level0 col6">Trap_sup</th>        <th class="col_heading level0 col7">Triceps</th>    </tr>    <tr>        <th class="index_name level0">channel</th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>    </tr></thead><tbody>
+                <tr>
+                        <th class="row_heading level0 row0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row0">Biceps</th>
+                        <td class="data row0 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col0">1.0</td>
+                        <td class="data row0 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col1">0.01</td>
+                        <td class="data row0 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col2">0.04</td>
+                        <td class="data row0 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col3">0.18</td>
+                        <td class="data row0 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col4">0.12</td>
+                        <td class="data row0 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col5">0.2</td>
+                        <td class="data row0 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col6">0.16</td>
+                        <td class="data row0 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row0_col7">-0.1</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row1">Delt_med</th>
+                        <td class="data row1 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col0">0.01</td>
+                        <td class="data row1 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col1">1.0</td>
+                        <td class="data row1 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col2">0.77</td>
+                        <td class="data row1 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col3">0.87</td>
+                        <td class="data row1 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col4">0.9</td>
+                        <td class="data row1 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col5">0.76</td>
+                        <td class="data row1 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col6">0.85</td>
+                        <td class="data row1 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row1_col7">0.91</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row2">Delt_post</th>
+                        <td class="data row2 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col0">0.04</td>
+                        <td class="data row2 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col1">0.77</td>
+                        <td class="data row2 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col2">1.0</td>
+                        <td class="data row2 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col3">0.81</td>
+                        <td class="data row2 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col4">0.84</td>
+                        <td class="data row2 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col5">0.68</td>
+                        <td class="data row2 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col6">0.68</td>
+                        <td class="data row2 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row2_col7">0.76</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row3">Gd_dent</th>
+                        <td class="data row3 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col0">0.18</td>
+                        <td class="data row3 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col1">0.87</td>
+                        <td class="data row3 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col2">0.81</td>
+                        <td class="data row3 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col3">1.0</td>
+                        <td class="data row3 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col4">0.85</td>
+                        <td class="data row3 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col5">0.84</td>
+                        <td class="data row3 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col6">0.82</td>
+                        <td class="data row3 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row3_col7">0.8</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row4">Supra</th>
+                        <td class="data row4 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col0">0.12</td>
+                        <td class="data row4 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col1">0.9</td>
+                        <td class="data row4 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col2">0.84</td>
+                        <td class="data row4 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col3">0.85</td>
+                        <td class="data row4 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col4">1.0</td>
+                        <td class="data row4 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col5">0.76</td>
+                        <td class="data row4 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col6">0.91</td>
+                        <td class="data row4 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row4_col7">0.83</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row5">Trap_inf</th>
+                        <td class="data row5 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col0">0.2</td>
+                        <td class="data row5 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col1">0.76</td>
+                        <td class="data row5 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col2">0.68</td>
+                        <td class="data row5 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col3">0.84</td>
+                        <td class="data row5 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col4">0.76</td>
+                        <td class="data row5 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col5">1.0</td>
+                        <td class="data row5 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col6">0.73</td>
+                        <td class="data row5 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row5_col7">0.65</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row6">Trap_sup</th>
+                        <td class="data row6 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col0">0.16</td>
+                        <td class="data row6 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col1">0.85</td>
+                        <td class="data row6 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col2">0.68</td>
+                        <td class="data row6 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col3">0.82</td>
+                        <td class="data row6 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col4">0.91</td>
+                        <td class="data row6 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col5">0.73</td>
+                        <td class="data row6 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col6">1.0</td>
+                        <td class="data row6 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row6_col7">0.71</td>
+            </tr>
+            <tr>
+                        <th class="row_heading level0 row7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9level0_row7">Triceps</th>
+                        <td class="data row7 col0" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col0">-0.1</td>
+                        <td class="data row7 col1" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col1">0.91</td>
+                        <td class="data row7 col2" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col2">0.76</td>
+                        <td class="data row7 col3" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col3">0.8</td>
+                        <td class="data row7 col4" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col4">0.83</td>
+                        <td class="data row7 col5" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col5">0.65</td>
+                        <td class="data row7 col6" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col6">0.71</td>
+                        <td class="data row7 col7" id="T_bbf99190_79ea_11ea_b4aa_9cb6d0d1e6f9row7_col7">1.0</td>
+            </tr>
+    </tbody></table></code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details, see the <a href="/data-processing/">data processing</a> section of the documentation.</p>
+</div>
+<h3 id="datasets">Datasets</h3>
+<p>Datasets are a usefull xarray feature to store multiple data arrays with common dimensions</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">trials</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+    <span class="p">{</span><span class="sa">f</span><span class="s2">"trial </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)},</span>
+    <span class="n">coords</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">"channel"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"biceps"</span><span class="p">,</span> <span class="s2">"triceps"</span><span class="p">],</span>
+        <span class="s2">"time_frame"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">trials</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:     (channel: 2, time_frame: 100)
+Coordinates:
+  * channel     (channel) &lt;U7 'biceps' 'triceps'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 ... 0.96 0.97 0.98 0.99
+Data variables:
+    trial 0     (channel, time_frame) float64 0.6213 1.719 0.866 ... 9.505 8.115
+    trial 1     (channel, time_frame) float64 0.4762 -1.526 ... -19.32 -19.3
+    trial 2     (channel, time_frame) float64 0.3844 1.646 1.07 ... 7.246 6.323
+    trial 3     (channel, time_frame) float64 1.449 1.019 ... -0.7756 -0.4806
+    trial 4     (channel, time_frame) float64 -0.8075 -0.8303 ... 4.079 3.83
+    trial 5     (channel, time_frame) float64 0.4531 -1.098 ... 2.398 3.985
+    trial 6     (channel, time_frame) float64 -1.182 -1.656 ... -2.581 -2.192
+    trial 7     (channel, time_frame) float64 -2.592 -3.178 ... 15.51 15.27
+    trial 8     (channel, time_frame) float64 -0.3918 -1.442 ... 25.23 26.19
+    trial 9     (channel, time_frame) float64 -1.481 -2.139 ... 0.9357 1.831</pre></code></pre>
+<p>We can still access the individual data arrays</p>
+<div class="codehilite"><pre><span></span><code><span class="n">trials</span><span class="p">[</span><span class="s2">"trial 1"</span><span class="p">]</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'trial 1' (channel: 2, time_frame: 100)&gt;
+array([[  0.47623852,  -1.52647846,  -1.96738802,  -1.42058653,
+         -2.50657205,  -2.39306107,  -2.38815955,  -3.96941323,
+         -6.37847912,  -6.24926056,  -7.50760797,  -8.00105399,
+         -7.64407712,  -8.61989586,  -7.61570536,  -7.95773563,
+         -9.20630194,  -9.91979492, -10.52154282, -12.85969668,
+        -13.62744403, -14.49864251, -14.43498671, -12.29269643,
+        -13.02242288, -12.80080327, -11.67041621, -11.24812038,
+         -9.66059498,  -9.93072116,  -9.74923083, -10.06229148,
+        -11.13082113, -12.49845396, -14.237828  , -15.81771657,
+        -16.44600458, -16.50841704, -17.42825405, -18.18971984,
+        -16.78854839, -19.47244051, -21.28145729, -20.47938508,
+        -18.33201631, -17.91306457, -17.21616681, -18.86668992,
+        -18.31816582, -16.02543226, -16.64301578, -17.03206438,
+        -17.42983904, -15.77192179, -13.98902039, -14.03357541,
+        -13.48182332, -13.70065456, -14.33658026, -12.67135754,
+        -13.53896994, -13.5048632 , -11.61352025, -11.60257998,
+        -12.55901814, -13.5419003 , -14.26830579, -14.60865389,
+        -14.2919254 , -15.89631716, -15.4440441 , -14.83500062,
+        -16.4688737 , -17.16844731, -18.02335305, -16.197262  ,
+        -17.00791146, -16.90529553, -14.86090342, -14.14735878,
+        -14.83183833, -13.17862687, -13.81717689, -13.38957044,
+        -13.74157632, -13.94395614, -13.12239669, -12.81361114,
+        -14.77627099, -15.49713256, -14.17186861, -15.13607837,
+        -15.08852131, -16.39951157, -15.69023501, -17.48194166,
+        -17.89564911, -18.46966648, -19.10539655, -18.86210539],
+       [ -0.07562232,  -2.13157313,  -2.52565624,  -3.16737923,
+         -3.47872793,  -3.39455281,  -3.58575229,  -4.52984777,
+         -2.32309177,  -1.22442814,  -0.70818375,  -1.40633073,
+         -2.49285451,  -2.37423871,  -1.78166419,  -1.36713184,
+         -2.04649093,  -3.05242068,  -2.49374956,  -2.94197875,
+         -3.14761933,  -2.26566867,  -2.3992928 ,  -1.82904497,
+         -2.6197727 ,  -4.10526706,  -3.02491866,  -3.52888903,
+         -3.46395081,  -3.54457552,  -2.35200931,  -1.83294786,
+         -1.38317291,  -1.10246625,  -0.63363609,  -2.59831925,
+         -2.840266  ,  -4.43755361,  -3.03045171,  -2.3281822 ,
+         -1.85689469,  -1.52041305,  -0.28943751,  -1.0495644 ,
+         -0.13113076,  -2.76416536,  -3.33035513,  -3.26453514,
+         -3.87142215,  -3.50035367,  -4.0517286 ,  -5.0390548 ,
+         -4.94376262,  -3.74177457,  -5.3685079 ,  -6.03157489,
+         -7.19781985,  -8.22252785,  -8.96124884, -10.46496616,
+        -11.84970806, -10.06281609, -10.05809348, -11.10129014,
+        -11.39836653, -12.08978453, -11.92826824, -11.33826858,
+        -10.33361977, -11.26835467, -13.77656503, -12.90916429,
+        -13.53178288, -13.21946147, -13.03004045, -12.9658466 ,
+        -12.79456943, -14.6075092 , -14.92044819, -14.99394043,
+        -17.62197044, -17.54441968, -18.32578838, -17.70853203,
+        -16.47186952, -17.30728455, -18.76528554, -17.05165987,
+        -17.83764451, -18.87369267, -19.35153227, -19.97146621,
+        -19.85233526, -19.49087653, -19.83187261, -19.86927008,
+        -18.48532508, -19.56761191, -19.32498661, -19.30402421]])
+Coordinates:
+  * channel     (channel) &lt;U7 'biceps' 'triceps'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 ... 0.96 0.97 0.98 0.99</pre></code></pre>
+<p>While being able to do indexing and computation on the whole dataset</p>
+<div class="codehilite"><pre><span></span><code><span class="n">trials</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">"biceps"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">100</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:     (time_frame: 100)
+Coordinates:
+    channel     &lt;U7 'biceps'
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 ... 0.96 0.97 0.98 0.99
+Data variables:
+    trial 0     (time_frame) float64 100.6 101.7 100.9 ... 95.29 95.84 95.57
+    trial 1     (time_frame) float64 100.5 98.47 98.03 ... 81.53 80.89 81.14
+    trial 2     (time_frame) float64 100.4 101.6 101.1 ... 92.7 92.26 90.23
+    trial 3     (time_frame) float64 101.4 101.0 101.5 ... 102.2 101.0 100.7
+    trial 4     (time_frame) float64 99.19 99.17 101.0 ... 108.6 106.8 108.0
+    trial 5     (time_frame) float64 100.5 98.9 99.64 ... 94.22 95.92 94.42
+    trial 6     (time_frame) float64 98.82 98.34 97.76 ... 116.7 116.1 115.2
+    trial 7     (time_frame) float64 97.41 96.82 96.98 97.8 ... 97.0 97.46 98.0
+    trial 8     (time_frame) float64 99.61 98.56 98.87 ... 97.05 95.71 96.23
+    trial 9     (time_frame) float64 98.52 97.86 98.33 ... 97.85 98.54 98.53</pre></code></pre>
+<h3 id="file-io">File IO</h3>
+<p>NetCDF is the recommended file format to save and share xarray object.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emg</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s2">"emg.nc"</span><span class="p">)</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="s2">"emg.nc"</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.DataArray 'analogs' (channel: 8, time_frame: 11600)&gt;
+array([[-4.021073e-05, -6.808358e-05, -8.640526e-05, ...,  4.983108e-05,
+         4.229912e-05,  3.812956e-05],
+       [-1.361103e-05, -1.327931e-05, -1.273931e-05, ..., -2.546135e-05,
+        -2.306871e-05, -1.898580e-05],
+       [ 9.727633e-06,  9.567407e-06,  9.567407e-06, ...,  9.903105e-06,
+         1.118365e-05,  1.182195e-05],
+       ...,
+       [-9.918351e-06, -1.089098e-05, -1.067791e-05, ..., -1.001964e-06,
+        -1.264539e-05, -1.919743e-05],
+       [-2.296531e-06, -9.303800e-07, -1.047933e-06, ...,  1.562380e-06,
+         2.389907e-06,  3.062012e-06],
+       [ 2.975303e-04,  1.551703e-04,  3.527764e-05, ..., -2.581336e-04,
+        -4.462923e-04, -5.757854e-04]])
+Coordinates:
+  * time_frame  (time_frame) timedelta64[ns] 00:00:00 ... 00:00:05.799500
+  * channel     (channel) object 'Delt_med' 'Delt_post' ... 'Gd_dent' 'Supra'
+Attributes:
+    first_frame:  0
+    last_frame:   11580
+    rate:         2000.0
+    units:        V</pre></code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">trials</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="s2">"trials.nc"</span><span class="p">)</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">"trials.nc"</span><span class="p">)</span>
+</code></pre></div>
+<pre class="nb-output"><code><pre>&lt;xarray.Dataset&gt;
+Dimensions:     (channel: 2, time_frame: 100)
+Coordinates:
+  * time_frame  (time_frame) float64 0.0 0.01 0.02 0.03 ... 0.96 0.97 0.98 0.99
+  * channel     (channel) object 'biceps' 'triceps'
+Data variables:
+    trial 0     (channel, time_frame) float64 ...
+    trial 1     (channel, time_frame) float64 ...
+    trial 2     (channel, time_frame) float64 ...
+    trial 3     (channel, time_frame) float64 ...
+    trial 4     (channel, time_frame) float64 ...
+    trial 5     (channel, time_frame) float64 ...
+    trial 6     (channel, time_frame) float64 ...
+    trial 7     (channel, time_frame) float64 ...
+    trial 8     (channel, time_frame) float64 ...
+    trial 9     (channel, time_frame) float64 ...</pre></code></pre>
+<p>Motion implements function to read various file format commonly used in biomechanics such as <code>c3d</code>, <code>csv</code>, <code>xlsx</code>, <code>sto</code>, <code>trc</code> and <code>mot</code>.</p>
+<p>Users can also write Matlab and csv files.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">emg</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_matlab</span><span class="p">(</span><span class="s2">"emg.mat"</span><span class="p">)</span>
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">emg</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"emg.csv"</span><span class="p">)</span>
+</code></pre></div>
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-        
-          <a href="../object-creation/" title="Object creation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+<div class="md-footer-nav">
+<nav class="md-footer-nav__inner md-grid">
+<a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../object-creation/" rel="next" title="Object creation">
+<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+<span class="md-flex__ellipsis">
+<span class="md-footer-nav__direction">
                   Next
                 </span>
                 Object creation
               </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2019 Romain Martinez
+</div>
+<div class="md-flex__cell md-flex__cell--shrink">
+<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            Copyright © 2019 Romain Martinez
           </div>
         
         powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        <a href="https://www.mkdocs.org" rel="noopener" target="_blank">MkDocs</a>
         and
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/romainmartinez" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
-    
-  </div>
-
-    </div>
-  </div>
+</div>
+<div class="md-footer-social">
+<link href="../assets/fonts/font-awesome.css" rel="stylesheet"/>
+<a class="md-footer-social__link fa fa-github" href="https://github.com/romainmartinez" rel="noopener" target="_blank" title="github"></a>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    
-      <script src="../assets/javascripts/application.c33a9706.js"></script>
-      
-      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
-      
-    
-  </body>
+</div>
+<script src="../assets/javascripts/application.c33a9706.js"></script>
+<script>app.initialize({version:"1.1",url:{base:".."}})</script>
+</body>
 </html>
