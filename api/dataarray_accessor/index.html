@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
 <meta content="An Open-Source Framework for Biomechanical Analysis" name="description"/>
-<link href="https://romainmartinez.github.io/motion/api/dataarray_accessor/" rel="canonical"/>
+<link href="https://romainmartinez.github.io/pyomeca/api/dataarray_accessor/" rel="canonical"/>
 <meta content="Romain Martinez" name="author"/>
 <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
 <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
@@ -20,7 +20,7 @@
 <meta content="[\s\-]+" name="lang:search.tokenizer"/>
 <link href="../../images/favicon.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-4.6.3" name="generator"/>
-<title>Dataarray_accessor - Motion</title>
+<title>Dataarray_accessor - Pyomeca</title>
 <link href="../../assets/stylesheets/application.adb8469c.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
 <meta content="#546e7a" name="theme-color"/>
@@ -47,7 +47,7 @@
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a aria-label="Motion" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<a aria-label="Pyomeca" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/pyomeca/" title="Pyomeca">
 <img alt="logo" height="24" src="../../images/logo.svg" width="24"/>
 </a>
 </div>
@@ -57,7 +57,7 @@
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-              Motion
+              Pyomeca
             </span>
 <span class="md-header-nav__topic">
               
@@ -116,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title md-nav__title--site" for="__drawer">
-<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/pyomeca/" title="Pyomeca">
 <img alt="logo" height="48" src="../../images/logo.svg" width="48"/>
 </a>
-    Motion
+    Pyomeca
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
@@ -214,113 +214,113 @@
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor">
-    motion.dataarray_accessor
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor">
+    pyomeca.dataarray_accessor
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor">
     DataArrayAccessor
   </a>
 <nav class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.abs">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.abs">
     abs()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.band_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.band_pass">
     band_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.band_stop">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.band_stop">
     band_stop()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.center">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.center">
     center()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.detect_onset">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.detect_onset">
     detect_onset()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.detect_outliers">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.detect_outliers">
     detect_outliers()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.fft">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.fft">
     fft()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.high_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.high_pass">
     high_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.low_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.low_pass">
     low_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.matmul">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.matmul">
     matmul()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.norm">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.norm">
     norm()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.normalize">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.normalize">
     normalize()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.rms">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.rms">
     rms()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.rotate">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.rotate">
     rotate()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.sqrt">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.sqrt">
     sqrt()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.square">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.square">
     square()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.time_normalize">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.time_normalize">
     time_normalize()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_csv">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_csv">
     to_csv()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_matlab">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_matlab">
     to_matlab()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
     to_wide_dataframe()
   </a>
 </li>
@@ -350,113 +350,113 @@
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor">
-    motion.dataarray_accessor
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor">
+    pyomeca.dataarray_accessor
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor">
     DataArrayAccessor
   </a>
 <nav class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.abs">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.abs">
     abs()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.band_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.band_pass">
     band_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.band_stop">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.band_stop">
     band_stop()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.center">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.center">
     center()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.detect_onset">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.detect_onset">
     detect_onset()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.detect_outliers">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.detect_outliers">
     detect_outliers()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.fft">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.fft">
     fft()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.high_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.high_pass">
     high_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.low_pass">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.low_pass">
     low_pass()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.matmul">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.matmul">
     matmul()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.norm">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.norm">
     norm()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.normalize">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.normalize">
     normalize()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.rms">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.rms">
     rms()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.rotate">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.rotate">
     rotate()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.sqrt">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.sqrt">
     sqrt()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.square">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.square">
     square()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.time_normalize">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.time_normalize">
     time_normalize()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_csv">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_csv">
     to_csv()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_matlab">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_matlab">
     to_matlab()
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#motion.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
+<a class="md-nav__link" href="#pyomeca.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
     to_wide_dataframe()
   </a>
 </li>
@@ -471,21 +471,21 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/api/dataarray_accessor.md" title="Edit this page"></a>
-<h1 id="dataarray_accessorpy"><a href="https://github.com/romainmartinez/motion/blob/master/motion/dataarray_accessor.py"><code>dataarray_accessor.py</code></a></h1>
+<h1 id="dataarray_accessorpy"><a href="https://github.com/romainmartinez/pyomeca/blob/master/pyomeca/dataarray_accessor.py"><code>dataarray_accessor.py</code></a></h1>
 <div class="doc doc-object doc-module">
-<h6 class="hidden-toc" href="#motion.dataarray_accessor" id="motion.dataarray_accessor" style="visibility: hidden; width: 0; height: 0;">
+<h6 class="hidden-toc" href="#pyomeca.dataarray_accessor" id="pyomeca.dataarray_accessor" style="visibility: hidden; width: 0; height: 0;">
 </h6>
 <div class="doc doc-contents first">
 <div class="doc doc-children">
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor">
+<h2 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor">
 <code>DataArrayAccessor</code>
 </h2>
 <div class="doc doc-contents">
 <p>Meca DataArray accessor used for processing or file writing.</p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.abs">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.abs">
 <code class="highlight language-python">
 abs<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
 </h3>
@@ -512,7 +512,7 @@ abs<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 <p class="admonition-title">Example</p>
 <p>To compute the absolute value of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
@@ -520,7 +520,7 @@ abs<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -558,7 +558,7 @@ abs<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 <span class="sd">        To compute the absolute value of any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.abs()</span>
@@ -574,7 +574,7 @@ abs<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.band_pass">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.band_pass">
 <code class="highlight language-python">
 band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> </code>
 </h3>
@@ -641,7 +641,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">fake_emg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">fake_emg</span><span class="p">)</span>
@@ -657,7 +657,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <p><img alt="band_pass" src="../../images/api/band_pass.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -724,7 +724,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        import matplotlib.pyplot as plt</span>
 <span class="sd">        import numpy as np</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        fake_emg = np.random.uniform(low=-1, high=1, size=(1, 1000))</span>
 <span class="sd">        analogs = Analogs(fake_emg)</span>
@@ -749,7 +749,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.band_stop">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.band_stop">
 <code class="highlight language-python">
 band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> </code>
 </h3>
@@ -816,7 +816,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">fake_emg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">fake_emg</span><span class="p">)</span>
@@ -832,7 +832,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <p><img alt="band_stop" src="../../images/api/band_stop.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -899,7 +899,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        import matplotlib.pyplot as plt</span>
 <span class="sd">        import numpy as np</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        fake_emg = np.random.uniform(low=-1, high=1, size=(1, 1000))</span>
 <span class="sd">        analogs = Analogs(fake_emg)</span>
@@ -924,7 +924,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.center">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.center">
 <code class="highlight language-python">
 center<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 </h3>
@@ -974,7 +974,7 @@ center<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <div class="codehilite">
 <pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">random_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">random_data</span><span class="p">)</span>
@@ -996,7 +996,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 <p><img alt="center" src="../../images/api/center.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -1064,7 +1064,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 <span class="sd">        ```python</span>
 <span class="sd">        import numpy as np</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        random_data = np.random.uniform(low=2, high=4, size=(1, 100))</span>
 <span class="sd">        analogs = Analogs(random_data)</span>
@@ -1096,7 +1096,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.detect_onset">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.detect_onset">
 <code class="highlight language-python">
 detect_onset<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">n_above</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_below</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">threshold2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_above2</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> </code>
 </h3>
@@ -1186,7 +1186,7 @@ detect_onset<span class="p">(</span><span class="bp">self</span><span class="p">
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span> <span class="k">as</span> <span class="nn">sig</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="c1"># simulate fake ecg data</span>
 <span class="n">rr</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># rr time in seconds</span>
@@ -1217,7 +1217,7 @@ detect_onset<span class="p">(</span><span class="bp">self</span><span class="p">
 For example, you can select a dimension using <code>analogs.sel(channel='EMG1')</code> or <code>analogs.isel(channel=0)</code>.</p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -1328,7 +1328,7 @@ For example, you can select a dimension using <code>analogs.sel(channel='EMG1')<
 <span class="sd">        import numpy as np</span>
 <span class="sd">        import scipy.signal as sig</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        # simulate fake ecg data</span>
 <span class="sd">        rr = 2.5  # rr time in seconds</span>
@@ -1369,7 +1369,7 @@ For example, you can select a dimension using <code>analogs.sel(channel='EMG1')<
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.detect_outliers">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.detect_outliers">
 <code class="highlight language-python">
 detect_outliers<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> </code>
 </h3>
@@ -1417,7 +1417,7 @@ detect_outliers<span class="p">(</span><span class="bp">self</span><span class="
 <p class="admonition-title">Example</p>
 <p>To get a boolean <code>xr.DataArray</code> containing the data that are 3 times the mean +/- standard deviation:</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">outliers</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">detect_outliers</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1461,7 +1461,7 @@ detect_outliers<span class="p">(</span><span class="bp">self</span><span class="
 can detect outliers for any number of dimensions.</p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -1542,7 +1542,7 @@ can detect outliers for any number of dimensions.</p>
 <span class="sd">        To get a boolean `xr.DataArray` containing the data that are 3 times the mean +/- standard deviation:</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        outliers = analogs.meca.detect_outliers(threshold=1)</span>
@@ -1595,7 +1595,7 @@ can detect outliers for any number of dimensions.</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.fft">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.fft">
 <code class="highlight language-python">
 fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">only_positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> </code>
 </h3>
@@ -1654,7 +1654,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="c1"># generate fake data</span>
 <span class="n">freq</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1688,7 +1688,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <p><img alt="fft" src="../../images/api/fft.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -1767,7 +1767,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <span class="sd">        import matplotlib.pyplot as plt</span>
 <span class="sd">        import numpy as np</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        # generate fake data</span>
 <span class="sd">        freq = 100</span>
@@ -1810,7 +1810,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.high_pass">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.high_pass">
 <code class="highlight language-python">
 high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> </code>
 </h3>
@@ -1877,7 +1877,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">fake_emg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="p">(</span><span class="n">fake_emg</span><span class="p">)</span>
@@ -1893,7 +1893,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <p><img alt="high_pass" src="../../images/api/high_pass.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -1960,7 +1960,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        import matplotlib.pyplot as plt</span>
 <span class="sd">        import numpy as np</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        fake_emg = np.random.uniform(low=-1, high=1, size=(1, 1000))</span>
 <span class="sd">        analogs = Analogs(fake_emg)</span>
@@ -1985,7 +1985,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.low_pass">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.low_pass">
 <code class="highlight language-python">
 low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span> </code>
 </h3>
@@ -2049,7 +2049,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p class="admonition-title">Example</p>
 <p>To low-pass any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans) signal at 5Hz:</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -2078,7 +2078,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <p><img alt="low_pass" src="../../images/api/low_pass.svg"/></p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2153,7 +2153,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <span class="sd">        To low-pass any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans) signal at 5Hz:</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.low_pass(freq=100, order=2, cutoff=5)</span>
@@ -2192,7 +2192,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.matmul">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.matmul">
 <code class="highlight language-python">
 matmul<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> </code>
 </h3>
@@ -2240,7 +2240,7 @@ matmul<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <p class="admonition-title">Example</p>
 <p>To compute the matrix product of two <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">first_analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">second_analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
@@ -2255,7 +2255,7 @@ matmul<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2307,7 +2307,7 @@ matmul<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <span class="sd">        To compute the matrix product of two `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        first_analogs = Analogs.from_random_data()</span>
 <span class="sd">        second_analogs = Analogs.from_random_data()</span>
@@ -2331,7 +2331,7 @@ matmul<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.norm">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.norm">
 <code class="highlight language-python">
 norm<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
 </h3>
@@ -2388,7 +2388,7 @@ norm<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <p>To compute the norm of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans)
 along a given dimension:</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Markers</span>
 
 <span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">markers</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">"axis"</span><span class="p">)</span>
@@ -2398,10 +2398,10 @@ along a given dimension:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If the array contains an <code>"axis"</code> dimension with a <code>"ones"</code> coordinate
-(e.g., the object was created using <code>motion.Markers</code>), this coordinate is ignored.</p>
+(e.g., the object was created using <code>pyomeca.Markers</code>), this coordinate is ignored.</p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2454,7 +2454,7 @@ along a given dimension:</p>
 <span class="sd">        along a given dimension:</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Markers</span>
+<span class="sd">        from pyomeca import Markers</span>
 
 <span class="sd">        markers = Markers.from_random_data()</span>
 <span class="sd">        markers.meca.norm(dim="axis")</span>
@@ -2462,7 +2462,7 @@ along a given dimension:</p>
 
 <span class="sd">    Note:</span>
 <span class="sd">        If the array contains an `"axis"` dimension with a `"ones"` coordinate</span>
-<span class="sd">        (e.g., the object was created using `motion.Markers`), this coordinate is ignored.</span>
+<span class="sd">        (e.g., the object was created using `pyomeca.Markers`), this coordinate is ignored.</span>
 
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">algebra</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="nb">ord</span><span class="p">)</span>
@@ -2475,7 +2475,7 @@ along a given dimension:</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.normalize">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.normalize">
 <code class="highlight language-python">
 normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> </code>
 </h3>
@@ -2533,7 +2533,7 @@ normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <div class="codehilite">
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
 <span class="n">normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
@@ -2551,7 +2551,7 @@ To specify any other value, use the <code>ref</code> parameter:</p>
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2621,7 +2621,7 @@ To specify any other value, use the <code>ref</code> parameter:</p>
 <span class="sd">        ```python</span>
 <span class="sd">        import matplotlib.pyplot as plt</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data(size=(1, 100)).meca.abs()</span>
 <span class="sd">        normalized = analogs.meca.normalize()</span>
@@ -2649,7 +2649,7 @@ To specify any other value, use the <code>ref</code> parameter:</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.rms">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.rms">
 <code class="highlight language-python">
 rms<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
 </h3>
@@ -2676,7 +2676,7 @@ rms<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 <p class="admonition-title">Example</p>
 <p>To compute the root-mean-square of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">rms</span><span class="p">()</span>
@@ -2684,7 +2684,7 @@ rms<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2722,7 +2722,7 @@ rms<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 <span class="sd">        To compute the root-mean-square of any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.rms()</span>
@@ -2738,7 +2738,7 @@ rms<span class="p">(</span><span class="bp">self</span><span class="p">)</span> 
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.rotate">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.rotate">
 <code class="highlight language-python">
 rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rt</span><span class="p">)</span> </code>
 </h3>
@@ -2788,10 +2788,10 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>rotate</code> works only for markers (created with <code>motion.Markers</code>).</p>
+<p><code>rotate</code> works only for markers (created with <code>pyomeca.Markers</code>).</p>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2843,7 +2843,7 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <span class="sd">        To rotate a random markers set from random angles:</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Angles, Rototrans, Markers</span>
+<span class="sd">        from pyomeca import Angles, Rototrans, Markers</span>
 
 <span class="sd">        n_frames = 100</span>
 <span class="sd">        n_markers = 10</span>
@@ -2855,7 +2855,7 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <span class="sd">        rotated_markers = markers.meca.rotate(rt)</span>
 <span class="sd">        ```</span>
 <span class="sd">    Note:</span>
-<span class="sd">        `rotate` works only for markers (created with `motion.Markers`).</span>
+<span class="sd">        `rotate` works only for markers (created with `pyomeca.Markers`).</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">markers</span><span class="o">.</span><span class="n">rotate_markers</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">rt</span><span class="p">)</span>
 </code></pre>
@@ -2867,7 +2867,7 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.sqrt">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.sqrt">
 <code class="highlight language-python">
 sqrt<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
 </h3>
@@ -2924,7 +2924,7 @@ sqrt<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <p>To compute the non-negative square-root of any <code>xarray.DataArray</code>
 (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
@@ -2932,7 +2932,7 @@ sqrt<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -2984,7 +2984,7 @@ sqrt<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 <span class="sd">        (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.sqrt()</span>
@@ -3000,7 +3000,7 @@ sqrt<span class="p">(</span><span class="bp">self</span><span class="p">,</span>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.square">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.square">
 <code class="highlight language-python">
 square<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> </code>
 </h3>
@@ -3056,7 +3056,7 @@ square<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <p class="admonition-title">Example</p>
 <p>To compute the element-wise square of any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">square</span><span class="p">()</span>
@@ -3064,7 +3064,7 @@ square<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -3116,7 +3116,7 @@ square<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <span class="sd">        To compute the element-wise square of any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.square()</span>
@@ -3132,7 +3132,7 @@ square<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.time_normalize">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.time_normalize">
 <code class="highlight language-python">
 time_normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_vector</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">norm_time</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
 </h3>
@@ -3198,7 +3198,7 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 <div class="codehilite">
 <pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">847</span><span class="p">))</span>
 <span class="n">time_normalized</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">()</span>
@@ -3229,7 +3229,7 @@ However, you can specify the desired number of frames:</p>
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -3320,7 +3320,7 @@ However, you can specify the desired number of frames:</p>
 <span class="sd">        ```python</span>
 <span class="sd">        import matplotlib.pyplot as plt</span>
 
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data(size=(1, 847))</span>
 <span class="sd">        time_normalized = analogs.meca.time_normalize()</span>
@@ -3365,7 +3365,7 @@ However, you can specify the desired number of frames:</p>
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.to_csv">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.to_csv">
 <code class="highlight language-python">
 to_csv<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">wide</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> </code>
 </h3>
@@ -3404,7 +3404,7 @@ to_csv<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <p class="admonition-title">Example</p>
 <p>To write a csv file from any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"temp.csv"</span><span class="p">)</span>
@@ -3418,7 +3418,7 @@ You can also export the data in a "tidy" format with <code>wide=False</code>:</p
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -3465,7 +3465,7 @@ You can also export the data in a "tidy" format with <code>wide=False</code>:</p
 <span class="sd">        To write a csv file from any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.to_csv(filename="temp.csv")</span>
@@ -3488,7 +3488,7 @@ You can also export the data in a "tidy" format with <code>wide=False</code>:</p
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.to_matlab">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.to_matlab">
 <code class="highlight language-python">
 to_matlab<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> </code>
 </h3>
@@ -3519,7 +3519,7 @@ to_matlab<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <p class="admonition-title">Example</p>
 <p>To write a matlab file from any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_matlab</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"temp.mat"</span><span class="p">)</span>
@@ -3527,7 +3527,7 @@ to_matlab<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -3565,7 +3565,7 @@ to_matlab<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        To write a matlab file from any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.to_matlab(filename="temp.mat")</span>
@@ -3581,7 +3581,7 @@ to_matlab<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </div>
 </div>
 <div class="doc doc-object doc-method">
-<h3 class="doc doc-heading" id="motion.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
+<h3 class="doc doc-heading" id="pyomeca.dataarray_accessor.DataArrayAccessor.to_wide_dataframe">
 <code class="highlight language-python">
 to_wide_dataframe<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
 </h3>
@@ -3610,7 +3610,7 @@ to_wide_dataframe<span class="p">(</span><span class="bp">self</span><span class
 <p class="admonition-title">Example</p>
 <p>To return a dataframe from any <code>xarray.DataArray</code> (including Analogs, Angles, Markers or Rototrans):</p>
 <div class="codehilite">
-<pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">analogs</span> <span class="o">=</span> <span class="n">Analogs</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">()</span>
 <span class="n">analogs</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_wide_dataframe</span><span class="p">()</span>
@@ -3618,7 +3618,7 @@ to_wide_dataframe<span class="p">(</span><span class="bp">self</span><span class
 </div>
 </div>
 <details class="quote">
-<summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
+<summary>Source code in <code>pyomeca/dataarray_accessor.py</code></summary>
 <table class="highlighttable">
 <tr>
 <td class="linenos">
@@ -3660,7 +3660,7 @@ to_wide_dataframe<span class="p">(</span><span class="bp">self</span><span class
 <span class="sd">        To return a dataframe from any `xarray.DataArray` (including Analogs, Angles, Markers or Rototrans):</span>
 
 <span class="sd">        ```python</span>
-<span class="sd">        from motion import Analogs</span>
+<span class="sd">        from pyomeca import Analogs</span>
 
 <span class="sd">        analogs = Analogs.from_random_data()</span>
 <span class="sd">        analogs.meca.to_wide_dataframe()</span>

@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://romainmartinez.github.io/motion/overview/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/overview/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/getting-started/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/getting-started/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/object-creation/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/object-creation/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/data-processing/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/data-processing/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/case-studies/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/case-studies/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/about/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/about/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/api/analogs/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/api/analogs/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/api/angles/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/api/angles/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/api/markers/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/api/markers/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/api/dataarray_accessor/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/api/dataarray_accessor/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://romainmartinez.github.io/motion/api/rototrans/</loc>
+     <loc>https://romainmartinez.github.io/pyomeca/api/rototrans/</loc>
      <lastmod>2020-04-10</lastmod>
      <changefreq>daily</changefreq>
     </url>

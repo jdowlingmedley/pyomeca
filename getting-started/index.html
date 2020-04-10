@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
 <meta content="An Open-Source Framework for Biomechanical Analysis" name="description"/>
-<link href="https://romainmartinez.github.io/motion/getting-started/" rel="canonical"/>
+<link href="https://romainmartinez.github.io/pyomeca/getting-started/" rel="canonical"/>
 <meta content="Romain Martinez" name="author"/>
 <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
 <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
@@ -20,7 +20,7 @@
 <meta content="[\s\-]+" name="lang:search.tokenizer"/>
 <link href="../images/favicon.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-4.6.3" name="generator"/>
-<title>Getting Started - Motion</title>
+<title>Getting Started - Pyomeca</title>
 <link href="../assets/stylesheets/application.adb8469c.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/application-palette.a8b3c06d.css" rel="stylesheet"/>
 <meta content="#546e7a" name="theme-color"/>
@@ -47,7 +47,7 @@
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a aria-label="Motion" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<a aria-label="Pyomeca" class="md-header-nav__button md-logo" href="https://romainmartinez.github.io/pyomeca/" title="Pyomeca">
 <img alt="logo" height="24" src="../images/logo.svg" width="24"/>
 </a>
 </div>
@@ -57,7 +57,7 @@
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
 <span class="md-header-nav__topic">
-              Motion
+              Pyomeca
             </span>
 <span class="md-header-nav__topic">
               
@@ -116,10 +116,10 @@
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title md-nav__title--site" for="__drawer">
-<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/motion/" title="Motion">
+<a class="md-nav__button md-logo" href="https://romainmartinez.github.io/pyomeca/" title="Pyomeca">
 <img alt="logo" height="48" src="../images/logo.svg" width="48"/>
 </a>
-    Motion
+    Pyomeca
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-source="github" href="https://github.com/pyomeca/pyomeca/" title="Go to repository">
@@ -399,30 +399,30 @@
 <a class="md-icon md-content__icon" href="https://github.com/pyomeca/pyomeca/edit/master/docs/getting-started.md" title="Edit this page"></a>
 <h1>Getting Started</h1>
 <h2 id="installation">Installation</h2>
-<p>Before you can use motion, you will need to get it installed.
-Motion itself is a pure Python package, but its dependencies are not.
+<p>Before you can use pyomeca, you will need to get it installed.
+Pyomeca itself is a pure Python package, but its dependencies are not.
 The easiest way to get everything installed is to use <a href="https://conda.io/en/latest/miniconda.html">conda</a>.</p>
-<p>To install motion with its recommended dependencies using the conda command line tool:</p>
-<p><div class="codehilite"><pre><span></span><code>conda install -c conda-forge motion
+<p>To install pyomeca with its recommended dependencies using the conda command line tool:</p>
+<p><div class="codehilite"><pre><span></span><code>conda install -c conda-forge pyomeca
 </code></pre></div>
-Now that you have installed motion, you should be able to import it:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">motion</span>
+Now that you have installed pyomeca, you should be able to import it:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pyomeca</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Want to test motion from your browser and without installing anything?
-Try out our binder server: <a href="https://mybinder.org/v2/gh/romainmartinez/motion/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg"/></a></p>
+<p>Want to test pyomeca from your browser and without installing anything?
+Try out our binder server: <a href="https://mybinder.org/v2/gh/romainmartinez/pyomeca/master"><img alt="Binder" src="https://mybinder.org/badge_logo.svg"/></a></p>
 </div>
 <h2 id="quick-overview">Quick overview</h2>
-<p>Here is a short introduction to xarray and motion, geared mainly for new users.
+<p>Here is a short introduction to xarray and pyomeca, geared mainly for new users.
 You should be able to follow along and complete this short example in 10 about minutes.</p>
 <p>We will carry out common tasks in biomechanics, including reading files, manipulating and processing data, making figures and writing files.</p>
 <h3 id="object-creation">Object creation</h3>
-<p>Let's begin by creating a biomechanical data structure with motion.
-In this tutorial, we will analyze the skin marker data available in this <a href="https://github.com/romainmartinez/motion/blob/master/tests/data/markers_analogs.c3d"><code>c3d file</code></a>.</p>
-<p>Motion provides the <code>from_c3d</code> function to read <code>c3d</code> files.
+<p>Let's begin by creating a biomechanical data structure with pyomeca.
+In this tutorial, we will analyze the skin marker data available in this <a href="https://github.com/romainmartinez/pyomeca/blob/master/tests/data/markers_analogs.c3d"><code>c3d file</code></a>.</p>
+<p>Pyomeca provides the <code>from_c3d</code> function to read <code>c3d</code> files.
 As we want to analyse markers data, we will use the <code>Markers</code> class:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Markers</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Markers</span>
 
 <span class="n">data_path</span> <span class="o">=</span> <span class="s2">"../tests/data/markers_analogs.c3d"</span>
 <span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_c3d</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">prefix_delimiter</span><span class="o">=</span><span class="s2">":"</span><span class="p">)</span>
@@ -766,7 +766,7 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><div class="xr-wrap"><div class="xr-header"><div class="xr-obj-type">xarray.DataArray</div><div class="xr-array-name">'markers'</div><ul class="xr-dim-list"><li><span class="xr-has-index">axis</span>: 4</li><li><span class="xr-has-index">channel</span>: 51</li><li><span class="xr-has-index">time</span>: 580</li></ul></div><ul class="xr-sections"><li class="xr-section-item"><div class="xr-array-wrap"><input class="xr-array-in" id="section-d035c260-6f93-4155-9302-e73144fa88d2" type="checkbox"/><label for="section-d035c260-6f93-4155-9302-e73144fa88d2" title="Show/hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-array-preview xr-preview"><span>44.16 44.17 44.16 44.17 44.17 44.19 44.2 ... 1.0 1.0 1.0 1.0 1.0 1.0</span></div><pre class="xr-array-data">array([[[  44.16278839,   44.16666412,   44.16487122, ...,
+</style><div class="xr-wrap"><div class="xr-header"><div class="xr-obj-type">xarray.DataArray</div><div class="xr-array-name">'markers'</div><ul class="xr-dim-list"><li><span class="xr-has-index">axis</span>: 4</li><li><span class="xr-has-index">channel</span>: 51</li><li><span class="xr-has-index">time</span>: 580</li></ul></div><ul class="xr-sections"><li class="xr-section-item"><div class="xr-array-wrap"><input class="xr-array-in" id="section-d08ee2c2-ee92-4f69-ba19-b29108a19986" type="checkbox"/><label for="section-d08ee2c2-ee92-4f69-ba19-b29108a19986" title="Show/hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-array-preview xr-preview"><span>44.16 44.17 44.16 44.17 44.17 44.19 44.2 ... 1.0 1.0 1.0 1.0 1.0 1.0</span></div><pre class="xr-array-data">array([[[  44.16278839,   44.16666412,   44.16487122, ...,
            99.22426605,   99.24201965,   99.25963593],
         [  32.57229614,   32.57104111,   32.56489563, ...,
            87.51286316,   87.52822876,   87.54118347],
@@ -820,7 +820,7 @@ dl.xr-attrs {
         [   1.        ,    1.        ,    1.        , ...,
             1.        ,    1.        ,    1.        ],
         [   1.        ,    1.        ,    1.        , ...,
-            1.        ,    1.        ,    1.        ]]])</pre></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-06f03687-7bdb-4286-a8ee-47d0ca569111" type="checkbox"/><label class="xr-section-summary" for="section-06f03687-7bdb-4286-a8ee-47d0ca569111">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">axis</span></div><div class="xr-var-dims">(axis)</div><div class="xr-var-dtype">&lt;U4</div><div class="xr-var-preview xr-preview">'x' 'y' 'z' 'ones'</div><input class="xr-var-attrs-in" disabled="" id="attrs-e213f55d-a59b-40e4-a9c7-cd65fe48f700" type="checkbox"/><label for="attrs-e213f55d-a59b-40e4-a9c7-cd65fe48f700" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-22f0f765-f7ed-44d3-8996-e15ccff16a8c" type="checkbox"/><label for="data-22f0f765-f7ed-44d3-8996-e15ccff16a8c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['x', 'y', 'z', 'ones'], dtype='&lt;U4')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">channel</span></div><div class="xr-var-dims">(channel)</div><div class="xr-var-dtype">&lt;U14</div><div class="xr-var-preview xr-preview">'gauche_ext' ... 'LATH'</div><input class="xr-var-attrs-in" disabled="" id="attrs-c47f3ad2-329e-488f-9d9e-6b5826158c92" type="checkbox"/><label for="attrs-c47f3ad2-329e-488f-9d9e-6b5826158c92" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-9beadc42-ae5e-4469-b69d-331a53338d33" type="checkbox"/><label for="data-9beadc42-ae5e-4469-b69d-331a53338d33" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['gauche_ext', 'gauche_int', 'droite_int', 'droite_ext', 'avant_gauche',
+            1.        ,    1.        ,    1.        ]]])</pre></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-814b0999-490a-451b-8192-72ffcab1af21" type="checkbox"/><label class="xr-section-summary" for="section-814b0999-490a-451b-8192-72ffcab1af21">Coordinates: <span>(3)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><ul class="xr-var-list"><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">axis</span></div><div class="xr-var-dims">(axis)</div><div class="xr-var-dtype">&lt;U4</div><div class="xr-var-preview xr-preview">'x' 'y' 'z' 'ones'</div><input class="xr-var-attrs-in" disabled="" id="attrs-d108ed3a-01e1-42f5-82f2-fa2e0a7e4ded" type="checkbox"/><label for="attrs-d108ed3a-01e1-42f5-82f2-fa2e0a7e4ded" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-f53f29cc-0f7e-4044-87dd-3fda45399b3c" type="checkbox"/><label for="data-f53f29cc-0f7e-4044-87dd-3fda45399b3c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['x', 'y', 'z', 'ones'], dtype='&lt;U4')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">channel</span></div><div class="xr-var-dims">(channel)</div><div class="xr-var-dtype">&lt;U14</div><div class="xr-var-preview xr-preview">'gauche_ext' ... 'LATH'</div><input class="xr-var-attrs-in" disabled="" id="attrs-c7baa561-8233-4945-bdfc-d27cca9707cf" type="checkbox"/><label for="attrs-c7baa561-8233-4945-bdfc-d27cca9707cf" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-87fda94c-b472-477c-b3a4-83f63a5da34c" type="checkbox"/><label for="data-87fda94c-b472-477c-b3a4-83f63a5da34c" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array(['gauche_ext', 'gauche_int', 'droite_int', 'droite_ext', 'avant_gauche',
        'avant_droit', 'arriere_droit', 'arriere_gauche', 'ASISr', 'ASISl',
        'PSISr', 'PSISl', 'STERr', 'STERl', 'STER', 'XIPH', 'T1', 'T10',
        'CLAV_SC', 'CLAVm', 'CLAV_ant', 'CLAV_post', 'CLAVl', 'CLAV_AC',
@@ -828,11 +828,11 @@ dl.xr-attrs {
        'SCAP_SA', 'SCAP_IA', 'DELT', 'ARMl', 'ARMm', 'ARMp_up', 'ARMp_do',
        'EPICl', 'EPICm', 'LARMm', 'LARMl', 'LARM_elb', 'LARM_ant', 'STYLr',
        'STYLr_up', 'STYLu', 'WRIST', 'INDEX', 'LASTC', 'MEDH', 'LATH'],
-      dtype='&lt;U14')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0 0.01 0.02 ... 5.77 5.78 5.79</div><input class="xr-var-attrs-in" disabled="" id="attrs-9b40aee3-cb13-46a3-8227-54656b52083b" type="checkbox"/><label for="attrs-9b40aee3-cb13-46a3-8227-54656b52083b" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-0bd16307-87bf-43fb-8aee-189c15e333cb" type="checkbox"/><label for="data-0bd16307-87bf-43fb-8aee-189c15e333cb" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array([0.  , 0.01, 0.02, ..., 5.77, 5.78, 5.79])</pre></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-8946b0d3-eb2a-48e6-a0bc-c80bbddfb7f7" type="checkbox"/><label class="xr-section-summary" for="section-8946b0d3-eb2a-48e6-a0bc-c80bbddfb7f7">Attributes: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>first_frame :</span></dt><dd>0</dd><dt><span>last_frame :</span></dt><dd>579</dd><dt><span>rate :</span></dt><dd>100.0</dd><dt><span>units :</span></dt><dd>mm</dd></dl></div></li></ul></div></div></code></pre>
+      dtype='&lt;U14')</pre></li><li class="xr-var-item"><div class="xr-var-name"><span class="xr-has-index">time</span></div><div class="xr-var-dims">(time)</div><div class="xr-var-dtype">float64</div><div class="xr-var-preview xr-preview">0.0 0.01 0.02 ... 5.77 5.78 5.79</div><input class="xr-var-attrs-in" disabled="" id="attrs-c2ed5e5e-e288-4e4d-adfc-b295ffa8acfd" type="checkbox"/><label for="attrs-c2ed5e5e-e288-4e4d-adfc-b295ffa8acfd" title="Show/Hide attributes"><svg class="icon xr-icon-file-text2"><use xlink:href="#icon-file-text2"></use></svg></label><input class="xr-var-data-in" id="data-b9c43d91-eca0-4286-a5b7-096e9933ce00" type="checkbox"/><label for="data-b9c43d91-eca0-4286-a5b7-096e9933ce00" title="Show/Hide data repr"><svg class="icon xr-icon-database"><use xlink:href="#icon-database"></use></svg></label><div class="xr-var-attrs"><dl class="xr-attrs"></dl></div><pre class="xr-var-data">array([0.  , 0.01, 0.02, ..., 5.77, 5.78, 5.79])</pre></li></ul></div></li><li class="xr-section-item"><input checked="" class="xr-section-summary-in" id="section-cb0dc720-8232-4b58-a444-2344d369b0f2" type="checkbox"/><label class="xr-section-summary" for="section-cb0dc720-8232-4b58-a444-2344d369b0f2">Attributes: <span>(4)</span></label><div class="xr-section-inline-details"></div><div class="xr-section-details"><dl class="xr-attrs"><dt><span>first_frame :</span></dt><dd>0</dd><dt><span>last_frame :</span></dt><dd>579</dd><dt><span>rate :</span></dt><dd>100.0</dd><dt><span>units :</span></dt><dd>mm</dd></dl></div></li></ul></div></div></code></pre>
 <p>In this case, we have generated a 3D array with the <code>axis</code>, <code>channel</code> and <code>time</code> dimensions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There are several ways to create objects in motion: by supplying data, from files of from other data structure.
+<p>There are several ways to create objects in pyomeca: by supplying data, from files of from other data structure.
 A more complete guide on object creation is available in the <a href="/object-creation">objection creation</a> section of the documentation.</p>
 </div>
 <h3 id="indexing">Indexing</h3>
@@ -891,7 +891,7 @@ For more details on indexing see the <a href="http://xarray.pydata.org/en/stable
 </div>
 <h3 id="metadata">Metadata</h3>
 <p>Biomechanical datasets are usually more than just raw numbers and have various metadata attributes.
-Some metadata are already filled by motion and available in the <code>attrs</code> Python dictionnary.</p>
+Some metadata are already filled by pyomeca and available in the <code>attrs</code> Python dictionnary.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">markers</span><span class="o">.</span><span class="n">attrs</span>
 </code></pre></div>
 <pre class="nb-output"><code> &gt;&gt; {'first_frame': 0, 'last_frame': 579, 'rate': 100.0, 'units': 'mm'}</code></pre>
@@ -1147,9 +1147,9 @@ For more, see the <a href="http://xarray.pydata.org/en/stable/computation.html#c
 </code></pre></div>
 <p><img alt="svg" src="../getting-started_files/getting-started_58_0.svg"/></p>
 <h4 id="electromyographic-pipeline">Electromyographic pipeline</h4>
-<p>Motion implements specialized functionalities commonly used in biomechanics.</p>
+<p>Pyomeca implements specialized functionalities commonly used in biomechanics.</p>
 <p>Let's proccess the electromyographic data contained in our <code>c3d</code> file.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">motion</span> <span class="kn">import</span> <span class="n">Analogs</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Analogs</span>
 
 <span class="n">muscles</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"Delt_ant"</span><span class="p">,</span>
@@ -1193,168 +1193,168 @@ For more, see the <a href="http://xarray.pydata.org/en/stable/computation.html#c
 <div class="codehilite"><pre><span></span><code><span class="n">emg_dataframe</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <pre class="nb-output"><code><style type="text/css">
-    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col0 {
+    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col0 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col1 {
             background-color:  #e9e5f1;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col2 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col3 {
             background-color:  #b5c4df;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col4 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col5 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col0 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col0 {
             background-color:  #308cbe;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col1 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col2 {
             background-color:  #3790c0;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col3 {
             background-color:  #b5c4df;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col4 {
             background-color:  #9ebad9;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col5 {
             background-color:  #0872b1;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col0 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col0 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col1 {
             background-color:  #efe9f3;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col2 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col3 {
             background-color:  #fcf4fa;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col4 {
             background-color:  #e2dfee;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col5 {
             background-color:  #3f93c2;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col0 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col0 {
             background-color:  #4c99c5;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col1 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col2 {
             background-color:  #a1bbda;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col3 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col4 {
             background-color:  #faf2f8;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col5 {
             background-color:  #a7bddb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col0 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col0 {
             background-color:  #afc1dd;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col1 {
             background-color:  #f5eff6;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col2 {
             background-color:  #84b0d3;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col3 {
             background-color:  #fff7fb;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col4 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col5 {
             background-color:  #88b1d4;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col0 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col0 {
             background-color:  #abbfdc;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col1 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col1 {
             background-color:  #4094c3;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col2 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col2 {
             background-color:  #0570b0;
             color:  #f1f1f1;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col3 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col3 {
             background-color:  #abbfdc;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col4 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col4 {
             background-color:  #83afd3;
             color:  #000000;
-        }    #T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col5 {
+        }    #T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col5 {
             background-color:  #023858;
             color:  #f1f1f1;
-        }</style><table id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9"><thead>    <tr>        <th class="index_name level0">channel</th>        <th class="col_heading level0 col0">Delt_ant</th>        <th class="col_heading level0 col1">Delt_med</th>        <th class="col_heading level0 col2">Delt_post</th>        <th class="col_heading level0 col3">Infra</th>        <th class="col_heading level0 col4">Subscap</th>        <th class="col_heading level0 col5">Supra</th>    </tr>    <tr>        <th class="index_name level0">channel</th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>    </tr></thead><tbody>
+        }</style><table id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9"><thead>    <tr>        <th class="index_name level0">channel</th>        <th class="col_heading level0 col0">Delt_ant</th>        <th class="col_heading level0 col1">Delt_med</th>        <th class="col_heading level0 col2">Delt_post</th>        <th class="col_heading level0 col3">Infra</th>        <th class="col_heading level0 col4">Subscap</th>        <th class="col_heading level0 col5">Supra</th>    </tr>    <tr>        <th class="index_name level0">channel</th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>        <th class="blank"></th>    </tr></thead><tbody>
                 <tr>
-                        <th class="row_heading level0 row0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row0">Delt_ant</th>
-                        <td class="data row0 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col0">1.0</td>
-                        <td class="data row0 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col1">0.78</td>
-                        <td class="data row0 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col2">0.38</td>
-                        <td class="data row0 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col3">0.74</td>
-                        <td class="data row0 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col4">0.6</td>
-                        <td class="data row0 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row0_col5">0.6</td>
+                        <th class="row_heading level0 row0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row0">Delt_ant</th>
+                        <td class="data row0 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col0">1.0</td>
+                        <td class="data row0 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col1">0.78</td>
+                        <td class="data row0 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col2">0.38</td>
+                        <td class="data row0 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col3">0.74</td>
+                        <td class="data row0 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col4">0.6</td>
+                        <td class="data row0 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row0_col5">0.6</td>
             </tr>
             <tr>
-                        <th class="row_heading level0 row1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row1">Delt_med</th>
-                        <td class="data row1 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col0">0.78</td>
-                        <td class="data row1 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col1">1.0</td>
-                        <td class="data row1 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col2">0.77</td>
-                        <td class="data row1 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col3">0.74</td>
-                        <td class="data row1 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col4">0.76</td>
-                        <td class="data row1 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row1_col5">0.9</td>
+                        <th class="row_heading level0 row1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row1">Delt_med</th>
+                        <td class="data row1 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col0">0.78</td>
+                        <td class="data row1 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col1">1.0</td>
+                        <td class="data row1 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col2">0.77</td>
+                        <td class="data row1 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col3">0.74</td>
+                        <td class="data row1 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col4">0.76</td>
+                        <td class="data row1 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row1_col5">0.9</td>
             </tr>
             <tr>
-                        <th class="row_heading level0 row2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row2">Delt_post</th>
-                        <td class="data row2 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col0">0.38</td>
-                        <td class="data row2 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col1">0.77</td>
-                        <td class="data row2 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col2">1.0</td>
-                        <td class="data row2 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col3">0.62</td>
-                        <td class="data row2 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col4">0.67</td>
-                        <td class="data row2 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row2_col5">0.84</td>
+                        <th class="row_heading level0 row2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row2">Delt_post</th>
+                        <td class="data row2 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col0">0.38</td>
+                        <td class="data row2 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col1">0.77</td>
+                        <td class="data row2 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col2">1.0</td>
+                        <td class="data row2 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col3">0.62</td>
+                        <td class="data row2 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col4">0.67</td>
+                        <td class="data row2 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row2_col5">0.84</td>
             </tr>
             <tr>
-                        <th class="row_heading level0 row3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row3">Infra</th>
-                        <td class="data row3 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col0">0.74</td>
-                        <td class="data row3 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col1">0.74</td>
-                        <td class="data row3 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col2">0.62</td>
-                        <td class="data row3 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col3">1.0</td>
-                        <td class="data row3 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col4">0.61</td>
-                        <td class="data row3 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row3_col5">0.75</td>
+                        <th class="row_heading level0 row3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row3">Infra</th>
+                        <td class="data row3 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col0">0.74</td>
+                        <td class="data row3 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col1">0.74</td>
+                        <td class="data row3 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col2">0.62</td>
+                        <td class="data row3 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col3">1.0</td>
+                        <td class="data row3 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col4">0.61</td>
+                        <td class="data row3 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row3_col5">0.75</td>
             </tr>
             <tr>
-                        <th class="row_heading level0 row4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row4">Subscap</th>
-                        <td class="data row4 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col0">0.6</td>
-                        <td class="data row4 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col1">0.76</td>
-                        <td class="data row4 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col2">0.67</td>
-                        <td class="data row4 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col3">0.61</td>
-                        <td class="data row4 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col4">1.0</td>
-                        <td class="data row4 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row4_col5">0.78</td>
+                        <th class="row_heading level0 row4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row4">Subscap</th>
+                        <td class="data row4 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col0">0.6</td>
+                        <td class="data row4 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col1">0.76</td>
+                        <td class="data row4 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col2">0.67</td>
+                        <td class="data row4 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col3">0.61</td>
+                        <td class="data row4 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col4">1.0</td>
+                        <td class="data row4 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row4_col5">0.78</td>
             </tr>
             <tr>
-                        <th class="row_heading level0 row5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9level0_row5">Supra</th>
-                        <td class="data row5 col0" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col0">0.6</td>
-                        <td class="data row5 col1" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col1">0.9</td>
-                        <td class="data row5 col2" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col2">0.84</td>
-                        <td class="data row5 col3" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col3">0.75</td>
-                        <td class="data row5 col4" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col4">0.78</td>
-                        <td class="data row5 col5" id="T_d72db3ea_7a7d_11ea_bb47_9cb6d0d1e6f9row5_col5">1.0</td>
+                        <th class="row_heading level0 row5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9level0_row5">Supra</th>
+                        <td class="data row5 col0" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col0">0.6</td>
+                        <td class="data row5 col1" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col1">0.9</td>
+                        <td class="data row5 col2" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col2">0.84</td>
+                        <td class="data row5 col3" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col3">0.75</td>
+                        <td class="data row5 col4" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col4">0.78</td>
+                        <td class="data row5 col5" id="T_4119a520_7b6e_11ea_8a7e_9cb6d0d1e6f9row5_col5">1.0</td>
             </tr>
     </tbody></table></code></pre>
 <div class="admonition note">
@@ -1382,8 +1382,8 @@ Coordinates:
   * time     (time) float64 0.0 0.0005 0.001 0.0015 ... 5.798 5.798 5.799 5.8
 Data variables:
     trial 1  (channel, time) float64 -2.609e-05 -2.544e-05 ... 3.04e-05
-    trial 2  (channel, time) float64 -7.703e-06 -7.512e-06 ... 8.975e-06
-    trial 3  (channel, time) float64 -5.483e-06 -5.346e-06 ... 6.388e-06</pre></code></pre>
+    trial 2  (channel, time) float64 -5.765e-06 -5.622e-06 ... 6.717e-06
+    trial 3  (channel, time) float64 -2.545e-05 -2.482e-05 ... 2.966e-05</pre></code></pre>
 <p>We can still access the individual data arrays</p>
 <div class="codehilite"><pre><span></span><code><span class="n">trials</span><span class="p">[</span><span class="s2">"trial 1"</span><span class="p">]</span>
 </code></pre></div>
@@ -1460,7 +1460,7 @@ Data variables:
     trial 1  (channel, time) float64 ...
     trial 2  (channel, time) float64 ...
     trial 3  (channel, time) float64 ...</pre></code></pre>
-<p>Motion implements function to read various file format commonly used in biomechanics such as <code>c3d</code>, <code>csv</code>, <code>xlsx</code>, <code>sto</code>, <code>trc</code> and <code>mot</code>.</p>
+<p>Pyomeca implements function to read various file format commonly used in biomechanics such as <code>c3d</code>, <code>csv</code>, <code>xlsx</code>, <code>sto</code>, <code>trc</code> and <code>mot</code>.</p>
 <p>Users can also write Matlab and csv files.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">emg</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">to_matlab</span><span class="p">(</span><span class="s2">"emg.mat"</span><span class="p">)</span>
 </code></pre></div>
