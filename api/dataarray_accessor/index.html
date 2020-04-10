@@ -654,7 +654,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="band_pass" src="/images/api/band_pass.svg"/></p>
+<p><img alt="band_pass" src="../../images/api/band_pass.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -737,7 +737,7 @@ band_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![band_pass](/images/api/band_pass.svg)</span>
+<span class="sd">        ![band_pass](../images/api/band_pass.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="nb">filter</span><span class="o">.</span><span class="n">band_pass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
 </code></pre>
@@ -829,7 +829,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="band_stop" src="/images/api/band_stop.svg"/></p>
+<p><img alt="band_stop" src="../../images/api/band_stop.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -912,7 +912,7 @@ band_stop<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![band_stop](/images/api/band_stop.svg)</span>
+<span class="sd">        ![band_stop](../images/api/band_stop.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="nb">filter</span><span class="o">.</span><span class="n">band_stop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
 </code></pre>
@@ -993,7 +993,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="center" src="/images/api/center.svg"/></p>
+<p><img alt="center" src="../../images/api/center.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -1084,7 +1084,7 @@ When centered, the signal is now center around 0 (mean around 0).</p>
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![center](/images/api/center.svg)</span>
+<span class="sd">        ![center](../images/api/center.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">algebra</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 </code></pre>
@@ -1209,7 +1209,7 @@ detect_onset<span class="p">(</span><span class="bp">self</span><span class="p">
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="detect_onset" src="/images/api/detect_onset.svg"/></p>
+<p><img alt="detect_onset" src="../../images/api/detect_onset.svg"/></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1351,7 +1351,7 @@ For example, you can select a dimension using <code>analogs.sel(channel='EMG1')<
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![detect_onset](/images/api/detect_onset.svg)</span>
+<span class="sd">        ![detect_onset](../images/api/detect_onset.svg)</span>
 
 <span class="sd">    !!! warning</span>
 <span class="sd">        `detect_onset` works only for 1-dimensional data.</span>
@@ -1453,7 +1453,7 @@ detect_outliers<span class="p">(</span><span class="bp">self</span><span class="
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="detect_outliers" src="/images/api/detect_outliers.svg"/></p>
+<p><img alt="detect_outliers" src="../../images/api/detect_outliers.svg"/></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1579,7 +1579,7 @@ can detect outliers for any number of dimensions.</p>
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![detect_outliers](/images/api/detect_outliers.svg)</span>
+<span class="sd">        ![detect_outliers](../images/api/detect_outliers.svg)</span>
 
 <span class="sd">    Note:</span>
 <span class="sd">        `detect_outliers` is not limited on one-dimensional data and</span>
@@ -1685,7 +1685,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="fft" src="/images/api/fft.svg"/></p>
+<p><img alt="fft" src="../../images/api/fft.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -1798,7 +1798,7 @@ fft<span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![fft](/images/api/fft.svg)</span>
+<span class="sd">        ![fft](../images/api/fft.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">misc</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">only_positive</span><span class="p">)</span>
 </code></pre>
@@ -1890,7 +1890,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="high_pass" src="/images/api/high_pass.svg"/></p>
+<p><img alt="high_pass" src="../../images/api/high_pass.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -1973,7 +1973,7 @@ high_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![high_pass](/images/api/high_pass.svg)</span>
+<span class="sd">        ![high_pass](../images/api/high_pass.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="nb">filter</span><span class="o">.</span><span class="n">high_pass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
 </code></pre>
@@ -2075,7 +2075,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="low_pass" src="/images/api/low_pass.svg"/></p>
+<p><img alt="low_pass" src="../../images/api/low_pass.svg"/></p>
 </div>
 <details class="quote">
 <summary>Source code in <code>motion/dataarray_accessor.py</code></summary>
@@ -2180,7 +2180,7 @@ low_pass<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![low_pass](/images/api/low_pass.svg)</span>
+<span class="sd">        ![low_pass](../images/api/low_pass.svg)</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="nb">filter</span><span class="o">.</span><span class="n">low_pass</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_obj</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">cutoff</span><span class="p">)</span>
 </code></pre>
@@ -2542,7 +2542,7 @@ normalize<span class="p">(</span><span class="bp">self</span><span class="p">,</
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="normalize" src="/images/api/normalize.svg"/></p>
+<p><img alt="normalize" src="../../images/api/normalize.svg"/></p>
 <p>By default, this function normalize against the signal's max.
 To specify any other value, use the <code>ref</code> parameter:</p>
 <div class="codehilite">
@@ -2630,7 +2630,7 @@ To specify any other value, use the <code>ref</code> parameter:</p>
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![normalize](/images/api/normalize.svg)</span>
+<span class="sd">        ![normalize](../images/api/normalize.svg)</span>
 
 <span class="sd">        By default, this function normalize against the signal's max.</span>
 <span class="sd">        To specify any other value, use the `ref` parameter:</span>
@@ -3212,7 +3212,7 @@ time_normalize<span class="p">(</span><span class="bp">self</span><span class="p
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre>
 </div>
-<p><img alt="time_normalize" src="/images/api/time_normalize.svg"/></p>
+<p><img alt="time_normalize" src="../../images/api/time_normalize.svg"/></p>
 <p>By default, <code>time_normalize</code> use a time vector with 100 frames from 0 to 100.
 However, you can specify the desired number of frames:</p>
 <div class="codehilite">
@@ -3335,7 +3335,7 @@ However, you can specify the desired number of frames:</p>
 <span class="sd">        plt.show()</span>
 <span class="sd">        ```</span>
 
-<span class="sd">        ![time_normalize](/images/api/time_normalize.svg)</span>
+<span class="sd">        ![time_normalize](../images/api/time_normalize.svg)</span>
 
 <span class="sd">        By default, `time_normalize` use a time vector with 100 frames from 0 to 100.</span>
 <span class="sd">        However, you can specify the desired number of frames:</span>
