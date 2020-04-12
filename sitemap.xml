@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://romainmartinez.github.io/pyomeca/overview/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/getting-started/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/object-creation/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/data-processing/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/case-studies/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/about/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/api/analogs/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/api/angles/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/api/markers/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/api/dataarray_accessor/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://romainmartinez.github.io/pyomeca/api/rototrans/</loc>
-     <lastmod>2020-04-10</lastmod>
+     <lastmod>2020-04-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
