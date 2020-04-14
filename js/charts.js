@@ -177,7 +177,7 @@ async function drawApi(id) {
   const hierarchy = d3
     .hierarchy(apiData)
     .sum((d) => d.value)
-    .sort((a, b) => b.height - a.height || b.value - a.value);
+    .sort((a, b) => a.height - b.height || a.value - b.value);
 
   const spacing = 10;
   const fontSize = 12;
