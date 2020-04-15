@@ -1214,7 +1214,7 @@ For more, see the <a href="http://xarray.pydata.org/en/stable/computation.html#c
 <span class="n">emg_dataframe</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="svg" src="../getting-started_files/getting-started_69_0.svg"/></p>
-<div class="highlight"><pre><span></span><code><span class="n">emg_dataframe</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">()</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.2}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">emg_dataframe</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">()</span><span class="o">.</span><span class="n">set_precision</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <pre class="nb-output"><code><style type="text/css">
     #T_07534df6_7f2d_11ea_ae69_9cb6d0d1e6f9row0_col0 {
