@@ -24,7 +24,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#working-with-labelled-multi-dimensional-arrays">
+<a class="md-skip" href="#working-with-labelled-multidimensional-arrays">
           Skip to content
         </a>
 </div>
@@ -134,8 +134,8 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#working-with-labelled-multi-dimensional-arrays">
-    Working with labelled multi-dimensional arrays
+<a class="md-nav__link" href="#working-with-labelled-multidimensional-arrays">
+    Working with labelled multidimensional arrays
   </a>
 </li>
 <li class="md-nav__item">
@@ -251,8 +251,8 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#working-with-labelled-multi-dimensional-arrays">
-    Working with labelled multi-dimensional arrays
+<a class="md-nav__link" href="#working-with-labelled-multidimensional-arrays">
+    Working with labelled multidimensional arrays
   </a>
 </li>
 <li class="md-nav__item">
@@ -271,13 +271,13 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"></path></svg>
 </a>
 <h1>Overview</h1>
-<h2 id="working-with-labelled-multi-dimensional-arrays">Working with labelled multi-dimensional arrays</h2>
+<h2 id="working-with-labelled-multidimensional-arrays">Working with labelled multidimensional arrays</h2>
 <p>Pyomeca introduces a concise interface to read, analyse, visualize and plot biomechanical data.</p>
 <p>Such data are typically <em>multi-dimensional</em>, such as joint angles with associated axes, degrees of freedom and time frames.</p>
 <div id="angles-matrix"></div>
 <p><a href="https:numpy.org">NumPy</a> is the fundamental package for multi-dimensional computing with Python.
 While NumPy provides an efficient data structure and an intuitive interface, biomechanical datasets are usually more than just raw numbers and have labels which encode how the array values map to different dimensions such as axes, degrees of freedom, channels or time frames.</p>
-<p>Pyomeca is build upon and extend the core strengths of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>, which keeps tracks of labels and provides a powerful and concise interface which makes it easy to:</p>
+<p>Pyomeca is built upon and extend the core strengths of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>, which keeps tracks of labels and provides a powerful and concise interface which makes it easy to:</p>
 <ul>
 <li>Apply any operations over dimensions by name (<code>array.sum(dim="time")</code>) instead of arbitrary axis (<code>array.sum(axis=2)</code>).</li>
 <li>Select values by labels (<code>array.sel(axis="x")</code> or <code>emg.sel(channel="biceps")</code>)</li>
@@ -290,22 +290,22 @@ While NumPy provides an efficient data structure and an intuitive interface, bio
 This allows for a more intuitive, more concise, and less error-prone developer experience.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As the underlying data-structure is still a NumPy array, NumPy functions (<code>np.abs(array)</code>) and indexing (<code>array[:, 0, 1]</code>) work out of the box.</p>
+<p>As the underlying data structure is still a NumPy array, NumPy functions (<code>np.abs(array)</code>) and indexing (<code>array[:, 0, 1]</code>) work out of the box.</p>
 </div>
 <p>By leveraging xarray data structures, Pyomeca inherit their features such as built-in <a href="http://xarray.pydata.org/en/stable/interpolation.html">interpolation</a>, <a href="http://xarray.pydata.org/en/stable/computation.html">computation</a>, <a href="http://xarray.pydata.org/en/stable/groupby.html">GroupBy</a>, <a href="http://xarray.pydata.org/en/stable/combining.html">data wrangling</a>, <a href="http://xarray.pydata.org/en/stable/dask.html">parallel computing</a> and <a href="http://xarray.pydata.org/en/stable/plotting.html">plotting</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Extending xarray</p>
-<p>Xarray is designed as a general purpose library and tries to avoid including domain specific functionalities.
+<p>Xarray is designed as a general-purpose library and tries to avoid including domain specific functionalities.
 But inevitably, the need for more domain specific logic arises.
 That's why pyomeca and <a href="http://xarray.pydata.org/en/stable/related-projects.html">dozens of other scientific packages</a> extend xarray.</p>
 <p>Extending data structure in Python is usually achieved with class inheritance.
 However inheritance is not very robust for large class such as <code>xarray.DataArray</code>.
-To add domain specific functionality, pyomeca follows xarray developpers' recommendations and use a custom "accessor".
+To add domain specific functionality, pyomeca follows xarray developers' recommendations and use a custom "accessor".
 To read why, you can check out the <a href="http://xarray.pydata.org/en/stable/internals.html#extending-xarray">xarray documentation</a>.</p>
 </div>
 <h2 id="core-functionalities">Core functionalities</h2>
 <p>Pyomeca has four data structures build upon <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>.
-Each structure is associated with a specific biomechanical data type and have specialized functionalities:</p>
+Each structure is associated with a specific biomechanical data type and has specialized functionalities:</p>
 <table>
 <thead>
 <tr>
