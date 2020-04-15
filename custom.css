@@ -23,12 +23,13 @@ div.doc-contents {
 }
 
 .tooltip {
-  opacity: 0;
-  background: white;
-  position: absolute !important;
-  pointer-events: none;
-  padding: 0 0.6rem;
-  overflow: auto;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 50px;
+  top: 50px;
+  width: 40%;
+  background-color: #fefefe !important;
 }
 
 .nb-output {

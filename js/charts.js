@@ -247,39 +247,17 @@ async function drawApi(id) {
     .attr("dominant-baseline", "hanging")
     .text((d) => d.data.name);
 
-  // texts
-  //   .append("text")
-  //   .filter((d) => d.x1 - d.x0 > 50)
-  //   .style("fill-opacity", 0.5)
-  //   .attr("dominant-baseline", "hanging")
-  //   .attr("x", 2 * spacing)
-  //   .attr("y", "1rem")
-  //   .text((d) => `${d.value} functions`);
-
   // ------ Tooltip -------
   const tooltip = d3.select(`#tooltip`);
 
   const onMouseLeave = () => {
-    tooltip.style("opacity", 0);
+    tooltip.style("display", "none");
   };
 
   const onMouseEnter = (datum) => {
     tooltip.select("#tooltip-title").text(datum.data.name);
     tooltip.select("#tooltip-docstring").html(datum.data.docstring);
-
-    // const x = dimensions.innerWidth / 2;
-    const x = datum.y0;
-    const y = -datum.x0;
-
-    tooltip
-      .style("width", `${dimensions.innerWidth - 4 * spacing}px`)
-      .style(
-        "transform",
-        `translate(calc(-100% + ${x - (x % 2)}px), calc(-100% - ${
-          y - (y % 2)
-        }px))`
-      )
-      .style("opacity", 1);
+    tooltip.style("display", "block");
   };
 
   cell.on("mouseenter", onMouseEnter).on("mouseleave", onMouseLeave);
