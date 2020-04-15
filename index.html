@@ -321,7 +321,17 @@
 <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"EMG activation distribution"</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="svg" src="images/readme-example_files/readme-example_5_1.svg"/></p>
+<p>See <a href="https://romainmartinez.github.io/pyomeca/">the documentation</a> for more details and examples.</p>
 <h2 id="features">Features</h2>
+<ul>
+<li>Signal processing routine commonly used in biomechanics such as filters, normalization, onset detection, outliers detection, derivatives, etc.</li>
+<li>Common linear algebra routine implemented such as getting Euler angles to/from a rototranslation matrix, creating a system of axes, setting a rotation or translation, transpose or inverse, etc.</li>
+<li>Easy reading and writing interface to common files in biomechanics (<code>c3d</code>, <code>csv</code>, <code>xlsx</code>,<code>mat</code>, <code>trc</code>, <code>sto</code>, <code>mot</code>)</li>
+<li>All of <a href="http://xarray.pydata.org/en/stable/index.html">xarray</a>'s awesome features</li>
+</ul>
+<p>The following illustration shows all of pyomeca's public API.
+An interactive version is available in the <a href="https://romainmartinez.github.io/pyomeca/overview/">documentation</a>.</p>
+<p><img alt="svg" src="images/api.svg"/></p>
 <h2 id="installation">Installation</h2>
 <p>Pyomeca itself is a pure Python package, but its dependencies are not.
 The easiest way to get everything installed is to use <a href="https://conda.io/en/latest/miniconda.html">conda</a>.</p>
