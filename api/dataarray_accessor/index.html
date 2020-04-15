@@ -2794,6 +2794,19 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>To rotate a random markers set from random angles:</p>
+<div class="highlight">
+<pre><span></span><code><span class="kn">from</span> <span class="nn">pyomeca</span> <span class="kn">import</span> <span class="n">Angles</span><span class="p">,</span> <span class="n">Rototrans</span><span class="p">,</span> <span class="n">Markers</span>
+
+<span class="n">n_frames</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_markers</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">angles</span> <span class="o">=</span> <span class="n">Angles</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+<span class="n">rt</span> <span class="o">=</span> <span class="n">Rototrans</span><span class="o">.</span><span class="n">from_euler_angles</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="s2">"xyz"</span><span class="p">)</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">Markers</span><span class="o">.</span><span class="n">from_random_data</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_markers</span><span class="p">,</span> <span class="n">n_frames</span><span class="p">))</span>
+
+<span class="n">rotated_markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">meca</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
+</code></pre>
+</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2833,7 +2846,8 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 751
 752
 753
-754</pre>
+754
+755</pre>
 </div>
 </td>
 <td class="code">
@@ -2863,6 +2877,7 @@ rotate<span class="p">(</span><span class="bp">self</span><span class="p">,</spa
 
 <span class="sd">        rotated_markers = markers.meca.rotate(rt)</span>
 <span class="sd">        ```</span>
+
 <span class="sd">    Note:</span>
 <span class="sd">        `rotate` works only for markers (created with `pyomeca.Markers`).</span>
 <span class="sd">    """</span>

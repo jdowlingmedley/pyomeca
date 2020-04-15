@@ -267,14 +267,15 @@ async function drawApi(id) {
     tooltip.select("#tooltip-title").text(datum.data.name);
     tooltip.select("#tooltip-docstring").html(datum.data.docstring);
 
-    const x = dimensions.innerWidth / 2;
-    const y = datum.x0;
+    // const x = dimensions.innerWidth / 2;
+    const x = datum.y0;
+    const y = -datum.x0;
 
     tooltip
       .style("width", `${dimensions.innerWidth - 4 * spacing}px`)
       .style(
         "transform",
-        `translate(calc(-50% + ${x - (x % 2)}px), calc(-110% + ${
+        `translate(calc(-100% + ${x - (x % 2)}px), calc(-100% - ${
           y - (y % 2)
         }px))`
       )
